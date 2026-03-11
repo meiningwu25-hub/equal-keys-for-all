@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equal Keys for All | Music Education Initiative</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CORE VARIABLES */
+        :root {
+            --primary-dark: #1a1a1a;
+            --primary-light: #ffffff;
+            --accent-gold: #c5a059;
+            --text-grey: #4a4a4a;
+            --bg-off-white: #f9f9f9;
+        }
+
+        /* BASIC RESET & TYPOGRAPHY */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-dark);
+            background-color: var(--primary-light);
+        }
+        h1, h2, h3 { font-family: 'Garamond', 'Georgia', serif; font-weight: 700; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate { animation: fadeInUp 0.8s ease-out forwards; }
+
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: var(--primary-light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; }
+        .logo span { color: var(--accent-gold); }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a:hover { color: var(--accent-gold); }
+        .btn-nav {
+            padding: 0.5rem 1.5rem;
+            background: var(--primary-dark);
+            color: var(--primary-light);
+            border-radius: 4px;
+        }
+        .btn-nav:hover { background: var(--accent-gold); }
+
+        /* Mobile Menu */
+        .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* HERO SECTION */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1552422535-c45813c61732?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--primary-light);
+            padding: 0 1rem;
+        }
+        .hero-content { max-width: 800px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.95; }
+        .btn-hero {
+            padding: 1rem 2.5rem;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            font-weight: bold;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+        .btn-hero:hover { background: var(--primary-light); transform: scale(1.05); }
+        .btn-hero.outline { background: transparent; border: 2px solid var(--primary-light); color: var(--primary-light); }
+        .btn-hero.outline:hover { background: var(--primary-light); color: var(--primary-dark); }
+
+        /* SECTIONS GENERAL */
+        section { padding: 5rem 5%; }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-grey);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+            margin: 1rem auto 0;
+        }
+
+        /* ABOUT / MISSION */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .mission-text p { margin-bottom: 1.5rem; color: var(--text-grey); font-size: 1.1rem; }
+        .stat-box {
+            background: var(--bg-off-white);
+            padding: 2rem;
+            text-align: center;
+            border-left: 4px solid var(--accent-gold);
+        }
+        .stat-number { font-size: 2.5rem; font-weight: bold; color: var(--primary-dark); display: block; }
+
+        /* VIDEO SECTION */
+        .video-section { background: var(--primary-dark); color: var(--primary-light); }
+        .video-section .section-title { color: var(--primary-light); }
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            cursor: pointer;
+        }
+        .video-placeholder i { font-size: 4rem; margin-bottom: 1rem; }
+        .video-placeholder p { font-size: 1.2rem; }
+
+        /* GALLERY SECTION */
+        .gallery { background: var(--bg-off-white); }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 2rem 1rem 1rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover .gallery-overlay { transform: translateY(0); }
+
+        /* PROGRAMS */
+        .programs { background: var(--primary-light); }
+        .program-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: var(--bg-off-white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
+        .card h3 { margin-bottom: 1rem; font-size: 1.5rem; }
+        .card p { color: var(--text-grey); margin-bottom: 1.5rem; }
+        .card-icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            display: block;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            background: rgba(197, 160, 89, 0.1);
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials { background: linear-gradient(135deg, #f5f5f5, #fff); }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .testimonial-card {
+            background: var(--primary-light);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--accent-gold);
+            opacity: 0.2;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+        .testimonial-text { font-style: italic; color: var(--text-grey); margin-bottom: 1.5rem; position: relative; z-index: 1; }
+        .testimonial-author { display: flex; align-items: center; gap: 1rem; }
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        .testimonial-name { font-weight: bold; }
+        .testimonial-role { font-size: 0.85rem; color: var(--text-grey); }
+
+        /* EVENTS SECTION */
+        .events { background: var(--bg-off-white); }
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .event-card {
+            background: var(--primary-light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+        }
+        .event-date {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 1.5rem;
+            text-align: center;
+            min-width: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .event-month { font-size: 0.9rem; text-transform: uppercase; }
+        .event-day { font-size: 2rem; font-weight: bold; }
+        .event-details { padding: 1.5rem; }
+        .event-details h4 { margin-bottom: 0.5rem; }
+        .event-details p { color: var(--text-grey); font-size: 0.9rem; }
+        .event-details .event-location { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem; }
+        .event-details .event-location i { color: var(--accent-gold); }
+
+        /* FOUNDER */
+        .founder-section { background: var(--primary-light); }
+        .founder-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .founder-img-container {
+            position: relative;
+        }
+        .founder-img {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 4px solid var(--accent-gold);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        .founder-text h3 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .founder-text h4 { color: var(--accent-gold); font-size: 1rem; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 2px; }
+        .founder-text p { color: var(--text-grey); margin-bottom: 1.5rem; line-height: 1.8; }
+        .founder-social { display: flex; gap: 1rem; margin-top: 1.5rem; }
+        .founder-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-off-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-dark);
+        }
+        .founder-social a:hover { background: var(--accent-gold); color: white; }
+
+        /* IMPACT COUNTER */
+        .impact { background: var(--primary-dark); color: var(--primary-light); }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .impact-item i { font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 1rem; }
+        .impact-number { font-size: 3rem; font-weight: bold; margin-bottom: 0.5rem; }
+        .impact-label { opacity: 0.8; }
+
+        /* CONTACT */
+        .contact { background: linear-gradient(135deg, var(--primary-dark), #2c2c2c); color: var(--primary-light); text-align: center; }
+        .contact .section-title { color: var(--primary-light); }
+        .contact p { margin-bottom: 2rem; opacity: 0.9; font-size: 1.1rem; }
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        .contact-method { text-align: center; }
+        .contact-method i { font-size: 2rem; color: var(--accent-gold); margin-bottom: 0.5rem; display: block; }
+        .contact-btn {
+            display: inline-block;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .contact-btn:hover { background: var(--accent-gold); color: var(--primary-dark); }
+        .contact-btn.filled { background: var(--accent-gold); color: var(--primary-dark); }
+        .contact-btn.filled:hover { background: var(--primary-light); border-color: var(--primary-light); }
+
+        /* FOOTER */
+        footer {
+            background: #0a0a0a;
+            color: #999;
+            padding: 3rem 5% 2rem;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+        }
+        .footer-brand .logo { margin-bottom: 1rem; }
+        .footer-brand p { font-size: 0.9rem; line-height: 1.7; }
+        .footer-links h4, .footer-social h4 { color: var(--primary-light); margin-bottom: 1rem; font-size: 1rem; }
+        .footer-links ul li { margin-bottom: 0.5rem; }
+        .footer-links a:hover { color: var(--accent-gold); }
+        .social-icons { display: flex; gap: 1rem; }
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            transition: all 0.3s;
+        }
+        .social-icons a:hover { background: var(--accent-gold); color: var(--primary-dark); }
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .founder-container { grid-template-columns: 1fr; text-align: center; }
+            .founder-img-container { max-width: 250px; margin: 0 auto; }
+            .founder-social { justify-content: center; }
+            .impact-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .social-icons { justify-content: center; }
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+            .mission-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .event-card { flex-direction: column; }
+            .event-date { flex-direction: row; gap: 0.5rem; padding: 1rem; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">Equal Keys <span>for All</span></div>
+        <div class="nav-links">
+            <a href="#mission">Our Mission</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#programs">Programs</a>
+            <a href="#founder">About Us</a>
+            <a href="#events">Events</a>
+            <a href="#contact" class="btn-nav">Get Involved</a>
+        </div>
+        <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Unlocking Potential Through Music</h1>
+            <p>Providing accessible, high-quality piano and music theory education to underserved communities in San Jose.</p>
+            <a href="#contact" class="btn-hero">Join a Class</a>
+            <a href="#video" class="btn-hero outline"><i class="fas fa-play"></i> Watch Our Story</a>
+        </div>
+    </header>
+
+    <!-- IMPACT COUNTER -->
+    <section class="impact">
+        <div class="impact-grid">
+            <div class="impact-item">
+                <i class="fas fa-users"></i>
+                <div class="impact-number">20+</div>
+                <div class="impact-label">Students Taught</div>
+            </div>
+            <div class="impact-item">
+                <i class="fas fa-music"></i>
+                <div class="impact-number">100+</div>
+                <div class="impact-label">Lessons Given</div>
+            </div>
+            <div class="impact-item">
+                <i class="fas fa-heart"></i>
+                <div class="impact-number">100%</div>
+                <div class="impact-label">Free of Charge</div>
+            </div>
+            <div class="impact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="impact-number">San Jose</div>
+                <div class="impact-label">Community Based</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION SECTION -->
+    <section id="mission">
+        <div class="mission-grid">
+            <div class="mission-text">
+                <h2 class="section-title" style="text-align: left; margin: 0 0 2rem 0;">Our Mission</h2>
+                <p><strong>Equal Keys for All</strong> believes that financial barriers should never silence musical talent. Founded on the principle that music education enhances cognitive development and emotional well-being, we strive to bring the joy of the piano to every child.</p>
+                <p>We provide free lessons, structured curriculum, and performance opportunities to students who might otherwise not have access to private instruction.</p>
+                <p>Through music, we aim to build confidence, discipline, and creativity in young minds while fostering a sense of community and belonging.</p>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1514119412350-e174d90d280e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Piano keys" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.15);">
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO SECTION -->
+    <section id="video" class="video-section">
+        <h2 class="section-title">See Our Impact</h2>
+        <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Watch how Equal Keys for All is making a difference in our community</p>
+        <div class="video-container">
+            <!-- Replace with actual YouTube video ID -->
+            <div class="video-placeholder" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1\' allowfullscreen></iframe>'">
+                <i class="fas fa-play-circle"></i>
+                <p>Click to play video</p>
+                <small style="margin-top: 1rem; opacity: 0.7;">Student Performance Showcase</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO GALLERY -->
+    <section id="gallery" class="gallery">
+        <h2 class="section-title">Our Community in Action</h2>
+        <p class="section-subtitle">Moments from our lessons and performances</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Piano lesson">
+                <div class="gallery-overlay">
+                    <strong>One-on-One Lessons</strong>
+                    <p>Personalized instruction for every student</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sheet music">
+                <div class="gallery-overlay">
+                    <strong>Music Theory</strong>
+                    <p>Building strong musical foundations</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Performance">
+                <div class="gallery-overlay">
+                    <strong>Student Performances</strong>
+                    <p>Showcasing talent and hard work</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Group session">
+                <div class="gallery-overlay">
+                    <strong>Group Sessions</strong>
+                    <p>Learning together, growing together</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Recital">
+                <div class="gallery-overlay">
+                    <strong>Annual Recitals</strong>
+                    <p>Celebrating student achievements</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Practice">
+                <div class="gallery-overlay">
+                    <strong>Practice Makes Perfect</strong>
+                    <p>Dedication and discipline</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMS SECTION -->
+    <section id="programs" class="programs">
+        <h2 class="section-title">Our Programs</h2>
+        <p class="section-subtitle">Comprehensive music education for all skill levels</p>
+        <div class="program-cards">
+            <div class="card">
+                <span class="card-icon"><i class="fas fa-piano-keyboard"></i></span>
+                <h3>Piano Fundamentals</h3>
+                <p>One-on-one and small group instruction focusing on technique, reading sheet music, and repertoire. Designed for beginners to intermediate students.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon"><i class="fas fa-music"></i></span>
+                <h3>Music Theory Club</h3>
+                <p>Understanding the language of music. Our curriculum covers rhythm, harmony, and ear training to build well-rounded musicians.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon"><i class="fas fa-hands-helping"></i></span>
+                <h3>Mentorship Program</h3>
+                <p>Advanced students mentoring younger peers, fostering a cycle of giving back and community leadership within the Enlighten Youth Club.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <h2 class="section-title">What People Say</h2>
+        <p class="section-subtitle">Stories from our community</p>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"My daughter has grown so much since joining Equal Keys for All. Not only has her piano playing improved, but her confidence has soared. We're so grateful for this program."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">SP</div>
+                    <div>
+                        <div class="testimonial-name">Sarah P.</div>
+                        <div class="testimonial-role">Parent</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Being a mentor in this program has taught me so much about patience and leadership. It's amazing to see younger students discover their love for music."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JL</div>
+                    <div>
+                        <div class="testimonial-name">Jason L.</div>
+                        <div class="testimonial-role">Student Mentor</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Equal Keys for All fills a crucial gap in our community. Music education should be accessible to everyone, and this program makes that a reality."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MT</div>
+                    <div>
+                        <div class="testimonial-name">Maria T.</div>
+                        <div class="testimonial-role">Community Partner</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOUNDER SECTION -->
+    <section id="founder" class="founder-section">
+        <h2 class="section-title">Meet the Founder</h2>
+        <p class="section-subtitle">The vision behind Equal Keys for All</p>
+        <div class="founder-container">
+            <div class="founder-img-container">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Meining Wu" class="founder-img">
+                <!-- Replace with actual photo of Meining -->
+            </div>
+            <div class="founder-text">
+                <h3>Meining Wu</h3>
+                <h4>Founder & Lead Instructor</h4>
+                <p>Meining is a junior at Valley Christian High School and an accomplished pianist. A student of Hans Boepple, she has performed with orchestras such as the Fort Worth Symphony and Golden State Youth Orchestra.</p>
+                <p>Combining her passion for music with her interest in neuroscience and psychology, Meining created <em>Equal Keys for All</em> to share the cognitive and emotional benefits of music with her community.</p>
+                <div class="founder-social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:contact@equalkeys.org"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENTS SECTION -->
+    <section id="events" class="events">
+        <h2 class="section-title">Upcoming Events</h2>
+        <p class="section-subtitle">Join us at our next event</p>
+        <div class="events-grid">
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="event-month">Mar</span>
+                    <span class="event-day">15</span>
+                </div>
+                <div class="event-details">
+                    <h4>Spring Recital 2026</h4>
+                    <p>Our students showcase their progress in a live performance open to family and friends.</p>
+                    <div class="event-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Cathedral of Faith, San Jose</span>
+                    </div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="event-month">Apr</span>
+                    <span class="event-day">5</span>
+                </div>
+                <div class="event-details">
+                    <h4>New Student Open House</h4>
+                    <p>Interested in joining? Come meet our instructors and learn about our programs.</p>
+                    <div class="event-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Community Center, San Jose</span>
+                    </div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="event-month">May</span>
+                    <span class="event-day">20</span>
+                </div>
+                <div class="event-details">
+                    <h4>Music Theory Workshop</h4>
+                    <p>A free workshop open to all students interested in deepening their music knowledge.</p>
+                    <div class="event-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Online via Zoom</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get Involved</h2>
+        <p>Whether you want to sign up for lessons, volunteer as a mentor, or support our mission, we'd love to hear from you.</p>
+        <div class="contact-methods">
+            <div class="contact-method">
+                <i class="fas fa-envelope"></i>
+                <p>contact@equalkeys.org</p>
+            </div>
+            <div class="contact-method">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>San Jose, California</p>
+            </div>
+            <div class="contact-method">
+                <i class="fab fa-instagram"></i>
+                <p>@equalkeysforall</p>
+            </div>
+        </div>
+        <a href="mailto:contact@equalkeys.org" class="contact-btn"><i class="fas fa-envelope"></i> Email Us</a>
+        <a href="#" class="contact-btn filled"><i class="fas fa-user-plus"></i> Register for Classes</a>
+        <a href="#" class="contact-btn"><i class="fas fa-hand-holding-heart"></i> Donate</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">Equal Keys <span>for All</span></div>
+                <p>Providing accessible, high-quality piano and music theory education to the San Jose community since 2024. Every child deserves the gift of music.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#mission">Our Mission</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#founder">About Us</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Equal Keys for All. A Community Initiative in San Jose, CA. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Optional: Simple scroll animation script -->
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+</body>
+</html>
