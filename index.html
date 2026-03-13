@@ -1,10 +1,13 @@
-<\!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equal Keys for All | Inclusive Piano Education</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-dark: #1a1a1a;
@@ -21,7 +24,7 @@
             color: var(--primary-dark);
             background-color: var(--primary-light);
         }
-        h1, h2, h3 { font-family: 'Garamond', 'Georgia', serif; font-weight: 700; }
+        h1, h2, h3 { font-family: 'Cormorant Garamond', 'Georgia', serif; font-weight: 700; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
 
@@ -42,9 +45,9 @@
             top: 0;
             z-index: 1000;
         }
-        .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; }
+        .logo { font-family: 'Playfair Display', 'Georgia', serif; font-size: 1.6rem; font-weight: 700; letter-spacing: 1px; font-style: italic; }
         .logo span { color: var(--accent-gold); }
-        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; font-family: 'Playfair Display', 'Georgia', serif; font-size: 1.05rem; font-weight: 400; font-style: italic; letter-spacing: 0.5px; }
         .nav-links a:hover { color: var(--accent-gold); }
         .btn-nav {
             padding: 0.5rem 1.5rem;
@@ -69,7 +72,7 @@
             padding: 0 1rem;
         }
         .hero-content { max-width: 800px; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .hero h1 { font-family: 'Playfair Display', 'Georgia', serif; font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-style: italic; }
         .hero p { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.95; }
         .btn-hero {
             padding: 1rem 2.5rem;
@@ -567,13 +570,13 @@
     <header class="hero">
         <div class="hero-content">
             <h1>Equal Keys for All</h1>
-            <p>Accessible, empowering, and inclusive piano instruction for under-resourced and neurodiverse youth in San Jose.</p>
+            <p>Championing equality through music. A completely free, nonprofit initiative providing inclusive piano and music instruction for under-resourced and neurodiverse youth—volunteered by San Jose's award-winning young pianists.</p>
             <a href="#involve" class="btn-hero">Get Involved</a>
             <a href="#video" class="btn-hero outline"><i class="fas fa-play"></i> Watch Our Story</a>
         </div>
     </header>
 
-    <\!-- MISSION & VISION -->
+    <!-- MISSION & VISION -->
     <section id="mission" class="mission-vision">
         <h2 class="section-title">Our Purpose</h2>
         <div class="mission-vision-grid">
@@ -588,7 +591,7 @@
         </div>
     </section>
 
-    <\!-- OUR APPROACH -->
+    <!-- OUR APPROACH -->
     <section id="approach" class="approach">
         <h2 class="section-title">Our Approach</h2>
         <p class="section-subtitle">We recognize that traditional, rigid piano pedagogy leaves many brilliant minds behind. We bridge the educational gap in the arts by focusing on three core pillars:</p>
@@ -611,7 +614,7 @@
         </div>
     </section>
 
-    <\!-- WHAT TO EXPECT -->
+    <!-- WHAT TO EXPECT -->
     <section id="expect" class="expect">
         <h2 class="section-title">What to Expect in a Lesson</h2>
         <p class="expect-intro">Traditional classical piano lessons often demand strict posture, rigid discipline, and intense stillness—an environment that can feel restrictive or overwhelming for many neurodiverse learners. At Equal Keys for All, we flip that script. <strong>We believe the instrument should adapt to the student, not the other way around.</strong></p>
@@ -635,7 +638,7 @@
         </div>
     </section>
 
-    <\!-- VIDEO SECTION -->
+    <!-- VIDEO SECTION -->
     <section id="video" class="video-section">
         <h2 class="section-title">See Our Impact</h2>
         <p class="section-subtitle">Watch how Equal Keys for All is making a difference in our community</p>
@@ -648,7 +651,7 @@
         </div>
     </section>
 
-    <\!-- GALLERY -->
+    <!-- GALLERY -->
     <section id="gallery" class="gallery">
         <h2 class="section-title">Our Community in Action</h2>
         <p class="section-subtitle">Moments from our lessons and performances</p>
@@ -672,22 +675,22 @@
         </div>
     </section>
 
-    <\!-- MEET OUR TEAM -->
+    <!-- MEET OUR TEAM -->
     <section id="team" class="team">
         <h2 class="section-title">Meet Our Team</h2>
         <p class="section-subtitle">Passionate young musicians dedicated to sharing the gift of music</p>
         
-        <\!-- Founder -->
+        <!-- Founder -->
         <div class="founder-container">
             <div>
                 <img src="medias/Meining Wu.jpg" alt="Meining Wu" class="founder-img">
             </div>
             <div class="founder-text">
                 <h3>Meining Wu</h3>
-                <h4>Founder & President</h4>
-                <p>Meining Wu is an award-winning concert pianist and the founder of Equal Keys for All. Currently studying under Hans Boepple at San Jose State University, she has performed as a soloist with the Fort Worth Symphony Orchestra, the Central Texas Philharmonic, and the Golden State Youth Orchestra.</p>
-                <p>Her artistry has been recognized at the highest levels of competition, including prizes at the Gina Bachauer International Piano Competition, the Ross McKee Foundation Competition, the San Francisco International Piano Competition, and the ENKOR International e-Competition. She has been awarded merit scholarships from the National Chopin Foundation, the Aspen Music Festival and School, the Frost Chopin Academy, and Boston University Tanglewood Institute (BUTI).</p>
-                <p>A sought-after young artist, Meining has participated in the PianoTexas International Festival & Academy, the Chautauqua Piano Program, and the Flagstaff Piano Festival. Beyond the concert stage, her true passion lies at the intersection of piano pedagogy, music cognition, and youth development. Recognizing the exclusionary nature of traditional music instruction, she launched Equal Keys for All to bring adaptive, inclusive piano education to under-resourced and neurodiverse youth in San Jose.</p>
+                <h4>Founder & Principal Instructor</h4>
+                <p>Meining Wu, junior at Valley Christian High School, San Jose, is an award-winning concert pianist and the founder of Equal Keys for All. An accomplished performer, she has taken the stage with the world-renowned Fort Worth Symphony Orchestra and earned accolades at prestigious events, including the Gina Bachauer, Ross McKee, and San Francisco International piano competitions. Her dedication to classical piano has also been recognized with merit scholarships from the National Chopin Foundation, the Frost Chopin Academy, Aspen Music Festival and School, and Boston University Tanglewood Institute.</p>
+                <p>Beyond the concert stage, Meining's passion lies at the intersection of piano pedagogy, music cognition, and youth development. Recognizing the exclusionary nature of traditional music instruction, she launched the Equal Keys for All initiative after her eye-opening experiences teaching neurodiverse students and volunteering in local Title 1 schools.</p>
+                <p>The organization's core mission is to bridge the educational gap in the arts by providing accessible, adaptive piano instruction to under-resourced and special needs youth. By replacing rigid posture and rote memorization with kinetic engagement and radical empathy, Equal Keys for All empowers students to build cognitive confidence, experience emotional liberation, and find their own unique voice at the keyboard.</p>
                 <div class="founder-social">
                     <a href="https://www.youtube.com/@MeiningWu" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -697,7 +700,7 @@
             </div>
         </div>
 
-        <\!-- Volunteer Instructors -->
+        <!-- Volunteer Instructors -->
         <h3 style="text-align: center; margin-bottom: 2rem; color: var(--accent-gold);">Volunteer Instructors</h3>
         <div class="instructors-grid">
             <div class="instructor-card">
@@ -725,7 +728,7 @@
         </div>
     </section>
 
-    <\!-- MEINING'S PERFORMANCES -->
+    <!-- MEINING'S PERFORMANCES -->
     <section id="performances" class="performances">
         <h2 class="section-title">Meining's Performances</h2>
         <p class="section-subtitle">Selected solo and concerto performances by our founder</p>
@@ -760,7 +763,7 @@
         </div>
     </section>
 
-    <\!-- WHY MUSIC MATTERS (Resources) -->
+    <!-- WHY MUSIC MATTERS (Resources) -->
     <section id="resources" class="resources">
         <h2 class="section-title">Why Music Matters</h2>
         <p class="section-subtitle">Curated research and resources on the transformative power of music education</p>
@@ -769,25 +772,31 @@
             <h3><i class="fas fa-brain" style="color: var(--accent-gold);"></i> Music &amp; Youth Development</h3>
             <div class="resources-grid">
                 <div class="resource-card">
-                    <h4><a href="https://www.gse.harvard.edu/ideas/usable-knowledge/2019/07/how-arts-education-benefits-students" target="_blank" rel="noopener">How Arts Education Benefits Students <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>Research-backed insights into how sustained arts education improves academic engagement, empathy, and cognitive development in young learners.</p>
-                    <span class="resource-source">Harvard Graduate School of Education</span>
+                    <h4><a href="https://www.savethemusic.org/blog/research/benefits-to-the-brain/" target="_blank" rel="noopener">The Cognitive Benefits of Music Education <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>Research on how music education strengthens neural pathways, improves memory, and enhances cognitive function in young learners.</p>
+                    <span class="resource-source">Save The Music Foundation</span>
                 </div>
                 <div class="resource-card">
-                    <h4><a href="https://nafme.org/advocacy/what-to-know/all-research/" target="_blank" rel="noopener">Music &amp; Cognitive Development Research <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>A comprehensive collection of studies demonstrating how music training strengthens memory, spatial reasoning, and language skills in children.</p>
-                    <span class="resource-source">National Association for Music Education</span>
+                    <h4><a href="https://faustharrisonpianos.com/how-learning-piano-can-improve-cognitive-function-and-emotional-expression-in-children/?srsltid=AfmBOor6rcQDHblYHf4tM7BfqBRNAb6EYgqoKzkxKrzkyg2cFoTIpnJk" target="_blank" rel="noopener">How Learning Piano Can Improve Cognitive Function and Emotional Expression in Children <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>How piano study improves cognitive function, emotional expression, and overall brain development in children.</p>
+                    <span class="resource-source">Faust Harrison Pianos</span>
                 </div>
                 <div class="resource-card">
-                    <h4><a href="https://www.apa.org/monitor/2014/11/music-lessons" target="_blank" rel="noopener">Music &amp; Brain Development <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>How early music training physically shapes brain architecture, enhancing auditory processing and executive function throughout life.</p>
-                    <span class="resource-source">American Psychological Association</span>
+                    <h4><a href="https://fieldreport.caes.uga.edu/publications/C1053-06/the-role-of-music-in-brain-development/" target="_blank" rel="noopener">The Role of Music in Brain Development <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>How early music training shapes brain architecture, enhancing auditory processing, language development, and executive function throughout life.</p>
+                    <span class="resource-source">University of Georgia</span>
                 </div>
                 <div class="resource-card">
-                    <h4><a href="https://www.rcmusic.com/learning/the-royal-conservatory-research" target="_blank" rel="noopener">Benefits of Music Education Research <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>Longitudinal research on how structured music education builds discipline, self-confidence, and social-emotional skills in youth.</p>
-                    <span class="resource-source">The Royal Conservatory</span>
+                    <h4><a href="https://www.todeypsychology.com/blog/how-learning-piano-helps-boost-kids-brain-health" target="_blank" rel="noopener">From Taylor Swift to Alicia Keys: How Learning Piano Boosts Kids' Brains and Mental Health <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>Research on how structured piano education builds discipline, self-confidence, and social-emotional skills in youth.</p>
+                    <span class="resource-source">Todey Psychology</span>
                 </div>
+            </div>
+            <div style="max-width: 700px; margin: 2rem auto 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0;">
+                    <iframe src="https://www.youtube.com/embed/Xb_WjzUqY-c?rel=0" title="How music develops our brains at every age | Assal Habibi | TEDxManhattanBeach" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <p style="padding: 0.75rem 1rem; text-align: center; color: var(--text-grey); font-size: 0.9rem;"><a href="https://www.youtube.com/watch?v=Xb_WjzUqY-c" target="_blank" rel="noopener" style="color: var(--accent-gold);">How music develops our brains at every age | Assal Habibi | TEDxManhattanBeach <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i></a></p>
             </div>
         </div>
 
@@ -800,14 +809,14 @@
                     <span class="resource-source">American Music Therapy Association</span>
                 </div>
                 <div class="resource-card">
-                    <h4><a href="https://www.health.harvard.edu/blog/musical-training-may-help-children-with-adhd-2024050403432" target="_blank" rel="noopener">Music Therapy &amp; ADHD <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>How rhythmic musical training can improve attention, impulse control, and working memory in children with ADHD.</p>
-                    <span class="resource-source">Harvard Health Publishing</span>
+                    <h4><a href="https://childmind.org/article/what-music-therapy-can-do/" target="_blank" rel="noopener">Music Therapy &amp; ADHD <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>How rhythmic musical training can improve attention, impulse control, and working memory in children with ADHD and other developmental challenges.</p>
+                    <span class="resource-source">Child Mind Institute</span>
                 </div>
                 <div class="resource-card">
-                    <h4><a href="https://www.autismspeaks.org/music-therapy-autism" target="_blank" rel="noopener">Music Therapy &amp; Autism <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>Resources on how music-based interventions support communication, social interaction, and sensory processing for individuals on the autism spectrum.</p>
-                    <span class="resource-source">Autism Speaks</span>
+                    <h4><a href="https://www.musictherapy.org/about/music_therapy_and_autism/" target="_blank" rel="noopener">Music Therapy &amp; Autism <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>Evidence-based fact sheets on how music-based interventions support communication, social interaction, and sensory processing for individuals on the autism spectrum.</p>
+                    <span class="resource-source">American Music Therapy Association</span>
                 </div>
                 <div class="resource-card">
                     <h4><a href="https://academic.oup.com/jmt" target="_blank" rel="noopener">Journal of Music Therapy <i class="fas fa-external-link-alt"></i></a></h4>
@@ -818,7 +827,7 @@
         </div>
     </section>
 
-    <\!-- COMPETITIONS & FESTIVALS -->
+    <!-- COMPETITIONS & FESTIVALS -->
     <section id="competitions" class="competitions">
         <h2 class="section-title">Competitions &amp; Festivals</h2>
         <p class="section-subtitle">Resources for students and parents exploring performance opportunities at every level</p>
@@ -841,12 +850,24 @@
                     <p>A prestigious national competition with solo and concerto divisions for young pianists of all levels.</p>
                 </div>
                 <div class="competition-card">
-                    <h4><a href="https://www.mtac.org/programs/performance/competitions/" target="_blank" rel="noopener">MTAC Solo &amp; Concerto Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>The Music Teachers' Association of California's flagship competition for advanced student pianists at branch, state, and convention levels.</p>
+                    <h4><a href="https://www.usimc.org/" target="_blank" rel="noopener">US International Music Competition (USIMC) <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>An international competition based in the Bay Area offering divisions in solo, concerto, and chamber music for young musicians.</p>
                 </div>
                 <div class="competition-card">
-                    <h4><a href="https://sfipc.com/" target="_blank" rel="noopener">San Francisco International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>A renowned competition that attracts top young pianists and offers performance opportunities with professional orchestras.</p>
+                    <h4><a href="https://www.kamsa.org/" target="_blank" rel="noopener">KAMSA Music Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>The Korean American Musical Society of America hosts an annual competition supporting young instrumentalists in the Bay Area.</p>
+                </div>
+                <div class="competition-card">
+                    <h4><a href="https://www.pacific.edu/music/community/zeiter-piano-competition" target="_blank" rel="noopener">Henry and Carol Zeiter Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>A regional piano competition hosted by the University of the Pacific Conservatory of Music in Stockton, CA.</p>
+                </div>
+                <div class="competition-card">
+                    <h4><a href="https://www.gavilan.edu/academic/music/piano_comp.php" target="_blank" rel="noopener">Marian Filice Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>A local San Jose competition honoring the legacy of pianist Marian Filice, open to young pianists in the greater Bay Area.</p>
+                </div>
+                <div class="competition-card">
+                    <h4><a href="https://peninsulasymphony.org/marilyn-mindell-piano-competition" target="_blank" rel="noopener">Marilyn Mindell Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>A Bay Area competition for young pianists providing performance opportunities and recognition for emerging talent.</p>
                 </div>
             </div>
         </div>
@@ -855,26 +876,68 @@
             <h3><i class="fas fa-flag-usa" style="color: var(--accent-gold);"></i> State &amp; National Competitions</h3>
             <div class="competitions-grid">
                 <div class="competition-card">
-                    <h4><a href="https://bachauer.com/" target="_blank" rel="noopener">Gina Bachauer International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>One of the world's most prestigious piano competitions, with junior and young artist divisions for emerging talent.</p>
+                    <h4><a href="https://www.mtac.org/programs/performance/competitions/" target="_blank" rel="noopener">MTAC Solo &amp; Concerto Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>The Music Teachers' Association of California's flagship competition for advanced student pianists at branch, state, and convention levels.</p>
                 </div>
                 <div class="competition-card">
-                    <h4><a href="https://www.chopin.org/" target="_blank" rel="noopener">National Chopin Foundation Scholarship <i class="fas fa-external-link-alt"></i></a></h4>
+                    <h4><a href="https://www.capmt.org/Competitions" target="_blank" rel="noopener">CAMPT Honors, Contemporary &amp; Concerto <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>MTAC's California Association of Music Performance Teachers competitions recognizing excellence in honors, contemporary repertoire, and concerto performance.</p>
+                </div>
+                <div class="competition-card">
+                    <h4><a href="https://www.mtna.org/Competitions.html" target="_blank" rel="noopener">MTNA National Competitions <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>The Music Teachers National Association's prestigious competition series progressing from state to national levels for young musicians across America.</p>
+                </div>
+                <div class="competition-card">
+                    <h4><a href="https://www.chopin.org/2025-competition" target="_blank" rel="noopener">National Chopin Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>A national competition celebrating the music of Chopin, selecting America's most promising young Chopin interpreters.</p>
+                </div>
+                <div class="competition-card">
+                    <h4><a href="https://www.chopin.org/requirements" target="_blank" rel="noopener">National Chopin Foundation Scholarship <i class="fas fa-external-link-alt"></i></a></h4>
                     <p>Annual scholarships supporting the most talented young American pianists with a focus on the music of Chopin.</p>
                 </div>
                 <div class="competition-card">
-                    <h4><a href="https://rossmckee.org/" target="_blank" rel="noopener">Ross McKee Foundation Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                    <h4><a href="https://rossmckeefoundation.org/the-competition/" target="_blank" rel="noopener">Ross McKee Foundation Competition <i class="fas fa-external-link-alt"></i></a></h4>
                     <p>A nationally recognized competition fostering excellence in young pianists through performance opportunities and awards.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.enkor.org/" target="_blank" rel="noopener">ENKOR International e-Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>An innovative online international competition making world-class adjudication accessible to pianists worldwide.</p>
                 </div>
             </div>
         </div>
 
         <div class="competitions-category">
-            <h3><i class="fas fa-globe" style="color: var(--accent-gold);"></i> International Competitions &amp; Festivals</h3>
+            <h3><i class="fas fa-globe" style="color: var(--accent-gold);"></i> International Competitions</h3>
+            <div class="competitions-grid">
+                <div class="competition-card">
+                    <h4><a href="https://bachauer.com/" target="_blank" rel="noopener">Gina Bachauer International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>One of the world's most prestigious piano competitions, with junior and young artist divisions for emerging talent.</p>
+                </div>
+                <div class="competition-card">
+                    <h4><a href="https://www.enkorcompetition.com" target="_blank" rel="noopener">ENKOR International e-Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>An innovative online international competition making world-class adjudication accessible to pianists worldwide.</p>
+                </div>
+                <div class="competition-card">
+                    <h4><a href="https://baypianofest.org" target="_blank" rel="noopener">San Francisco International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>A renowned competition that attracts top young pianists and offers performance opportunities with professional orchestras.</p>
+                </div>
+                <div class="competition-card">
+                    <h4><a href="https://www.kaufmanmusiccenter.org/kc/about/youth-piano-competition/" target="_blank" rel="noopener">Kaufman Music Center International Youth Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>A New York-based international competition for young pianists offering performance at Merkin Concert Hall and career development support.</p>
+                </div>
+                <div class="competition-card">
+                    <h4><a href="https://www.hhipc.org" target="_blank" rel="noopener">Hilton Head International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>A distinguished international competition for young pianists held annually in Hilton Head Island, South Carolina.</p>
+                </div>
+                <div class="competition-card">
+                    <h4><a href="https://pianocleveland.org/competitions/cleveland-international-piano-competition-and-institute-for-young-artists-2026-2/" target="_blank" rel="noopener">Cleveland International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>One of the premier international piano competitions in the United States, launching careers of exceptional young pianists.</p>
+                </div>
+                <div class="competition-card">
+                    <h4><a href="https://cliburn.org/competitions/2027-young-pianists" target="_blank" rel="noopener">Young Cliburn International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>The junior division of the legendary Van Cliburn competition, showcasing the world's most exceptional young pianists ages 13&ndash;17.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="competitions-category">
+            <h3><i class="fas fa-music" style="color: var(--accent-gold);"></i> Festivals &amp; Summer Programs</h3>
             <div class="competitions-grid">
                 <div class="competition-card">
                     <h4><a href="https://www.aspenmusicfestival.com/" target="_blank" rel="noopener">Aspen Music Festival and School <i class="fas fa-external-link-alt"></i></a></h4>
@@ -885,7 +948,7 @@
                     <p>An elite summer program for pre-college musicians in partnership with the Boston Symphony Orchestra at the historic Tanglewood campus.</p>
                 </div>
                 <div class="competition-card">
-                    <h4><a href="https://frost.miami.edu/frost-chopin-academy/" target="_blank" rel="noopener">Frost Chopin Academy <i class="fas fa-external-link-alt"></i></a></h4>
+                    <h4><a href="https://www.frostchopinacademy.com/" target="_blank" rel="noopener">Frost Chopin Academy <i class="fas fa-external-link-alt"></i></a></h4>
                     <p>An immersive academy at the University of Miami's Frost School of Music focused on the interpretation and performance of Chopin's works.</p>
                 </div>
                 <div class="competition-card">
@@ -893,18 +956,34 @@
                     <p>An intensive summer festival at TCU bringing together gifted young pianists with world-class faculty for concerts, masterclasses, and chamber music.</p>
                 </div>
                 <div class="competition-card">
-                    <h4><a href="https://piano.chq.org/" target="_blank" rel="noopener">Chautauqua Piano Program <i class="fas fa-external-link-alt"></i></a></h4>
+                    <h4><a href="https://chq.org/piano" target="_blank" rel="noopener">Chautauqua Piano Program <i class="fas fa-external-link-alt"></i></a></h4>
                     <p>A summer piano program at the historic Chautauqua Institution featuring lessons, recitals, and interdisciplinary arts experiences.</p>
                 </div>
                 <div class="competition-card">
-                    <h4><a href="https://flagstaffpianofestival.com/" target="_blank" rel="noopener">Flagstaff Piano Festival <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>An annual festival in northern Arizona offering competitions, masterclasses, and performances for emerging pianists.</p>
+                    <h4><a href="https://www.lancasterpianofest.com" target="_blank" rel="noopener">Lancaster International Piano Festival <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>An international piano festival in Lancaster, PA offering masterclasses, recitals, and competitions for young pianists.</p>
+                </div>
+                <div class="competition-card">
+                    <h4><a href="https://tsipf.com" target="_blank" rel="noopener">Texas State International Piano Festival <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>A summer festival at Texas State University featuring masterclasses, competitions, and performances for pre-college and college pianists.</p>
+                </div>
+                <div class="competition-card">
+                    <h4><a href="https://www.southeasternpianofestival.com/" target="_blank" rel="noopener">Southeastern Piano Festival <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>An annual festival bringing together talented young pianists for masterclasses, recitals, and competitions with internationally acclaimed faculty.</p>
+                </div>
+                <div class="competition-card">
+                    <h4><a href="https://vivacemusicfoundation.org/2026-vivace-piano-program/" target="_blank" rel="noopener">Vivace International Music Festival <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>An international music festival offering performance opportunities, masterclasses, and cross-cultural musical experiences for young musicians.</p>
+                </div>
+                <div class="competition-card">
+                    <h4><a href="https://www.juilliard.edu/arm/summer-music/piano#chapter-application-materials" target="_blank" rel="noopener">Juilliard Summer Piano Program <i class="fas fa-external-link-alt"></i></a></h4>
+                    <p>A prestigious summer program at The Juilliard School offering intensive piano study with world-class faculty in New York City.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <\!-- GET INVOLVED -->
+    <!-- GET INVOLVED -->
     <section id="involve" class="get-involved">
         <h2 class="section-title">Get Involved</h2>
         <p class="section-subtitle">Whether you are a parent looking for an inclusive musical environment for your child, or a musician wanting to use your talents to serve the community, there is a place for you here.</p>
@@ -927,9 +1006,20 @@
                 </ul>
             </div>
         </div>
-    </section>
 
-    <\!-- CONTACT -->
+        <!-- Events -->
+        <div style="max-width: 1100px; margin: 3rem auto 0;">
+            <div class="involve-card">
+                <h3><i class="fas fa-calendar-alt"></i> Events</h3>
+                <ul>
+                    <li><strong>Free Piano and Music Theory Lessons:</strong> Offered at Enlighten Enrichment School, San Jose, every Sunday 1pm&ndash;3pm, Fall 2025 and Spring 2026.</li>
+                </ul>
+                <div style="margin-top: 1.5rem; text-align: center;">
+                    <img src="medias/Poster.jpg" alt="Equal Keys for All Event Poster" style="max-width: 600px; width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="contact" class="contact">
         <h2 class="section-title">Contact Us</h2>
         <p class="section-subtitle">Let's change the room together. Reach out to us with any questions, partnership ideas, or enrollment inquiries.</p>
@@ -951,7 +1041,7 @@
         <a href="#" class="contact-btn"><i class="fas fa-calendar-check"></i> Schedule a Trial Lesson</a>
     </section>
 
-    <\!-- FOOTER -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
