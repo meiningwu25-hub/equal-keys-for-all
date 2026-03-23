@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equal Keys for All | Inclusive Piano Education</title>
+    <meta name="description" content="Equal Keys for All provides free, inclusive piano and music instruction for under-resourced and neurodiverse youth in San Jose, CA.">
+    <meta property="og:title" content="Equal Keys for All | Inclusive Piano Education">
+    <meta property="og:description" content="Championing equality through music. Free, nonprofit piano instruction for under-resourced and neurodiverse youth in San Jose.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="medias/2025Fall/IMG_4517.JPG">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,42 +33,120 @@
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .animate { animation: fadeInUp 0.8s ease-out forwards; }
 
+        /* ===== NAV ===== */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
+            padding: 1.2rem 5%;
             background: var(--primary-light);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
         }
-        .logo { font-family: 'Playfair Display', 'Georgia', serif; font-size: 1.6rem; font-weight: 700; letter-spacing: 1px; font-style: italic; }
+        .logo {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-style: italic;
+            cursor: pointer;
+        }
         .logo span { color: var(--accent-gold); }
-        .nav-links { display: flex; gap: 2rem; align-items: center; font-family: 'Playfair Display', 'Georgia', serif; font-size: 1.05rem; font-weight: 400; font-style: italic; letter-spacing: 0.5px; }
-        .nav-links a:hover { color: var(--accent-gold); }
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            align-items: center;
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+        .nav-links a {
+            cursor: pointer;
+            position: relative;
+            padding-bottom: 2px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s;
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
         .btn-nav {
-            padding: 0.5rem 1.5rem;
+            padding: 0.5rem 1.3rem;
             background: var(--primary-dark);
-            color: var(--primary-light);
+            color: var(--primary-light) !important;
             border-radius: 4px;
         }
+        .btn-nav::after { display: none; }
         .btn-nav:hover { background: var(--accent-gold); }
         .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; }
 
+        /* Mobile nav overlay */
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.98);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .mobile-nav-overlay.open { display: flex; }
+        .mobile-nav-overlay a {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            cursor: pointer;
+        }
+        .mobile-nav-overlay a:hover { color: var(--accent-gold); }
+        .mobile-nav-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 5%;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* ===== PAGE VIEWS ===== */
+        .page {
+            display: none;
+            min-height: calc(100vh - 60px);
+            margin-top: 60px;
+        }
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* ===== HERO (Home) ===== */
         .hero {
-            height: 90vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1552422535-c45813c61732?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            height: calc(100vh - 60px);
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('medias/2025Fall/IMG_4517.JPG');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -72,7 +155,13 @@
             padding: 0 1rem;
         }
         .hero-content { max-width: 800px; }
-        .hero h1 { font-family: 'Playfair Display', 'Georgia', serif; font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-style: italic; }
+        .hero h1 {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-style: italic;
+        }
         .hero p { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.95; }
         .btn-hero {
             padding: 1rem 2.5rem;
@@ -84,12 +173,35 @@
             letter-spacing: 1px;
             display: inline-block;
             margin: 0.5rem;
+            cursor: pointer;
         }
         .btn-hero:hover { background: var(--primary-light); transform: scale(1.05); }
         .btn-hero.outline { background: transparent; border: 2px solid var(--primary-light); color: var(--primary-light); }
         .btn-hero.outline:hover { background: var(--primary-light); color: var(--primary-dark); }
 
-        section { padding: 5rem 5%; }
+        /* Home cards below hero */
+        .home-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+        .home-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            background: var(--bg-off-white);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .home-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
+        .home-card i { font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 1rem; }
+        .home-card h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+        .home-card p { color: var(--text-grey); font-size: 0.95rem; }
+
+        /* ===== SHARED SECTION STYLES ===== */
+        .page-section { padding: 5rem 5%; }
         .section-title {
             text-align: center;
             font-size: 2.5rem;
@@ -113,8 +225,35 @@
             margin: 1rem auto 0;
         }
 
-        /* Mission & Vision */
-        .mission-vision { background: var(--bg-off-white); }
+        /* Page hero banners */
+        .page-hero {
+            background: var(--primary-dark);
+            color: var(--primary-light);
+            padding: 4rem 5% 3rem;
+            text-align: center;
+        }
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-style: italic;
+            margin-bottom: 0.75rem;
+        }
+        .page-hero p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        .page-hero::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+            margin: 1.5rem auto 0;
+        }
+
+        /* ===== MISSION PAGE ===== */
         .mission-vision-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -128,6 +267,9 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
+        .bg-off-white .mission-box, .bg-off-white .vision-box {
+            background: var(--bg-off-white);
+        }
         .mission-box h3, .vision-box h3 {
             color: var(--accent-gold);
             margin-bottom: 1rem;
@@ -135,10 +277,7 @@
         }
         .mission-box p, .vision-box p { color: var(--text-grey); }
 
-        /* Approach Section */
-        .approach { background: var(--primary-dark); color: var(--primary-light); }
-        .approach .section-title { color: var(--primary-light); }
-        .approach .section-subtitle { color: rgba(255,255,255,0.8); }
+        /* Approach pillars */
         .pillars-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -154,13 +293,19 @@
             border: 1px solid rgba(255,255,255,0.1);
             transition: transform 0.3s, background 0.3s;
         }
-        .pillar-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.1); }
+        .dark-section .pillar-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.1); }
         .pillar-card i { font-size: 3rem; color: var(--accent-gold); margin-bottom: 1.5rem; }
         .pillar-card h3 { margin-bottom: 1rem; font-size: 1.3rem; }
         .pillar-card p { opacity: 0.85; font-size: 0.95rem; }
 
-        /* What to Expect */
-        .expect { background: var(--primary-light); }
+        .dark-section {
+            background: var(--primary-dark);
+            color: var(--primary-light);
+        }
+        .dark-section .section-title { color: var(--primary-light); }
+        .dark-section .section-subtitle { color: rgba(255,255,255,0.8); }
+
+        /* What to expect */
         .expect-intro {
             max-width: 800px;
             margin: 0 auto 3rem;
@@ -187,19 +332,67 @@
         }
         .expect-card p { color: var(--text-grey); font-size: 0.95rem; }
 
-        /* Video Section */
-        .video-section { background: var(--bg-off-white); }
-        .video-container {
+        /* ===== TEAM PAGE ===== */
+        .founder-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto 4rem;
+        }
+        .founder-img {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 4px solid var(--accent-gold);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        .founder-text h3 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .founder-text h4 { color: var(--accent-gold); font-size: 1rem; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 2px; }
+        .founder-text p { color: var(--text-grey); margin-bottom: 1rem; line-height: 1.8; }
+        .founder-social { display: flex; gap: 1rem; margin-top: 1.5rem; }
+        .founder-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .founder-social a:hover { background: var(--accent-gold); color: white; }
+        .instructors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
             max-width: 900px;
             margin: 0 auto;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
         }
-        .video-container video { width: 100%; display: block; }
+        .instructor-card {
+            background: var(--primary-light);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .instructor-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+        .instructor-card h4 { margin-bottom: 0.3rem; }
+        .instructor-card h5 { color: var(--accent-gold); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 1rem; }
+        .instructor-card ul { text-align: left; color: var(--text-grey); font-size: 0.9rem; padding-left: 1.2rem; list-style: disc; }
+        .instructor-card li { margin-bottom: 0.3rem; }
 
-        /* Gallery */
-        .gallery { background: var(--primary-light); }
+        /* ===== GALLERY PAGE ===== */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -234,72 +427,146 @@
         }
         .gallery-item:hover .gallery-overlay { transform: translateY(0); }
 
-        /* Team Section */
-        .team { background: var(--bg-off-white); }
-        .founder-container {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3rem;
-            align-items: center;
-            max-width: 1000px;
-            margin: 0 auto 4rem;
-        }
-        .founder-img {
-            width: 100%;
-            aspect-ratio: 1;
-            border-radius: 12px;
-            object-fit: cover;
-            border: 4px solid var(--accent-gold);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-        .founder-text h3 { font-size: 2rem; margin-bottom: 0.5rem; }
-        .founder-text h4 { color: var(--accent-gold); font-size: 1rem; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 2px; }
-        .founder-text p { color: var(--text-grey); margin-bottom: 1rem; line-height: 1.8; }
-        .founder-social { display: flex; gap: 1rem; margin-top: 1.5rem; }
-        .founder-social a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--primary-light);
-            display: flex;
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 2000;
             align-items: center;
             justify-content: center;
-            color: var(--primary-dark);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
         }
-        .founder-social a:hover { background: var(--accent-gold); color: white; }
+        .lightbox.open { display: flex; }
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
 
-        .instructors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+        /* Video section */
+        .video-container {
             max-width: 900px;
             margin: 0 auto;
-        }
-        .instructor-card {
-            background: var(--primary-light);
-            padding: 2rem;
             border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
         }
-        .instructor-card img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--accent-gold);
-            margin-bottom: 1rem;
-        }
-        .instructor-card h4 { margin-bottom: 0.3rem; }
-        .instructor-card h5 { color: var(--accent-gold); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 1rem; }
-        .instructor-card ul { text-align: left; color: var(--text-grey); font-size: 0.9rem; padding-left: 1.2rem; list-style: disc; }
-        .instructor-card li { margin-bottom: 0.3rem; }
+        .video-container video { width: 100%; display: block; }
 
-        /* Get Involved */
-        .get-involved { background: var(--primary-dark); color: var(--primary-light); }
-        .get-involved .section-title { color: var(--primary-light); }
-        .get-involved .section-subtitle { color: rgba(255,255,255,0.8); }
+        /* ===== PERFORMANCES PAGE ===== */
+        .performances-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .performance-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s;
+        }
+        .performance-card:hover { transform: translateY(-5px); }
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .performance-card h4 {
+            padding: 1rem 1.25rem;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.5;
+        }
+        .channel-link { text-align: center; margin-top: 2.5rem; }
+        .channel-link a {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .channel-link a:hover { background: var(--accent-gold); color: var(--primary-dark); }
+
+        /* ===== RESOURCES PAGE ===== */
+        .resources-category { max-width: 1100px; margin: 0 auto 3rem; }
+        .resources-category h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        .resource-card {
+            background: var(--bg-off-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e8e8e8;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .resource-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .resource-card h4 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+        .resource-card h4 a { color: var(--accent-gold); }
+        .resource-card h4 a:hover { text-decoration: underline; }
+        .resource-card p { color: var(--text-grey); font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .resource-source { font-size: 0.8rem; color: #999; font-style: italic; }
+        .resource-card .fa-external-link-alt { font-size: 0.75rem; margin-left: 0.3rem; color: var(--accent-gold); }
+
+        /* ===== COMPETITIONS PAGE ===== */
+        .competitions-category { max-width: 1100px; margin: 0 auto 3rem; }
+        .competitions-category h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+        .competitions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        .competition-card {
+            background: var(--primary-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e8e8e8;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .competition-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .competition-card h4 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+        .competition-card h4 a { color: var(--accent-gold); }
+        .competition-card h4 a:hover { text-decoration: underline; }
+        .competition-card p { color: var(--text-grey); font-size: 0.9rem; }
+        .competition-card .fa-external-link-alt { font-size: 0.75rem; margin-left: 0.3rem; color: var(--accent-gold); }
+
+        /* ===== GET INVOLVED PAGE ===== */
         .involve-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -319,8 +586,8 @@
         .involve-card li { margin-bottom: 0.5rem; }
         .involve-card strong { color: var(--accent-gold); }
 
-        /* Contact */
-        .contact { background: var(--bg-off-white); text-align: center; }
+        /* Contact area */
+        .contact-section { text-align: center; }
         .contact-methods {
             display: flex;
             justify-content: center;
@@ -344,7 +611,7 @@
         .contact-btn.filled { background: var(--accent-gold); color: var(--primary-dark); }
         .contact-btn.filled:hover { background: var(--primary-dark); color: var(--accent-gold); border-color: var(--primary-dark); }
 
-        /* Footer */
+        /* ===== FOOTER ===== */
         footer {
             background: #0a0a0a;
             color: #999;
@@ -361,6 +628,7 @@
         .footer-brand p { font-size: 0.9rem; line-height: 1.7; }
         .footer-links h4, .footer-social h4 { color: var(--primary-light); margin-bottom: 1rem; font-size: 1rem; }
         .footer-links ul li { margin-bottom: 0.5rem; }
+        .footer-links a { cursor: pointer; }
         .footer-links a:hover { color: var(--accent-gold); }
         .social-icons { display: flex; gap: 1rem; }
         .social-icons a {
@@ -381,155 +649,9 @@
             font-size: 0.85rem;
         }
 
-        /* Performances Section */
-        .performances { background: var(--primary-dark); color: var(--primary-light); }
-        .performances .section-title { color: var(--primary-light); }
-        .performances .section-subtitle { color: rgba(255,255,255,0.8); }
-        .performances-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .performance-card {
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: transform 0.3s;
-        }
-        .performance-card:hover { transform: translateY(-5px); }
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-        }
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .performance-card h4 {
-            padding: 1rem 1.25rem;
-            font-size: 0.95rem;
-            color: rgba(255,255,255,0.9);
-            line-height: 1.5;
-        }
-        .channel-link {
-            text-align: center;
-            margin-top: 2.5rem;
-        }
-        .channel-link a {
-            display: inline-block;
-            padding: 0.75rem 2rem;
-            border: 2px solid var(--accent-gold);
-            color: var(--accent-gold);
-            border-radius: 4px;
-            font-weight: bold;
-            letter-spacing: 0.5px;
-        }
-        .channel-link a:hover {
-            background: var(--accent-gold);
-            color: var(--primary-dark);
-        }
-
-        /* Resources Section */
-        .resources { background: var(--primary-light); }
-        .resources-category { max-width: 1100px; margin: 0 auto 3rem; }
-        .resources-category h3 {
-            font-size: 1.5rem;
-            color: var(--primary-dark);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--accent-gold);
-        }
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-        .resource-card {
-            background: var(--bg-off-white);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid #e8e8e8;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-        .resource-card h4 {
-            font-size: 1.05rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-dark);
-        }
-        .resource-card h4 a { color: var(--accent-gold); }
-        .resource-card h4 a:hover { text-decoration: underline; }
-        .resource-card p {
-            color: var(--text-grey);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-        .resource-source {
-            font-size: 0.8rem;
-            color: #999;
-            font-style: italic;
-        }
-        .resource-card .fa-external-link-alt {
-            font-size: 0.75rem;
-            margin-left: 0.3rem;
-            color: var(--accent-gold);
-        }
-
-        /* Competitions Section */
-        .competitions { background: var(--bg-off-white); }
-        .competitions-category { max-width: 1100px; margin: 0 auto 3rem; }
-        .competitions-category h3 {
-            font-size: 1.5rem;
-            color: var(--primary-dark);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--accent-gold);
-        }
-        .competitions-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-        .competition-card {
-            background: var(--primary-light);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid #e8e8e8;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .competition-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-        .competition-card h4 {
-            font-size: 1.05rem;
-            margin-bottom: 0.5rem;
-        }
-        .competition-card h4 a { color: var(--accent-gold); }
-        .competition-card h4 a:hover { text-decoration: underline; }
-        .competition-card p {
-            color: var(--text-grey);
-            font-size: 0.9rem;
-        }
-        .competition-card .fa-external-link-alt {
-            font-size: 0.75rem;
-            margin-left: 0.3rem;
-            color: var(--accent-gold);
-        }
-
-        /* Responsive */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
+            .home-cards { grid-template-columns: 1fr; }
             .founder-container { grid-template-columns: 1fr; text-align: center; }
             .founder-social { justify-content: center; }
             .pillars-grid { grid-template-columns: 1fr; }
@@ -544,6 +666,7 @@
         }
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
+            .page-hero h1 { font-size: 2rem; }
             .nav-links { display: none; }
             .mobile-menu-btn { display: block; }
             .section-title { font-size: 2rem; }
@@ -551,515 +674,639 @@
     </style>
 </head>
 <body>
+
+    <!-- ===== NAVIGATION ===== -->
     <nav>
-        <div class="logo">Equal Keys <span>for All</span></div>
+        <div class="logo" data-page="home">Equal Keys <span>for All</span></div>
         <div class="nav-links">
-            <a href="#mission">Mission</a>
-            <a href="#approach">Approach</a>
-            <a href="#expect">Lessons</a>
-            <a href="#team">Team</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#performances">Performances</a>
-            <a href="#resources">Resources</a>
-            <a href="#competitions">Competitions</a>
-            <a href="#involve" class="btn-nav">Get Involved</a>
+            <a data-page="home">Home</a>
+            <a data-page="about">About</a>
+            <a data-page="lessons">Lessons</a>
+            <a data-page="team">Team</a>
+            <a data-page="gallery">Gallery</a>
+            <a data-page="performances">Performances</a>
+            <a data-page="resources">Resources</a>
+            <a data-page="competitions">Competitions</a>
+            <a data-page="involve" class="btn-nav">Get Involved</a>
         </div>
         <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Equal Keys for All</h1>
-            <p>Championing equality through music. A completely free, nonprofit initiative providing inclusive piano and music instruction for under-resourced and neurodiverse youth—volunteered by San Jose's award-winning young pianists.</p>
-            <a href="#involve" class="btn-hero">Get Involved</a>
-            <a href="#video" class="btn-hero outline"><i class="fas fa-play"></i> Watch Our Story</a>
-        </div>
-    </header>
+    <!-- Mobile nav overlay -->
+    <div class="mobile-nav-overlay">
+        <div class="mobile-nav-close"><i class="fas fa-times"></i></div>
+        <a data-page="home">Home</a>
+        <a data-page="about">About</a>
+        <a data-page="lessons">Lessons</a>
+        <a data-page="team">Team</a>
+        <a data-page="gallery">Gallery</a>
+        <a data-page="performances">Performances</a>
+        <a data-page="resources">Resources</a>
+        <a data-page="competitions">Competitions</a>
+        <a data-page="involve">Get Involved</a>
+    </div>
 
-    <!-- MISSION & VISION -->
-    <section id="mission" class="mission-vision">
-        <h2 class="section-title">Our Purpose</h2>
-        <div class="mission-vision-grid">
-            <div class="mission-box">
-                <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
-                <p>To dismantle the barriers of traditional classical music education and provide accessible, empowering, and inclusive piano instruction for all.</p>
+    <!-- ================================================================ -->
+    <!-- PAGE: HOME                                                       -->
+    <!-- ================================================================ -->
+    <div class="page active" id="page-home">
+        <header class="hero">
+            <div class="hero-content">
+                <h1>Equal Keys for All</h1>
+                <p>Championing equality through music. A completely free, nonprofit initiative providing inclusive piano and music instruction for under-resourced and neurodiverse youth&mdash;volunteered by San Jose's award-winning young pianists.</p>
+                <a class="btn-hero" data-page="involve">Get Involved</a>
+                <a class="btn-hero outline" data-page="gallery"><i class="fas fa-play"></i> Watch Our Story</a>
             </div>
-            <div class="vision-box">
-                <h3><i class="fas fa-eye"></i> Our Vision</h3>
-                <p>We believe that music is a fundamental human service, not an exclusive luxury. Our vision is a community where the profound cognitive, emotional, and developmental benefits of music are available to every child, regardless of their neurological makeup or financial background.</p>
+        </header>
+        <div class="home-cards">
+            <div class="home-card">
+                <i class="fas fa-music"></i>
+                <h3>Free Lessons</h3>
+                <p>Completely free piano and music theory instruction every Sunday, tailored to each student's unique needs and abilities.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- OUR APPROACH -->
-    <section id="approach" class="approach">
-        <h2 class="section-title">Our Approach</h2>
-        <p class="section-subtitle">We recognize that traditional, rigid piano pedagogy leaves many brilliant minds behind. We bridge the educational gap in the arts by focusing on three core pillars:</p>
-        <div class="pillars-grid">
-            <div class="pillar-card">
-                <i class="fas fa-child"></i>
-                <h3>Adaptive Instruction</h3>
-                <p>We replace strict posture and rote memorization with full-body kinetic engagement, adapting the instrument to fit the sensory and physical needs of the student.</p>
+            <div class="home-card">
+                <i class="fas fa-universal-access"></i>
+                <h3>Inclusive Approach</h3>
+                <p>Adaptive, sensory-friendly instruction designed for neurodiverse learners and under-resourced youth.</p>
             </div>
-            <div class="pillar-card">
-                <i class="fas fa-heart"></i>
-                <h3>Radical Empathy</h3>
-                <p>We believe in "tuning the room." Instead of asking what is wrong with the student, we ask what is wrong with the environment, building custom pedagogical bridges in real-time.</p>
-            </div>
-            <div class="pillar-card">
-                <i class="fas fa-hands-helping"></i>
-                <h3>Community Accessibility</h3>
-                <p>By bringing our programs directly to local Title 1 schools and community centers, we ensure that high-level musical development is accessible to the students who need it most.</p>
+            <div class="home-card">
+                <i class="fas fa-award"></i>
+                <h3>Award-Winning Instructors</h3>
+                <p>Led by nationally recognized young pianists who volunteer their talent to serve the community.</p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- WHAT TO EXPECT -->
-    <section id="expect" class="expect">
-        <h2 class="section-title">What to Expect in a Lesson</h2>
-        <p class="expect-intro">Traditional classical piano lessons often demand strict posture, rigid discipline, and intense stillness—an environment that can feel restrictive or overwhelming for many neurodiverse learners. At Equal Keys for All, we flip that script. <strong>We believe the instrument should adapt to the student, not the other way around.</strong></p>
-        <div class="expect-grid">
-            <div class="expect-card">
-                <h4><i class="fas fa-running" style="color: var(--accent-gold);"></i> Kinetic Engagement Over Strict Posture</h4>
-                <p>If sitting still on a piano bench causes a student distress, we simply push the bench away. We encourage playing with whole-body movements, standing up, and stomping the rhythm to channel kinetic energy directly into the keys.</p>
-            </div>
-            <div class="expect-card">
-                <h4><i class="fas fa-spa" style="color: var(--accent-gold);"></i> Sensory-Friendly Environments</h4>
-                <p>We actively observe each student's sensory needs and adjust the space accordingly. By removing the pressure of perfection, we transform the practice room from a place of anxiety into a space of emotional liberation.</p>
-            </div>
-            <div class="expect-card">
-                <h4><i class="fas fa-puzzle-piece" style="color: var(--accent-gold);"></i> Custom Pedagogical Bridges</h4>
-                <p>There is no one-size-fits-all curriculum here. We meet students exactly where they are, building custom lesson plans in real-time that align with their unique neurological mapping and learning styles.</p>
-            </div>
-            <div class="expect-card">
-                <h4><i class="fas fa-smile-beam" style="color: var(--accent-gold);"></i> Joyful Connection</h4>
-                <p>Above all, our lessons focus on the joy of creating sound. We prioritize musical confidence, self-expression, and human connection over rote memorization and flawless execution.</p>
-            </div>
+    <!-- ================================================================ -->
+    <!-- PAGE: ABOUT (Mission, Vision, Approach)                          -->
+    <!-- ================================================================ -->
+    <div class="page" id="page-about">
+        <div class="page-hero">
+            <h1>Our Purpose</h1>
+            <p>Why we exist and how we approach inclusive music education</p>
         </div>
-    </section>
 
-    <!-- VIDEO SECTION -->
-    <section id="video" class="video-section">
-        <h2 class="section-title">See Our Impact</h2>
-        <p class="section-subtitle">Watch how Equal Keys for All is making a difference in our community</p>
-        <div class="video-container">
-            <video controls poster="medias/blurred/2025Fall/IMG_4517.JPG">
-                <source src="medias/2025Fall/IMG_3686 3.MOV" type="video/quicktime">
-                <source src="medias/2025Fall/IMG_3686 3.MOV" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </section>
-
-    <!-- GALLERY -->
-    <section id="gallery" class="gallery">
-        <h2 class="section-title">Our Community in Action</h2>
-        <p class="section-subtitle">Moments from our lessons and performances</p>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="medias/2025Fall/IMG_4517.JPG" alt="Piano lesson">
-                <div class="gallery-overlay"><strong>Piano Practice</strong><p>Building skills one note at a time</p></div>
-            </div>
-            <div class="gallery-item">
-                <img src="medias/blurred/2025Fall/IMG_4514.JPG" alt="Group lesson">
-                <div class="gallery-overlay"><strong>Group Sessions</strong><p>Learning together</p></div>
-            </div>
-            <div class="gallery-item">
-                <img src="medias/blurred/2026-spring/IMG_9949.jpeg" alt="Student performance">
-                <div class="gallery-overlay"><strong>Student Performance</strong><p>Showcasing talent</p></div>
-            </div>
-            <div class="gallery-item">
-                <img src="medias/blurred/2026-spring/WechatIMG29071.jpg" alt="Music lesson">
-                <div class="gallery-overlay"><strong>One-on-One Instruction</strong><p>Personalized learning</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MEET OUR TEAM -->
-    <section id="team" class="team">
-        <h2 class="section-title">Meet Our Team</h2>
-        <p class="section-subtitle">Passionate young musicians dedicated to sharing the gift of music</p>
-        
-        <!-- Founder -->
-        <div class="founder-container">
-            <div>
-                <img src="medias/Meining Wu.jpg" alt="Meining Wu" class="founder-img">
-            </div>
-            <div class="founder-text">
-                <h3>Meining Wu</h3>
-                <h4>Founder & Principal Instructor</h4>
-                <p>Meining Wu, junior at Valley Christian High School, San Jose, is an award-winning concert pianist and the founder of Equal Keys for All. An accomplished performer, she has taken the stage with the world-renowned Fort Worth Symphony Orchestra and earned accolades at prestigious events, including the Gina Bachauer, Ross McKee, and San Francisco International piano competitions. Her dedication to classical piano has also been recognized with merit scholarships from the National Chopin Foundation, the Frost Chopin Academy, Aspen Music Festival and School, and Boston University Tanglewood Institute.</p>
-                <p>Beyond the concert stage, Meining's passion lies at the intersection of piano pedagogy, music cognition, and youth development. Recognizing the exclusionary nature of traditional music instruction, she launched the Equal Keys for All initiative after her eye-opening experiences teaching neurodiverse students and volunteering in local Title 1 schools.</p>
-                <p>The organization's core mission is to bridge the educational gap in the arts by providing accessible, adaptive piano instruction to under-resourced and special needs youth. By replacing rigid posture and rote memorization with kinetic engagement and radical empathy, Equal Keys for All empowers students to build cognitive confidence, experience emotional liberation, and find their own unique voice at the keyboard.</p>
-                <div class="founder-social">
-                    <a href="https://www.youtube.com/@MeiningWu" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:contact@equalkeysforall.org"><i class="fas fa-envelope"></i></a>
+        <div class="page-section" style="background: var(--bg-off-white);">
+            <div class="mission-vision-grid">
+                <div class="mission-box">
+                    <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                    <p>To dismantle the barriers of traditional classical music education and provide accessible, empowering, and inclusive piano instruction for all.</p>
+                </div>
+                <div class="vision-box">
+                    <h3><i class="fas fa-eye"></i> Our Vision</h3>
+                    <p>We believe that music is a fundamental human service, not an exclusive luxury. Our vision is a community where the profound cognitive, emotional, and developmental benefits of music are available to every child, regardless of their neurological makeup or financial background.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Volunteer Instructors -->
-        <h3 style="text-align: center; margin-bottom: 2rem; color: var(--accent-gold);">Volunteer Instructors</h3>
-        <div class="instructors-grid">
-            <div class="instructor-card">
-                <img src="medias/Ethan.jpg" alt="Ethan Li">
-                <h4>Ethan Li</h4>
-                <h5>Volunteer Instructor</h5>
-                <ul>
-                    <li>Chopin Foundation Scholarship Recipient (2025-2026)</li>
-                    <li>MTAC Concerto Competition 1st Alternate (2025)</li>
-                    <li>USOMC Complete Concerto Competition 1st Prize (2025)</li>
-                    <li>Florida Keys 1st Prize (2025)</li>
+        <div class="page-section dark-section">
+            <h2 class="section-title">Our Approach</h2>
+            <p class="section-subtitle">We recognize that traditional, rigid piano pedagogy leaves many brilliant minds behind. We bridge the educational gap in the arts by focusing on three core pillars:</p>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <i class="fas fa-child"></i>
+                    <h3>Adaptive Instruction</h3>
+                    <p>We replace strict posture and rote memorization with full-body kinetic engagement, adapting the instrument to fit the sensory and physical needs of the student.</p>
+                </div>
+                <div class="pillar-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Radical Empathy</h3>
+                    <p>We believe in "tuning the room." Instead of asking what is wrong with the student, we ask what is wrong with the environment, building custom pedagogical bridges in real-time.</p>
+                </div>
+                <div class="pillar-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Community Accessibility</h3>
+                    <p>By bringing our programs directly to local Title 1 schools and community centers, we ensure that high-level musical development is accessible to the students who need it most.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- PAGE: LESSONS (What to Expect)                                   -->
+    <!-- ================================================================ -->
+    <div class="page" id="page-lessons">
+        <div class="page-hero">
+            <h1>What to Expect in a Lesson</h1>
+            <p>How we flip the script on traditional piano instruction</p>
+        </div>
+
+        <div class="page-section">
+            <p class="expect-intro">Traditional classical piano lessons often demand strict posture, rigid discipline, and intense stillness&mdash;an environment that can feel restrictive or overwhelming for many neurodiverse learners. At Equal Keys for All, we flip that script. <strong>We believe the instrument should adapt to the student, not the other way around.</strong></p>
+            <div class="expect-grid">
+                <div class="expect-card">
+                    <h4><i class="fas fa-running" style="color: var(--accent-gold);"></i> Kinetic Engagement Over Strict Posture</h4>
+                    <p>If sitting still on a piano bench causes a student distress, we simply push the bench away. We encourage playing with whole-body movements, standing up, and stomping the rhythm to channel kinetic energy directly into the keys.</p>
+                </div>
+                <div class="expect-card">
+                    <h4><i class="fas fa-spa" style="color: var(--accent-gold);"></i> Sensory-Friendly Environments</h4>
+                    <p>We actively observe each student's sensory needs and adjust the space accordingly. By removing the pressure of perfection, we transform the practice room from a place of anxiety into a space of emotional liberation.</p>
+                </div>
+                <div class="expect-card">
+                    <h4><i class="fas fa-puzzle-piece" style="color: var(--accent-gold);"></i> Custom Pedagogical Bridges</h4>
+                    <p>There is no one-size-fits-all curriculum here. We meet students exactly where they are, building custom lesson plans in real-time that align with their unique neurological mapping and learning styles.</p>
+                </div>
+                <div class="expect-card">
+                    <h4><i class="fas fa-smile-beam" style="color: var(--accent-gold);"></i> Joyful Connection</h4>
+                    <p>Above all, our lessons focus on the joy of creating sound. We prioritize musical confidence, self-expression, and human connection over rote memorization and flawless execution.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Current Offerings -->
+        <div class="page-section" style="background: var(--bg-off-white);">
+            <h2 class="section-title">Current Lesson Offerings</h2>
+            <div style="max-width: 800px; margin: 2rem auto 0; text-align: center;">
+                <ul style="list-style: none; color: var(--text-grey); font-size: 1.05rem; line-height: 2.2;">
+                    <li><strong style="color: var(--primary-dark);">Free Piano and Music Theory Lessons:</strong> Offered at Enlighten Enrichment School, San Jose, every Sunday 1pm&ndash;3pm.</li>
+                    <li>Fall 2025 (Aug 24 &ndash; Dec 7) &bull; Spring 2026 (Jan 18 &ndash; May 10)</li>
+                    <li>Limited 1:1 spots available&mdash;please <a data-page="involve" style="color: var(--accent-gold); text-decoration: underline; cursor: pointer;">contact us</a> to sign up!</li>
+                    <li style="margin-top: 0.5rem;"><strong style="color: var(--primary-dark);">Summer 2026:</strong> Zoom sessions coming soon!</li>
                 </ul>
-            </div>
-            <div class="instructor-card">
-                <img src="medias/Karen.jpg" alt="Karen Matsui">
-                <h4>Karen Matsui</h4>
-                <h5>Volunteer Instructor</h5>
-                <ul>
-                    <li>Pittsburg International Competition Top Prize (2025)</li>
-                    <li>Flagstaff Piano Festival Competition (2025)</li>
-                    <li>MTAC Solo Competition (2024, 2025)</li>
-                    <li>US New Star International Competition (2024)</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- MEINING'S PERFORMANCES -->
-    <section id="performances" class="performances">
-        <h2 class="section-title">Meining's Performances</h2>
-        <p class="section-subtitle">Selected solo and concerto performances by our founder</p>
-        <div class="performances-grid">
-            <div class="performance-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/OXR8XbNrmTE" title="Prokofiev Piano Concerto No.3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                </div>
-                <h4>Prokofiev Piano Concerto No.3 in C major op.26: I. Andante &ndash; Allegro (Central Texas Philharmonic)</h4>
-            </div>
-            <div class="performance-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/Ix72Wy3l1Yw" title="Chopin Piano Concerto No. 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                </div>
-                <h4>Chopin Piano Concerto No. 1, Op 11 (III. Rondo &ndash; Vivace) &mdash; Fort Worth Symphony Orchestra</h4>
-            </div>
-            <div class="performance-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/uh0RnxfOBEI" title="Carl Vine Piano Sonata No. 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                </div>
-                <h4>Carl Vine Piano Sonata No. 1, 1st movement</h4>
-            </div>
-            <div class="performance-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/uVeYv5sKPPs" title="Bach Toccata BWV 912" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                </div>
-                <h4>Bach Toccata BWV 912</h4>
-            </div>
-        </div>
-        <div class="channel-link">
-            <a href="https://www.youtube.com/@MeiningWu" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> Visit Full YouTube Channel</a>
-        </div>
-    </section>
-
-    <!-- WHY MUSIC MATTERS (Resources) -->
-    <section id="resources" class="resources">
-        <h2 class="section-title">Why Music Matters</h2>
-        <p class="section-subtitle">Curated research and resources on the transformative power of music education</p>
-
-        <div class="resources-category">
-            <h3><i class="fas fa-brain" style="color: var(--accent-gold);"></i> Music &amp; Youth Development</h3>
-            <div class="resources-grid">
-                <div class="resource-card">
-                    <h4><a href="https://www.savethemusic.org/blog/research/benefits-to-the-brain/" target="_blank" rel="noopener">The Cognitive Benefits of Music Education <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>Research on how music education strengthens neural pathways, improves memory, and enhances cognitive function in young learners.</p>
-                    <span class="resource-source">Save The Music Foundation</span>
-                </div>
-                <div class="resource-card">
-                    <h4><a href="https://faustharrisonpianos.com/how-learning-piano-can-improve-cognitive-function-and-emotional-expression-in-children/?srsltid=AfmBOor6rcQDHblYHf4tM7BfqBRNAb6EYgqoKzkxKrzkyg2cFoTIpnJk" target="_blank" rel="noopener">How Learning Piano Can Improve Cognitive Function and Emotional Expression in Children <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>How piano study improves cognitive function, emotional expression, and overall brain development in children.</p>
-                    <span class="resource-source">Faust Harrison Pianos</span>
-                </div>
-                <div class="resource-card">
-                    <h4><a href="https://fieldreport.caes.uga.edu/publications/C1053-06/the-role-of-music-in-brain-development/" target="_blank" rel="noopener">The Role of Music in Brain Development <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>How early music training shapes brain architecture, enhancing auditory processing, language development, and executive function throughout life.</p>
-                    <span class="resource-source">University of Georgia</span>
-                </div>
-                <div class="resource-card">
-                    <h4><a href="https://www.todeypsychology.com/blog/how-learning-piano-helps-boost-kids-brain-health" target="_blank" rel="noopener">From Taylor Swift to Alicia Keys: How Learning Piano Boosts Kids' Brains and Mental Health <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>Research on how structured piano education builds discipline, self-confidence, and social-emotional skills in youth.</p>
-                    <span class="resource-source">Todey Psychology</span>
-                </div>
-            </div>
-            <div style="max-width: 700px; margin: 2rem auto 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-                <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0;">
-                    <iframe src="https://www.youtube.com/embed/Xb_WjzUqY-c?rel=0" title="How music develops our brains at every age | Assal Habibi | TEDxManhattanBeach" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-                </div>
-                <p style="padding: 0.75rem 1rem; text-align: center; color: var(--text-grey); font-size: 0.9rem;"><a href="https://www.youtube.com/watch?v=Xb_WjzUqY-c" target="_blank" rel="noopener" style="color: var(--accent-gold);">How music develops our brains at every age | Assal Habibi | TEDxManhattanBeach <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i></a></p>
-            </div>
-        </div>
-
-        <div class="resources-category">
-            <h3><i class="fas fa-heart" style="color: var(--accent-gold);"></i> Music Therapy &amp; Neurodiversity</h3>
-            <div class="resources-grid">
-                <div class="resource-card">
-                    <h4><a href="https://www.musictherapy.org/research/" target="_blank" rel="noopener">Music Therapy Research &amp; Resources <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>Evidence-based research supporting the use of music therapy for emotional regulation, communication, and motor development in diverse populations.</p>
-                    <span class="resource-source">American Music Therapy Association</span>
-                </div>
-                <div class="resource-card">
-                    <h4><a href="https://childmind.org/article/what-music-therapy-can-do/" target="_blank" rel="noopener">Music Therapy &amp; ADHD <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>How rhythmic musical training can improve attention, impulse control, and working memory in children with ADHD and other developmental challenges.</p>
-                    <span class="resource-source">Child Mind Institute</span>
-                </div>
-                <div class="resource-card">
-                    <h4><a href="https://www.musictherapy.org/about/music_therapy_and_autism/" target="_blank" rel="noopener">Music Therapy &amp; Autism <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>Evidence-based fact sheets on how music-based interventions support communication, social interaction, and sensory processing for individuals on the autism spectrum.</p>
-                    <span class="resource-source">American Music Therapy Association</span>
-                </div>
-                <div class="resource-card">
-                    <h4><a href="https://academic.oup.com/jmt" target="_blank" rel="noopener">Journal of Music Therapy <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>Peer-reviewed research on the clinical applications of music therapy across neurodiverse and special-needs populations.</p>
-                    <span class="resource-source">Oxford Academic / Journal of Music Therapy</span>
+                <div style="margin-top: 2rem;">
+                    <img src="medias/Poster.jpg" alt="Equal Keys for All Event Poster" loading="lazy" style="max-width: 550px; width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.12);">
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- COMPETITIONS & FESTIVALS -->
-    <section id="competitions" class="competitions">
-        <h2 class="section-title">Competitions &amp; Festivals</h2>
-        <p class="section-subtitle">Resources for students and parents exploring performance opportunities at every level</p>
+    <!-- ================================================================ -->
+    <!-- PAGE: TEAM                                                       -->
+    <!-- ================================================================ -->
+    <div class="page" id="page-team">
+        <div class="page-hero">
+            <h1>Meet Our Team</h1>
+            <p>Passionate young musicians dedicated to sharing the gift of music</p>
+        </div>
 
-        <div class="competitions-category">
-            <h3><i class="fas fa-certificate" style="color: var(--accent-gold);"></i> MTAC Certificate of Merit</h3>
-            <div class="competitions-grid">
-                <div class="competition-card">
-                    <h4><a href="https://www.mtac.org/programs/performance/certificate-of-merit/" target="_blank" rel="noopener">MTAC Certificate of Merit (CM) Program <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>California's premier music evaluation program. Students are assessed on repertoire, technique, ear training, and music theory at progressive levels, providing a structured path for musical growth.</p>
+        <div class="page-section" style="background: var(--bg-off-white);">
+            <!-- Founder -->
+            <div class="founder-container">
+                <div>
+                    <img src="medias/Meining Wu.jpg" alt="Meining Wu" class="founder-img" loading="lazy">
+                </div>
+                <div class="founder-text">
+                    <h3>Meining Wu</h3>
+                    <h4>Founder & Principal Instructor</h4>
+                    <p>Meining Wu, junior at Valley Christian High School, San Jose, is an award-winning concert pianist and the founder of Equal Keys for All. An accomplished performer, she has taken the stage with the world-renowned Fort Worth Symphony Orchestra and earned accolades at prestigious events, including the Gina Bachauer, Ross McKee, and San Francisco International piano competitions. Her dedication to classical piano has also been recognized with merit scholarships from the National Chopin Foundation, the Frost Chopin Academy, Aspen Music Festival and School, and Boston University Tanglewood Institute.</p>
+                    <p>Beyond the concert stage, Meining's passion lies at the intersection of piano pedagogy, music cognition, and youth development. Recognizing the exclusionary nature of traditional music instruction, she launched the Equal Keys for All initiative after her eye-opening experiences teaching neurodiverse students and volunteering in local Title 1 schools.</p>
+                    <p>The organization's core mission is to bridge the educational gap in the arts by providing accessible, adaptive piano instruction to under-resourced and special needs youth. By replacing rigid posture and rote memorization with kinetic engagement and radical empathy, Equal Keys for All empowers students to build cognitive confidence, experience emotional liberation, and find their own unique voice at the keyboard.</p>
+                    <div class="founder-social">
+                        <a href="https://www.youtube.com/@MeiningWu" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:contact@equalkeysforall.org"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Volunteer Instructors -->
+            <h3 style="text-align: center; margin-bottom: 2rem; color: var(--accent-gold);">Volunteer Instructors</h3>
+            <div class="instructors-grid">
+                <div class="instructor-card">
+                    <img src="medias/Ethan.jpg" alt="Ethan Li" loading="lazy">
+                    <h4>Ethan Li</h4>
+                    <h5>Volunteer Instructor</h5>
+                    <ul>
+                        <li>Chopin Foundation Scholarship Recipient (2025-2026)</li>
+                        <li>MTAC Concerto Competition 1st Alternate (2025)</li>
+                        <li>USOMC Complete Concerto Competition 1st Prize (2025)</li>
+                        <li>Florida Keys 1st Prize (2025)</li>
+                    </ul>
+                </div>
+                <div class="instructor-card">
+                    <img src="medias/Karen.jpg" alt="Karen Matsui" loading="lazy">
+                    <h4>Karen Matsui</h4>
+                    <h5>Volunteer Instructor</h5>
+                    <ul>
+                        <li>Pittsburg International Competition Top Prize (2025)</li>
+                        <li>Flagstaff Piano Festival Competition (2025)</li>
+                        <li>MTAC Solo Competition (2024, 2025)</li>
+                        <li>US New Star International Competition (2024)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- PAGE: GALLERY                                                    -->
+    <!-- ================================================================ -->
+    <div class="page" id="page-gallery">
+        <div class="page-hero">
+            <h1>Our Community in Action</h1>
+            <p>Moments from our lessons and performances</p>
+        </div>
+
+        <!-- Video -->
+        <div class="page-section" style="background: var(--bg-off-white);">
+            <h2 class="section-title">See Our Impact</h2>
+            <p class="section-subtitle">Watch how Equal Keys for All is making a difference in our community</p>
+            <div class="video-container">
+                <video controls poster="medias/blurred/2025Fall/IMG_4517.JPG">
+                    <source src="medias/2025Fall/IMG_3686 3.MOV" type="video/quicktime">
+                    <source src="medias/2025Fall/IMG_3686 3.MOV" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <!-- Photo Gallery -->
+        <div class="page-section">
+            <h2 class="section-title">Photo Gallery</h2>
+            <p class="section-subtitle">Click any photo to view full size</p>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="medias/2025Fall/IMG_4517.JPG" alt="Piano lesson" loading="lazy">
+                    <div class="gallery-overlay"><strong>Piano Practice</strong><p>Building skills one note at a time</p></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="medias/blurred/2025Fall/IMG_4514.JPG" alt="Group lesson" loading="lazy">
+                    <div class="gallery-overlay"><strong>Group Sessions</strong><p>Learning together</p></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="medias/blurred/2026-spring/IMG_9949.jpeg" alt="Student performance" loading="lazy">
+                    <div class="gallery-overlay"><strong>Student Performance</strong><p>Showcasing talent</p></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="medias/blurred/2026-spring/WechatIMG29071.jpg" alt="One-on-one instruction" loading="lazy">
+                    <div class="gallery-overlay"><strong>One-on-One Instruction</strong><p>Personalized learning</p></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="medias/blurred/2026-spring/IMG_9950.jpeg" alt="Hands on keys" loading="lazy">
+                    <div class="gallery-overlay"><strong>Hands on the Keys</strong><p>Discovering the joy of music</p></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="medias/blurred/2026-spring/IMG_9954.jpeg" alt="Music session" loading="lazy">
+                    <div class="gallery-overlay"><strong>Music Session</strong><p>Every student finds their rhythm</p></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="medias/blurred/2026-spring/IMG_9955.jpeg" alt="Creative expression" loading="lazy">
+                    <div class="gallery-overlay"><strong>Creative Expression</strong><p>Music as a path to self-discovery</p></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="medias/blurred/2026-spring/IMG_9956.jpeg" alt="Community lesson" loading="lazy">
+                    <div class="gallery-overlay"><strong>Community Lesson</strong><p>Bringing music to everyone</p></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="medias/blurred/2025Fall/IMG_3234.JPG" alt="Fall session" loading="lazy">
+                    <div class="gallery-overlay"><strong>Fall Session</strong><p>Moments of breakthrough</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close"><i class="fas fa-times"></i></div>
+        <img id="lightbox-img" src="" alt="Full size photo">
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- PAGE: PERFORMANCES                                               -->
+    <!-- ================================================================ -->
+    <div class="page" id="page-performances">
+        <div class="page-hero">
+            <h1>Meining's Performances</h1>
+            <p>Selected solo and concerto performances by our founder</p>
+        </div>
+
+        <div class="page-section dark-section">
+            <div class="performances-grid">
+                <div class="performance-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/OXR8XbNrmTE" title="Prokofiev Piano Concerto No.3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <h4>Prokofiev Piano Concerto No.3 in C major op.26: I. Andante &ndash; Allegro (Central Texas Philharmonic)</h4>
+                </div>
+                <div class="performance-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/Ix72Wy3l1Yw" title="Chopin Piano Concerto No. 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <h4>Chopin Piano Concerto No. 1, Op 11 (III. Rondo &ndash; Vivace) &mdash; Fort Worth Symphony Orchestra</h4>
+                </div>
+                <div class="performance-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/uh0RnxfOBEI" title="Carl Vine Piano Sonata No. 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <h4>Carl Vine Piano Sonata No. 1, 1st movement</h4>
+                </div>
+                <div class="performance-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/uVeYv5sKPPs" title="Bach Toccata BWV 912" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <h4>Bach Toccata BWV 912</h4>
+                </div>
+            </div>
+            <div class="channel-link">
+                <a href="https://www.youtube.com/@MeiningWu" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> Visit Full YouTube Channel</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- PAGE: RESOURCES                                                  -->
+    <!-- ================================================================ -->
+    <div class="page" id="page-resources">
+        <div class="page-hero">
+            <h1>Why Music Matters</h1>
+            <p>Curated research and resources on the transformative power of music education</p>
+        </div>
+
+        <div class="page-section">
+            <div class="resources-category">
+                <h3><i class="fas fa-brain" style="color: var(--accent-gold);"></i> Music &amp; Youth Development</h3>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4><a href="https://www.savethemusic.org/blog/research/benefits-to-the-brain/" target="_blank" rel="noopener">The Cognitive Benefits of Music Education <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>Research on how music education strengthens neural pathways, improves memory, and enhances cognitive function in young learners.</p>
+                        <span class="resource-source">Save The Music Foundation</span>
+                    </div>
+                    <div class="resource-card">
+                        <h4><a href="https://faustharrisonpianos.com/how-learning-piano-can-improve-cognitive-function-and-emotional-expression-in-children/?srsltid=AfmBOor6rcQDHblYHf4tM7BfqBRNAb6EYgqoKzkxKrzkyg2cFoTIpnJk" target="_blank" rel="noopener">How Learning Piano Can Improve Cognitive Function and Emotional Expression in Children <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>How piano study improves cognitive function, emotional expression, and overall brain development in children.</p>
+                        <span class="resource-source">Faust Harrison Pianos</span>
+                    </div>
+                    <div class="resource-card">
+                        <h4><a href="https://fieldreport.caes.uga.edu/publications/C1053-06/the-role-of-music-in-brain-development/" target="_blank" rel="noopener">The Role of Music in Brain Development <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>How early music training shapes brain architecture, enhancing auditory processing, language development, and executive function throughout life.</p>
+                        <span class="resource-source">University of Georgia</span>
+                    </div>
+                    <div class="resource-card">
+                        <h4><a href="https://www.todeypsychology.com/blog/how-learning-piano-helps-boost-kids-brain-health" target="_blank" rel="noopener">From Taylor Swift to Alicia Keys: How Learning Piano Boosts Kids' Brains and Mental Health <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>Research on how structured piano education builds discipline, self-confidence, and social-emotional skills in youth.</p>
+                        <span class="resource-source">Todey Psychology</span>
+                    </div>
+                </div>
+                <div style="max-width: 700px; margin: 2rem auto 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0;">
+                        <iframe src="https://www.youtube.com/embed/Xb_WjzUqY-c?rel=0" title="How music develops our brains at every age | Assal Habibi | TEDxManhattanBeach" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <p style="padding: 0.75rem 1rem; text-align: center; color: var(--text-grey); font-size: 0.9rem;"><a href="https://www.youtube.com/watch?v=Xb_WjzUqY-c" target="_blank" rel="noopener" style="color: var(--accent-gold);">How music develops our brains at every age | Assal Habibi | TEDxManhattanBeach <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i></a></p>
+                </div>
+            </div>
+
+            <div class="resources-category">
+                <h3><i class="fas fa-heart" style="color: var(--accent-gold);"></i> Music Therapy &amp; Neurodiversity</h3>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4><a href="https://www.musictherapy.org/research/" target="_blank" rel="noopener">Music Therapy Research &amp; Resources <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>Evidence-based research supporting the use of music therapy for emotional regulation, communication, and motor development in diverse populations.</p>
+                        <span class="resource-source">American Music Therapy Association</span>
+                    </div>
+                    <div class="resource-card">
+                        <h4><a href="https://childmind.org/article/what-music-therapy-can-do/" target="_blank" rel="noopener">Music Therapy &amp; ADHD <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>How rhythmic musical training can improve attention, impulse control, and working memory in children with ADHD and other developmental challenges.</p>
+                        <span class="resource-source">Child Mind Institute</span>
+                    </div>
+                    <div class="resource-card">
+                        <h4><a href="https://www.musictherapy.org/about/music_therapy_and_autism/" target="_blank" rel="noopener">Music Therapy &amp; Autism <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>Evidence-based fact sheets on how music-based interventions support communication, social interaction, and sensory processing for individuals on the autism spectrum.</p>
+                        <span class="resource-source">American Music Therapy Association</span>
+                    </div>
+                    <div class="resource-card">
+                        <h4><a href="https://academic.oup.com/jmt" target="_blank" rel="noopener">Journal of Music Therapy <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>Peer-reviewed research on the clinical applications of music therapy across neurodiverse and special-needs populations.</p>
+                        <span class="resource-source">Oxford Academic / Journal of Music Therapy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- PAGE: COMPETITIONS                                               -->
+    <!-- ================================================================ -->
+    <div class="page" id="page-competitions">
+        <div class="page-hero">
+            <h1>Competitions &amp; Festivals</h1>
+            <p>Resources for students and parents exploring performance opportunities at every level</p>
+        </div>
+
+        <div class="page-section" style="background: var(--bg-off-white);">
+            <div class="competitions-category">
+                <h3><i class="fas fa-certificate" style="color: var(--accent-gold);"></i> MTAC Certificate of Merit</h3>
+                <div class="competitions-grid">
+                    <div class="competition-card">
+                        <h4><a href="https://www.mtac.org/programs/performance/certificate-of-merit/" target="_blank" rel="noopener">MTAC Certificate of Merit (CM) Program <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>California's premier music evaluation program. Students are assessed on repertoire, technique, ear training, and music theory at progressive levels, providing a structured path for musical growth.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="competitions-category">
+                <h3><i class="fas fa-map-marker-alt" style="color: var(--accent-gold);"></i> Local Bay Area Competitions</h3>
+                <div class="competitions-grid">
+                    <div class="competition-card">
+                        <h4><a href="https://www.usomc.org/" target="_blank" rel="noopener">US Open Music Competition (USOMC) <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>A prestigious national competition with solo and concerto divisions for young pianists of all levels.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://www.usimc.org/" target="_blank" rel="noopener">US International Music Competition (USIMC) <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>An international competition based in the Bay Area offering divisions in solo, concerto, and chamber music for young musicians.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://www.kamsa.org/" target="_blank" rel="noopener">KAMSA Music Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>The Korean American Musical Society of America hosts an annual competition supporting young instrumentalists in the Bay Area.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://www.pacific.edu/music/community/zeiter-piano-competition" target="_blank" rel="noopener">Henry and Carol Zeiter Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>A regional piano competition hosted by the University of the Pacific Conservatory of Music in Stockton, CA.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://www.gavilan.edu/academic/music/piano_comp.php" target="_blank" rel="noopener">Marian Filice Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>A local San Jose competition honoring the legacy of pianist Marian Filice, open to young pianists in the greater Bay Area.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://peninsulasymphony.org/marilyn-mindell-piano-competition" target="_blank" rel="noopener">Marilyn Mindell Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>A Bay Area competition for young pianists providing performance opportunities and recognition for emerging talent.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="competitions-category">
+                <h3><i class="fas fa-flag-usa" style="color: var(--accent-gold);"></i> State &amp; National Competitions</h3>
+                <div class="competitions-grid">
+                    <div class="competition-card">
+                        <h4><a href="https://www.mtac.org/programs/performance/competitions/" target="_blank" rel="noopener">MTAC Solo &amp; Concerto Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>The Music Teachers' Association of California's flagship competition for advanced student pianists at branch, state, and convention levels.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://www.capmt.org/Competitions" target="_blank" rel="noopener">CAMPT Honors, Contemporary &amp; Concerto <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>MTAC's California Association of Music Performance Teachers competitions recognizing excellence in honors, contemporary repertoire, and concerto performance.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://www.mtna.org/Competitions.html" target="_blank" rel="noopener">MTNA National Competitions <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>The Music Teachers National Association's prestigious competition series progressing from state to national levels for young musicians across America.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://www.chopin.org/2025-competition" target="_blank" rel="noopener">National Chopin Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>A national competition celebrating the music of Chopin, selecting America's most promising young Chopin interpreters.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://www.chopin.org/requirements" target="_blank" rel="noopener">National Chopin Foundation Scholarship <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>Annual scholarships supporting the most talented young American pianists with a focus on the music of Chopin.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://rossmckeefoundation.org/the-competition/" target="_blank" rel="noopener">Ross McKee Foundation Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>A nationally recognized competition fostering excellence in young pianists through performance opportunities and awards.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="competitions-category">
+                <h3><i class="fas fa-globe" style="color: var(--accent-gold);"></i> International Competitions</h3>
+                <div class="competitions-grid">
+                    <div class="competition-card">
+                        <h4><a href="https://bachauer.com/" target="_blank" rel="noopener">Gina Bachauer International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>One of the world's most prestigious piano competitions, with junior and young artist divisions for emerging talent.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://www.enkorcompetition.com" target="_blank" rel="noopener">ENKOR International e-Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>An innovative online international competition making world-class adjudication accessible to pianists worldwide.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://baypianofest.org" target="_blank" rel="noopener">San Francisco International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>A renowned competition that attracts top young pianists and offers performance opportunities with professional orchestras.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://www.kaufmanmusiccenter.org/kc/about/youth-piano-competition/" target="_blank" rel="noopener">Kaufman Music Center International Youth Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>A New York-based international competition for young pianists offering performance at Merkin Concert Hall and career development support.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://www.hhipc.org" target="_blank" rel="noopener">Hilton Head International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>A distinguished international competition for young pianists held annually in Hilton Head Island, South Carolina.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://pianocleveland.org/competitions/cleveland-international-piano-competition-and-institute-for-young-artists-2026-2/" target="_blank" rel="noopener">Cleveland International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>One of the premier international piano competitions in the United States, launching careers of exceptional young pianists.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://cliburn.org/competitions/2027-young-pianists" target="_blank" rel="noopener">Young Cliburn International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>The junior division of the legendary Van Cliburn competition, showcasing the world's most exceptional young pianists ages 13&ndash;17.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="competitions-category">
+                <h3><i class="fas fa-music" style="color: var(--accent-gold);"></i> Festivals &amp; Summer Programs</h3>
+                <div class="competitions-grid">
+                    <div class="competition-card">
+                        <h4><a href="https://www.aspenmusicfestival.com/" target="_blank" rel="noopener">Aspen Music Festival and School <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>A world-renowned summer music festival offering intensive study, masterclasses, and performance opportunities for advanced young musicians.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://www.bu.edu/cfa/tanglewood/" target="_blank" rel="noopener">Boston University Tanglewood Institute (BUTI) <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>An elite summer program for pre-college musicians in partnership with the Boston Symphony Orchestra at the historic Tanglewood campus.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://www.frostchopinacademy.com/" target="_blank" rel="noopener">Frost Chopin Academy <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>An immersive academy at the University of Miami's Frost School of Music focused on the interpretation and performance of Chopin's works.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://pianotexas.org/" target="_blank" rel="noopener">PianoTexas International Festival &amp; Academy <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>An intensive summer festival at TCU bringing together gifted young pianists with world-class faculty for concerts, masterclasses, and chamber music.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://chq.org/piano" target="_blank" rel="noopener">Chautauqua Piano Program <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>A summer piano program at the historic Chautauqua Institution featuring lessons, recitals, and interdisciplinary arts experiences.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://www.lancasterpianofest.com" target="_blank" rel="noopener">Lancaster International Piano Festival <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>An international piano festival in Lancaster, PA offering masterclasses, recitals, and competitions for young pianists.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://tsipf.com" target="_blank" rel="noopener">Texas State International Piano Festival <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>A summer festival at Texas State University featuring masterclasses, competitions, and performances for pre-college and college pianists.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://www.southeasternpianofestival.com/" target="_blank" rel="noopener">Southeastern Piano Festival <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>An annual festival bringing together talented young pianists for masterclasses, recitals, and competitions with internationally acclaimed faculty.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://vivacemusicfoundation.org/2026-vivace-piano-program/" target="_blank" rel="noopener">Vivace International Music Festival <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>An international music festival offering performance opportunities, masterclasses, and cross-cultural musical experiences for young musicians.</p>
+                    </div>
+                    <div class="competition-card">
+                        <h4><a href="https://www.juilliard.edu/arm/summer-music/piano#chapter-application-materials" target="_blank" rel="noopener">Juilliard Summer Piano Program <i class="fas fa-external-link-alt"></i></a></h4>
+                        <p>A prestigious summer program at The Juilliard School offering intensive piano study with world-class faculty in New York City.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- PAGE: GET INVOLVED                                               -->
+    <!-- ================================================================ -->
+    <div class="page" id="page-involve">
+        <div class="page-hero">
+            <h1>Get Involved</h1>
+            <p>Whether you are a parent, educator, or musician, there is a place for you here</p>
+        </div>
+
+        <div class="page-section dark-section">
+            <div class="involve-grid">
+                <div class="involve-card">
+                    <h3><i class="fas fa-user-graduate"></i> For Parents & Educators</h3>
+                    <p>If traditional piano lessons haven't worked for your child, or if you are an educator at a local Title 1 school interested in bringing our adaptive art and music programs to your classroom, we want to hear from you.</p>
+                    <p><em>No prior musical experience or strict behavioral prerequisites are required&mdash;just a willingness to explore sound and creativity!</em></p>
+                    <ul>
+                        <li><strong>Sign Up for a Trial Lesson:</strong> A low-pressure, sensory-friendly introductory session.</li>
+                        <li><strong>School Partnerships:</strong> Contact us to bring our custom-designed syllabus to your after-school program.</li>
+                    </ul>
+                </div>
+                <div class="involve-card">
+                    <h3><i class="fas fa-hands-helping"></i> For Musicians & Volunteers</h3>
+                    <p>Are you a pianist, artist, or high school student in the San Jose area passionate about youth development? Join our team!</p>
+                    <ul>
+                        <li><strong>Become a Mentor:</strong> You don't need to be a piano virtuoso&mdash;you just need patience, adaptability, and a belief in radical empathy. We'll train you on our kinetic and sensory-friendly teaching methods.</li>
+                        <li><strong>Support Our Outreach:</strong> Help us organize materials, assist in our tactile art classes, or coordinate our community center events.</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <div class="competitions-category">
-            <h3><i class="fas fa-map-marker-alt" style="color: var(--accent-gold);"></i> Local Bay Area Competitions</h3>
-            <div class="competitions-grid">
-                <div class="competition-card">
-                    <h4><a href="https://www.usomc.org/" target="_blank" rel="noopener">US Open Music Competition (USOMC) <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>A prestigious national competition with solo and concerto divisions for young pianists of all levels.</p>
+        <!-- Contact -->
+        <div class="page-section contact-section">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Let's change the room together. Reach out to us with any questions, partnership ideas, or enrollment inquiries.</p>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <p>contact@equalkeysforall.org</p>
                 </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.usimc.org/" target="_blank" rel="noopener">US International Music Competition (USIMC) <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>An international competition based in the Bay Area offering divisions in solo, concerto, and chamber music for young musicians.</p>
+                <div class="contact-method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Serving Title 1 schools, community centers,<br>and after-school programs across<br>the greater San Jose area</p>
                 </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.kamsa.org/" target="_blank" rel="noopener">KAMSA Music Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>The Korean American Musical Society of America hosts an annual competition supporting young instrumentalists in the Bay Area.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.pacific.edu/music/community/zeiter-piano-competition" target="_blank" rel="noopener">Henry and Carol Zeiter Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>A regional piano competition hosted by the University of the Pacific Conservatory of Music in Stockton, CA.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.gavilan.edu/academic/music/piano_comp.php" target="_blank" rel="noopener">Marian Filice Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>A local San Jose competition honoring the legacy of pianist Marian Filice, open to young pianists in the greater Bay Area.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://peninsulasymphony.org/marilyn-mindell-piano-competition" target="_blank" rel="noopener">Marilyn Mindell Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>A Bay Area competition for young pianists providing performance opportunities and recognition for emerging talent.</p>
+                <div class="contact-method">
+                    <i class="fab fa-instagram"></i>
+                    <p>@equalkeysforall</p>
                 </div>
             </div>
+            <a href="mailto:contact@equalkeysforall.org" class="contact-btn filled"><i class="fas fa-envelope"></i> Email Us</a>
+            <a href="mailto:contact@equalkeysforall.org?subject=Trial Lesson Inquiry" class="contact-btn"><i class="fas fa-calendar-check"></i> Schedule a Trial Lesson</a>
         </div>
+    </div>
 
-        <div class="competitions-category">
-            <h3><i class="fas fa-flag-usa" style="color: var(--accent-gold);"></i> State &amp; National Competitions</h3>
-            <div class="competitions-grid">
-                <div class="competition-card">
-                    <h4><a href="https://www.mtac.org/programs/performance/competitions/" target="_blank" rel="noopener">MTAC Solo &amp; Concerto Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>The Music Teachers' Association of California's flagship competition for advanced student pianists at branch, state, and convention levels.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.capmt.org/Competitions" target="_blank" rel="noopener">CAMPT Honors, Contemporary &amp; Concerto <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>MTAC's California Association of Music Performance Teachers competitions recognizing excellence in honors, contemporary repertoire, and concerto performance.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.mtna.org/Competitions.html" target="_blank" rel="noopener">MTNA National Competitions <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>The Music Teachers National Association's prestigious competition series progressing from state to national levels for young musicians across America.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.chopin.org/2025-competition" target="_blank" rel="noopener">National Chopin Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>A national competition celebrating the music of Chopin, selecting America's most promising young Chopin interpreters.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.chopin.org/requirements" target="_blank" rel="noopener">National Chopin Foundation Scholarship <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>Annual scholarships supporting the most talented young American pianists with a focus on the music of Chopin.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://rossmckeefoundation.org/the-competition/" target="_blank" rel="noopener">Ross McKee Foundation Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>A nationally recognized competition fostering excellence in young pianists through performance opportunities and awards.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="competitions-category">
-            <h3><i class="fas fa-globe" style="color: var(--accent-gold);"></i> International Competitions</h3>
-            <div class="competitions-grid">
-                <div class="competition-card">
-                    <h4><a href="https://bachauer.com/" target="_blank" rel="noopener">Gina Bachauer International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>One of the world's most prestigious piano competitions, with junior and young artist divisions for emerging talent.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.enkorcompetition.com" target="_blank" rel="noopener">ENKOR International e-Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>An innovative online international competition making world-class adjudication accessible to pianists worldwide.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://baypianofest.org" target="_blank" rel="noopener">San Francisco International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>A renowned competition that attracts top young pianists and offers performance opportunities with professional orchestras.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.kaufmanmusiccenter.org/kc/about/youth-piano-competition/" target="_blank" rel="noopener">Kaufman Music Center International Youth Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>A New York-based international competition for young pianists offering performance at Merkin Concert Hall and career development support.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.hhipc.org" target="_blank" rel="noopener">Hilton Head International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>A distinguished international competition for young pianists held annually in Hilton Head Island, South Carolina.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://pianocleveland.org/competitions/cleveland-international-piano-competition-and-institute-for-young-artists-2026-2/" target="_blank" rel="noopener">Cleveland International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>One of the premier international piano competitions in the United States, launching careers of exceptional young pianists.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://cliburn.org/competitions/2027-young-pianists" target="_blank" rel="noopener">Young Cliburn International Piano Competition <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>The junior division of the legendary Van Cliburn competition, showcasing the world's most exceptional young pianists ages 13&ndash;17.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="competitions-category">
-            <h3><i class="fas fa-music" style="color: var(--accent-gold);"></i> Festivals &amp; Summer Programs</h3>
-            <div class="competitions-grid">
-                <div class="competition-card">
-                    <h4><a href="https://www.aspenmusicfestival.com/" target="_blank" rel="noopener">Aspen Music Festival and School <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>A world-renowned summer music festival offering intensive study, masterclasses, and performance opportunities for advanced young musicians.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.bu.edu/cfa/tanglewood/" target="_blank" rel="noopener">Boston University Tanglewood Institute (BUTI) <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>An elite summer program for pre-college musicians in partnership with the Boston Symphony Orchestra at the historic Tanglewood campus.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.frostchopinacademy.com/" target="_blank" rel="noopener">Frost Chopin Academy <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>An immersive academy at the University of Miami's Frost School of Music focused on the interpretation and performance of Chopin's works.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://pianotexas.org/" target="_blank" rel="noopener">PianoTexas International Festival &amp; Academy <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>An intensive summer festival at TCU bringing together gifted young pianists with world-class faculty for concerts, masterclasses, and chamber music.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://chq.org/piano" target="_blank" rel="noopener">Chautauqua Piano Program <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>A summer piano program at the historic Chautauqua Institution featuring lessons, recitals, and interdisciplinary arts experiences.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.lancasterpianofest.com" target="_blank" rel="noopener">Lancaster International Piano Festival <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>An international piano festival in Lancaster, PA offering masterclasses, recitals, and competitions for young pianists.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://tsipf.com" target="_blank" rel="noopener">Texas State International Piano Festival <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>A summer festival at Texas State University featuring masterclasses, competitions, and performances for pre-college and college pianists.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.southeasternpianofestival.com/" target="_blank" rel="noopener">Southeastern Piano Festival <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>An annual festival bringing together talented young pianists for masterclasses, recitals, and competitions with internationally acclaimed faculty.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://vivacemusicfoundation.org/2026-vivace-piano-program/" target="_blank" rel="noopener">Vivace International Music Festival <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>An international music festival offering performance opportunities, masterclasses, and cross-cultural musical experiences for young musicians.</p>
-                </div>
-                <div class="competition-card">
-                    <h4><a href="https://www.juilliard.edu/arm/summer-music/piano#chapter-application-materials" target="_blank" rel="noopener">Juilliard Summer Piano Program <i class="fas fa-external-link-alt"></i></a></h4>
-                    <p>A prestigious summer program at The Juilliard School offering intensive piano study with world-class faculty in New York City.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GET INVOLVED -->
-    <section id="involve" class="get-involved">
-        <h2 class="section-title">Get Involved</h2>
-        <p class="section-subtitle">Whether you are a parent looking for an inclusive musical environment for your child, or a musician wanting to use your talents to serve the community, there is a place for you here.</p>
-        <div class="involve-grid">
-            <div class="involve-card">
-                <h3><i class="fas fa-user-graduate"></i> For Parents & Educators</h3>
-                <p>If traditional piano lessons haven't worked for your child, or if you are an educator at a local Title 1 school interested in bringing our adaptive art and music programs to your classroom, we want to hear from you.</p>
-                <p><em>No prior musical experience or strict behavioral prerequisites are required—just a willingness to explore sound and creativity\!</em></p>
-                <ul>
-                    <li><strong>Sign Up for a Trial Lesson:</strong> A low-pressure, sensory-friendly introductory session.</li>
-                    <li><strong>School Partnerships:</strong> Contact us to bring our custom-designed syllabus to your after-school program.</li>
-                </ul>
-            </div>
-            <div class="involve-card">
-                <h3><i class="fas fa-hands-helping"></i> For Musicians & Volunteers</h3>
-                <p>Are you a pianist, artist, or high school student in the San Jose area passionate about youth development? Join our team\!</p>
-                <ul>
-                    <li><strong>Become a Mentor:</strong> You don't need to be a piano virtuoso—you just need patience, adaptability, and a belief in radical empathy. We'll train you on our kinetic and sensory-friendly teaching methods.</li>
-                    <li><strong>Support Our Outreach:</strong> Help us organize materials, assist in our tactile art classes, or coordinate our community center events.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Events -->
-        <div style="max-width: 1100px; margin: 3rem auto 0;">
-            <div class="involve-card">
-                <h3><i class="fas fa-calendar-alt"></i> Current Lesson Offerings</h3>
-                <ul>
-                    <li><strong>Free Piano and Music Theory Lessons:</strong> Offered at Enlighten Enrichment School, San Jose, every Sunday 1pm&ndash;3pm. Fall 2025 (Aug 24 &ndash; Dec 7), Spring 2026 (Jan 18 &ndash; May 10). Limited 1:1 spots available&mdash;please <a href="#contact" style="color: var(--accent-gold); text-decoration: underline;">contact us</a> to sign up!</li>
-                    <li><strong>Summer 2026:</strong> Zoom sessions coming soon!</li>
-                </ul>
-                <div style="margin-top: 1.5rem; text-align: center;">
-                    <img src="medias/Poster.jpg" alt="Equal Keys for All Event Poster" style="max-width: 600px; width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="contact" class="contact">
-        <h2 class="section-title">Contact Us</h2>
-        <p class="section-subtitle">Let's change the room together. Reach out to us with any questions, partnership ideas, or enrollment inquiries.</p>
-        <div class="contact-methods">
-            <div class="contact-method">
-                <i class="fas fa-envelope"></i>
-                <p>contact@equalkeysforall.org</p>
-            </div>
-            <div class="contact-method">
-                <i class="fas fa-map-marker-alt"></i>
-                <p>Serving Title 1 schools, community centers,<br>and after-school programs across<br>the greater San Jose area</p>
-            </div>
-            <div class="contact-method">
-                <i class="fab fa-instagram"></i>
-                <p>@equalkeysforall</p>
-            </div>
-        </div>
-        <a href="mailto:contact@equalkeysforall.org" class="contact-btn filled"><i class="fas fa-envelope"></i> Email Us</a>
-        <a href="#" class="contact-btn"><i class="fas fa-calendar-check"></i> Schedule a Trial Lesson</a>
-    </section>
-
-    <!-- FOOTER -->
+    <!-- ===== FOOTER (shown on all pages) ===== -->
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
-                <div class="logo">Equal Keys <span>for All</span></div>
+                <div class="logo" data-page="home">Equal Keys <span>for All</span></div>
                 <p>Bridging the educational gap in the arts by providing accessible, adaptive piano instruction to under-resourced and special needs youth.</p>
             </div>
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#mission">Mission</a></li>
-                    <li><a href="#approach">Our Approach</a></li>
-                    <li><a href="#team">Our Team</a></li>
-                    <li><a href="#performances">Performances</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                    <li><a href="#competitions">Competitions</a></li>
-                    <li><a href="#involve">Get Involved</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a data-page="about">About</a></li>
+                    <li><a data-page="lessons">Lessons</a></li>
+                    <li><a data-page="team">Our Team</a></li>
+                    <li><a data-page="performances">Performances</a></li>
+                    <li><a data-page="resources">Resources</a></li>
+                    <li><a data-page="competitions">Competitions</a></li>
+                    <li><a data-page="involve">Get Involved</a></li>
                 </ul>
             </div>
             <div class="footer-social">
@@ -1077,12 +1324,65 @@
     </footer>
 
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('animate');
+        // ===== SPA PAGE ROUTING =====
+        function navigateTo(pageName) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            // Show target page
+            const target = document.getElementById('page-' + pageName);
+            if (target) {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+            // Update active nav link
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+            document.querySelectorAll('.nav-links a[data-page="' + pageName + '"]').forEach(a => a.classList.add('active'));
+            // Update URL hash
+            history.pushState(null, '', '#' + pageName);
+            // Close mobile nav if open
+            document.querySelector('.mobile-nav-overlay').classList.remove('open');
+        }
+
+        // Attach click handlers to all [data-page] elements
+        document.querySelectorAll('[data-page]').forEach(el => {
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                navigateTo(this.getAttribute('data-page'));
             });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('section').forEach(s => observer.observe(s));
+        });
+
+        // Handle browser back/forward
+        window.addEventListener('popstate', function() {
+            const page = location.hash.replace('#', '') || 'home';
+            navigateTo(page);
+        });
+
+        // On load, check hash
+        window.addEventListener('DOMContentLoaded', function() {
+            const page = location.hash.replace('#', '') || 'home';
+            if (page !== 'home') navigateTo(page);
+        });
+
+        // ===== MOBILE MENU =====
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.mobile-nav-overlay').classList.add('open');
+        });
+        document.querySelector('.mobile-nav-close').addEventListener('click', function() {
+            document.querySelector('.mobile-nav-overlay').classList.remove('open');
+        });
+
+        // ===== LIGHTBOX =====
+        function openLightbox(item) {
+            const img = item.querySelector('img');
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox').classList.add('open');
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('open');
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
     </script>
 </body>
 </html>
