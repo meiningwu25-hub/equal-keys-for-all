@@ -649,6 +649,45 @@
             font-size: 0.85rem;
         }
 
+        /* Local Resources */
+        .local-resource-card {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 1.5rem;
+            background: var(--bg-off-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e8e8e8;
+            transition: transform 0.3s, box-shadow 0.3s;
+            align-items: center;
+        }
+        .local-resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .local-resource-card .org-thumb {
+            width: 160px;
+            height: 110px;
+            border-radius: 8px;
+            object-fit: cover;
+            background: #eee;
+        }
+        .local-resource-card h4 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+        .local-resource-card h4 a { color: var(--accent-gold); }
+        .local-resource-card h4 a:hover { text-decoration: underline; }
+        .local-resource-card p { color: var(--text-grey); font-size: 0.9rem; line-height: 1.6; }
+        .local-resources-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        @media (max-width: 600px) {
+            .local-resource-card { grid-template-columns: 1fr; }
+            .local-resource-card .org-thumb { width: 100%; height: 160px; }
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
             .home-cards { grid-template-columns: 1fr; }
@@ -1068,6 +1107,54 @@
                         <h4><a href="https://academic.oup.com/jmt" target="_blank" rel="noopener">Journal of Music Therapy <i class="fas fa-external-link-alt"></i></a></h4>
                         <p>Peer-reviewed research on the clinical applications of music therapy across neurodiverse and special-needs populations.</p>
                         <span class="resource-source">Oxford Academic / Journal of Music Therapy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Local Resources -->
+            <div class="resources-category">
+                <h3><i class="fas fa-map-marker-alt" style="color: var(--accent-gold);"></i> Local to San Jose &amp; The South Bay</h3>
+                <div class="local-resources-list">
+                    <div class="local-resource-card">
+                        <img class="org-thumb" src="https://musicplace.com/wp-content/uploads/2023/07/Music-Place-Logo-2023.png" alt="The Music Place" onerror="this.style.display='none'">
+                        <div>
+                            <h4><a href="https://musicplace.com/" target="_blank" rel="noopener">The Music Place (San Jose) <i class="fas fa-external-link-alt"></i></a></h4>
+                            <p>One of the most established local organizations offering both traditional music education and a dedicated special needs program. They employ Board-Certified Music Therapists and Adaptive Music Teachers&mdash;a great case study for designing accessible curriculum.</p>
+                        </div>
+                    </div>
+                    <div class="local-resource-card">
+                        <img class="org-thumb" src="https://rainbowmusictherapy.com/images/rainbow-music-therapy-logo.png" alt="Rainbow Music Therapy" onerror="this.style.display='none'">
+                        <div>
+                            <h4><a href="https://rainbowmusictherapy.com/index.html" target="_blank" rel="noopener">Rainbow Music Therapy (Los Altos) <i class="fas fa-external-link-alt"></i></a></h4>
+                            <p>A small team of therapists working with children and teens of all abilities. They focus on a strength-based approach, using music as a tool to address developmental goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resources-category">
+                <h3><i class="fas fa-globe-americas" style="color: var(--accent-gold);"></i> Wider Bay Area Initiatives</h3>
+                <div class="local-resources-list">
+                    <div class="local-resource-card">
+                        <img class="org-thumb" src="https://scontent.xx.fbcdn.net/v/t1.6435-9/cp0/e15/q65/c0.0.200.200a/p200x200/118652576_10158757046019878_5365792526685376895_n.jpg" alt="Autism Society SFBA" onerror="this.style.display='none'">
+                        <div>
+                            <h4><a href="https://www.facebook.com/groups/sfasaactivities/about" target="_blank" rel="noopener">Autism Society San Francisco Bay Area (SFASA) <i class="fas fa-external-link-alt"></i></a></h4>
+                            <p>A grassroots, volunteer-run nonprofit serving as a central hub for the region's neurodiverse community. SFASA connects over 20,000 local families with resources, education, and networking&mdash;frequently partnering with organizations to promote sensory-friendly concerts and inclusive community events.</p>
+                        </div>
+                    </div>
+                    <div class="local-resource-card">
+                        <img class="org-thumb" src="https://www.brainandbodyautismcenter.com/wp-content/uploads/2021/06/brain-body-logo.png" alt="Brain and Body Autism Center" onerror="this.style.display='none'">
+                        <div>
+                            <h4><a href="https://www.brainandbodyautismcenter.com/" target="_blank" rel="noopener">Brain and Body Autism Center <i class="fas fa-external-link-alt"></i></a></h4>
+                            <p>Uses a holistic early intervention model that integrates piano instructors and music specialists alongside occupational and speech therapists. Their approach is rooted in how sensory integration and motor-planning affect learning.</p>
+                        </div>
+                    </div>
+                    <div class="local-resource-card">
+                        <img class="org-thumb" src="https://images.squarespace-cdn.com/content/v1/5f3d4149b5946a47a4e5e96c/1597873481089-CVMT-LOGO.png" alt="Creative Vibes Music Therapy" onerror="this.style.display='none'">
+                        <div>
+                            <h4><a href="https://www.creativevibesmt.com/" target="_blank" rel="noopener">Creative Vibes Music Therapy (SF Bay Area) <i class="fas fa-external-link-alt"></i></a></h4>
+                            <p>A dynamic team facilitating music therapy with a strong focus on neuroscience, aiming to meet clients' needs creatively while supporting holistic growth and well-being in special education settings.</p>
+                        </div>
                     </div>
                 </div>
             </div>
