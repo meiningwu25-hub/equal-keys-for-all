@@ -220,6 +220,92 @@
         }
         .hero-stats-tagline strong { color: var(--accent-gold); }
 
+        /* Happenings / Spotlight */
+        .happenings-section {
+            background: var(--primary-dark);
+            padding: 5rem 5%;
+        }
+        .happenings-section .section-title { color: var(--primary-light); }
+        .happenings-section .section-subtitle { color: rgba(255,255,255,0.7); }
+        .happenings-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .happenings-timeline::before {
+            content: '';
+            position: absolute;
+            left: 18px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(197,160,89,0.3);
+        }
+        .happening-item {
+            position: relative;
+            padding-left: 55px;
+            margin-bottom: 2.5rem;
+        }
+        .happening-item:last-child { margin-bottom: 0; }
+        .happening-dot {
+            position: absolute;
+            left: 9px;
+            top: 4px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            border: 3px solid var(--primary-dark);
+            box-shadow: 0 0 0 3px rgba(197,160,89,0.3);
+        }
+        .happening-item:first-child .happening-dot {
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { box-shadow: 0 0 0 3px rgba(197,160,89,0.3); }
+            50% { box-shadow: 0 0 0 8px rgba(197,160,89,0.15); }
+        }
+        .happening-date {
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+        .happening-content {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.3s, background 0.3s;
+        }
+        .happening-content:hover {
+            transform: translateX(5px);
+            background: rgba(255,255,255,0.08);
+        }
+        .happening-content h4 {
+            color: var(--primary-light);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        .happening-content h4 i {
+            color: var(--accent-gold);
+            margin-right: 0.4rem;
+        }
+        .happening-content p {
+            color: rgba(255,255,255,0.75);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .happening-content a {
+            color: var(--accent-gold);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        .happening-content a:hover { color: var(--primary-light); }
+
         /* Home cards below hero */
         .home-cards {
             display: grid;
@@ -967,6 +1053,38 @@
                 <i class="fas fa-award"></i>
                 <h3>Award-Winning Instructors</h3>
                 <p>Led by nationally recognized young pianists who volunteer their talent to serve the community.</p>
+            </div>
+        </div>
+
+        <!-- Happenings - In the Spotlight -->
+        <div class="happenings-section">
+            <h2 class="section-title">Happenings &mdash; In the Spotlight</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Recent news and achievements from our community</p>
+            <div class="happenings-timeline">
+                <div class="happening-item">
+                    <div class="happening-dot"></div>
+                    <div class="happening-date">March 31, 2026</div>
+                    <div class="happening-content">
+                        <h4><i class="fas fa-trophy"></i> TSIPF Concerto Competition Winner</h4>
+                        <p>Congratulations to our founder <strong>Meining Wu</strong> for winning the <strong>2026 Texas State International Piano Festival Concerto Competition</strong>! She will perform Rachmaninoff's Piano Concerto No. 2, Mvt. 3 with the Central Texas Philharmonic at the festival's Finale Concert on <strong>June 13th, 2026</strong>.</p>
+                    </div>
+                </div>
+                <div class="happening-item">
+                    <div class="happening-dot"></div>
+                    <div class="happening-date">March 28, 2026</div>
+                    <div class="happening-content">
+                        <h4><i class="fas fa-medal"></i> MTAC Regional 1st Place Winners</h4>
+                        <p>Congratulations to our founder <strong>Meining Wu</strong> and member <strong>Ethan Li</strong> for winning <strong>Regional 1st Place</strong> in the 2026 MTAC Piano Concerto and Solo Competition categories! They will compete at the <strong>State Finals at the MTAC Convention in June</strong>.</p>
+                    </div>
+                </div>
+                <div class="happening-item">
+                    <div class="happening-dot"></div>
+                    <div class="happening-date">March 21, 2026</div>
+                    <div class="happening-content">
+                        <h4><i class="fas fa-star"></i> Marilyn Mindell 1st Place &amp; Best Sonata Award</h4>
+                        <p>Congratulations to our founder <strong>Meining Wu</strong> for winning <strong>1st Place and Best Sonata Award</strong> in the 2026 Marilyn Mindell Piano Competition Senior Division! She will perform Rachmaninoff's Piano Concerto No. 2, Mvt. 1 with the Peninsula Symphony on <strong>Sun, April 12, 2026 at 3 PM</strong> at Aragon High School Theatre. <a href="https://www.eventbrite.com/e/peninsula-symphony-family-concert-2026-tickets-1985477013194?aff=oddtdtcreator" target="_blank" rel="noopener">Click here to claim your FREE tickets <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i></a></p>
+                    </div>
+                </div>
             </div>
         </div>
 
