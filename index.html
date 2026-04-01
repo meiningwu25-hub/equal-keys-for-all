@@ -1032,6 +1032,110 @@
             display: block;
             border-radius: 8px;
         }
+
+        /* Blog page */
+        .blog-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .blog-preview {
+            background: var(--primary-light);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .blog-preview:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+        .blog-preview-body { padding: 2rem 2.5rem; }
+        .blog-meta {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .blog-meta i { color: var(--accent-gold); margin-right: 0.3rem; }
+        .blog-preview h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+        .blog-preview h3 a { color: var(--primary-dark); }
+        .blog-preview h3 a:hover { color: var(--accent-gold); }
+        .blog-excerpt {
+            color: var(--text-grey);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .blog-read-more {
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .blog-read-more:hover { text-decoration: underline; }
+
+        /* Blog article full view */
+        .blog-article {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .blog-article-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .blog-article-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-style: italic;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        .blog-article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 0.85rem;
+            color: #999;
+        }
+        .blog-article-meta i { color: var(--accent-gold); margin-right: 0.3rem; }
+        .blog-article-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+            margin: 1.5rem auto;
+        }
+        .blog-article-body h3 {
+            font-size: 1.3rem;
+            margin: 2rem 0 0.75rem;
+            color: var(--primary-dark);
+        }
+        .blog-article-body p {
+            color: var(--text-grey);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 1.25rem;
+        }
+        .blog-back {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .blog-back:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -1048,6 +1152,7 @@
             <a data-page="performances">Performances</a>
             <a data-page="resources">Resources</a>
             <a data-page="happenings"><i class="fas fa-newspaper" style="margin-right:3px;"></i> Happenings</a>
+            <a data-page="blog"><i class="fas fa-pen-nib" style="margin-right:3px;"></i> Blog</a>
             <a data-page="involve" class="btn-nav">Get Involved</a>
         </div>
         <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
@@ -1064,6 +1169,7 @@
         <a data-page="performances">Performances</a>
         <a data-page="resources">Resources</a>
         <a data-page="happenings">Happenings</a>
+        <a data-page="blog">Blog</a>
         <a data-page="involve">Get Involved</a>
     </div>
 
@@ -2056,6 +2162,76 @@
     </div>
 
     <!-- ================================================================ -->
+    <!-- PAGE: BLOG (listing)                                             -->
+    <!-- ================================================================ -->
+    <div class="page" id="page-blog">
+        <div class="page-hero">
+            <h1>Blog</h1>
+            <p>Thoughts on music, neurodiversity, and building an inclusive community</p>
+        </div>
+
+        <div class="page-section">
+            <div class="blog-list">
+                <div class="blog-preview" onclick="navigateTo('blog-brain-on-keys')">
+                    <div class="blog-preview-body">
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar-alt"></i> September 15, 2025</span>
+                            <span><i class="fas fa-user"></i> Meining Wu</span>
+                            <span><i class="fas fa-clock"></i> 3 min read</span>
+                        </div>
+                        <h3><a>The Brain on Keys: Growing Minds and Building Community</a></h3>
+                        <p class="blog-excerpt">When one of our students sits down at the piano with a mentor, it honestly just looks like they are learning to press the right keys. But there is actually so much more going on beneath the surface...</p>
+                        <span class="blog-read-more">Read More <i class="fas fa-arrow-right" style="font-size: 0.75rem;"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- PAGE: BLOG ARTICLE - Brain on Keys                               -->
+    <!-- ================================================================ -->
+    <div class="page" id="page-blog-brain-on-keys">
+        <div class="page-section" style="padding-top: 3rem;">
+            <div class="blog-article">
+                <span class="blog-back" data-page="blog"><i class="fas fa-arrow-left"></i> Back to Blog</span>
+
+                <div class="blog-article-header">
+                    <h1>The Brain on Keys: Growing Minds and Building Community</h1>
+                    <div class="blog-article-meta">
+                        <span><i class="fas fa-calendar-alt"></i> September 15, 2025</span>
+                        <span><i class="fas fa-user"></i> Meining Wu</span>
+                        <span><i class="fas fa-clock"></i> 3 min read</span>
+                    </div>
+                    <div class="blog-article-divider"></div>
+                </div>
+
+                <div class="blog-article-body">
+                    <p>When one of our students sits down at the piano with a mentor, it honestly just looks like they are learning to press the right keys. But there is actually so much more going on beneath the surface.</p>
+
+                    <p>At Equal Keys for All, we know that learning an instrument is about way more than just making music. It is really about creating a safe and supportive space where neurodiverse kids can just be themselves and thrive. Piano is a beautiful instrument, but it is also a totally amazing tool for building cognitive strength and emotional resilience.</p>
+
+                    <p>Here is a look at the hidden brain-boosting benefits we get to see in our lessons every single week.</p>
+
+                    <h3>1. Building Patience and Focus</h3>
+                    <p>You know that feeling when you have to juggle a million things at once? That is your brain's executive function at work. It is basically the management system that helps us hold attention, switch tasks, and manage our impulses. Playing the piano naturally strengthens this system in a super engaging way. A student has to read a note, translate it to their fingers, and listen to the sound all at the exact same time. When a student plays a wrong note, takes a deep breath, and tries the measure again, they are not just learning a song. They are actively practicing the kind of patience and self-control that helps them out in the classroom and in real life.</p>
+
+                    <h3>2. Two Hands Working Together</h3>
+                    <p>One of the biggest hurdles and honestly the greatest triumphs in piano is getting the left and right hands to play totally different parts at the exact same time. This physical coordination actually forces the two hemispheres of the brain to communicate more efficiently. As a teacher, there is really nothing quite like watching a student's face light up when they finally get both hands to work together. That "I actually did it!" moment builds a massive amount of lasting confidence.</p>
+
+                    <h3>3. Finding Calm in the Rhythm</h3>
+                    <p>The world can be a really overwhelming place, especially for neurodivergent kids. In our practice spaces, we get to witness the calming effect of rhythm firsthand. The brain naturally syncs to a steady beat, which can actually help soothe a racing mind and calm the nervous system down. Finding the groove of a simple melody gives our students a comfortable and structured outlet to process their emotions. And the best part is they do not even need to find the right words to do it.</p>
+
+                    <h3>4. Redefining Success Together</h3>
+                    <p>The absolute best part of this whole initiative is that we get to redefine what success looks like. A great lesson is not measured by a flawless performance. Often, the real victory is a student keeping their focus for five whole minutes, laughing through a super challenging scale, or sharing a high-five with their mentor.</p>
+
+                    <p>By making these lessons accessible, we are doing way more than just teaching chords and scales. We are building a community where every student has the support they need to unlock their own potential, one key at a time.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================ -->
     <!-- PAGE: HAPPENINGS                                                 -->
     <!-- ================================================================ -->
     <div class="page" id="page-happenings">
@@ -2264,6 +2440,7 @@
                     <li><a data-page="performances">Performances</a></li>
                     <li><a data-page="resources">Resources</a></li>
                     <li><a data-page="happenings">Happenings</a></li>
+                    <li><a data-page="blog">Blog</a></li>
                     <li><a data-page="involve">Get Involved</a></li>
                 </ul>
             </div>
