@@ -225,6 +225,133 @@
             margin: 1rem auto 0;
         }
 
+        /* ===== HOMEPAGE STATS & IMPACT ===== */
+        .stats-section {
+            background: var(--primary-dark);
+            color: var(--primary-light);
+            padding: 5rem 5%;
+            text-align: center;
+        }
+        .stats-section .section-title { color: var(--primary-light); }
+        .stats-section .section-title::after { background: var(--accent-gold); }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 1000px;
+            margin: 0 auto 2rem;
+        }
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+        .stat-label {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+        .stat-source {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 0.3rem;
+            font-style: italic;
+        }
+        .stats-summary {
+            max-width: 750px;
+            margin: 2.5rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+        }
+
+        .neuro-section {
+            background: var(--bg-off-white);
+            padding: 5rem 5%;
+        }
+        .neuro-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: var(--text-grey);
+            font-size: 1.05rem;
+        }
+        .neuro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .neuro-card {
+            background: var(--primary-light);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--accent-gold);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .neuro-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .neuro-card h4 {
+            font-size: 1.15rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.6rem;
+        }
+        .neuro-card h4 i {
+            color: var(--accent-gold);
+            margin-right: 0.4rem;
+        }
+        .neuro-card p {
+            color: var(--text-grey);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .impact-quote-section {
+            background: var(--primary-dark);
+            padding: 5rem 5%;
+            text-align: center;
+        }
+        .impact-quote {
+            max-width: 850px;
+            margin: 0 auto;
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 1.55rem;
+            font-style: italic;
+            color: var(--primary-light);
+            line-height: 1.9;
+            position: relative;
+            padding: 0 2rem;
+        }
+        .impact-quote::before {
+            content: '\201C';
+            font-size: 6rem;
+            color: var(--accent-gold);
+            opacity: 0.4;
+            position: absolute;
+            top: -2.5rem;
+            left: -0.5rem;
+            font-family: 'Georgia', serif;
+            line-height: 1;
+        }
+        .impact-quote-source {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
         /* Page hero banners */
         .page-hero {
             background: var(--primary-dark);
@@ -691,6 +818,8 @@
         /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
             .home-cards { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .neuro-grid { grid-template-columns: 1fr; }
             .founder-container { grid-template-columns: 1fr; text-align: center; }
             .founder-social { justify-content: center; }
             .pillars-grid { grid-template-columns: 1fr; }
@@ -709,6 +838,8 @@
             .nav-links { display: none; }
             .mobile-menu-btn { display: block; }
             .section-title { font-size: 2rem; }
+            .stat-number { font-size: 3.2rem; }
+            .impact-quote { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -773,6 +904,60 @@
                 <h3>Award-Winning Instructors</h3>
                 <p>Led by nationally recognized young pianists who volunteer their talent to serve the community.</p>
             </div>
+        </div>
+
+        <!-- Section 1: Statistics -->
+        <div class="stats-section">
+            <h2 class="section-title">The Growing Need for Accessible Music Education</h2>
+            <div style="height: 2rem;"></div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">1 in 31</div>
+                    <p class="stat-label">U.S. 8-year-olds identified with Autism Spectrum Disorder</p>
+                    <p class="stat-source">CDC, 2024</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">11.4%</div>
+                    <p class="stat-label">Of U.S. children (1 in 9) diagnosed with ADHD</p>
+                    <p class="stat-source">CDC, 2024</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <p class="stat-label">Of these neurodivergent students who can benefit cognitively and emotionally from structured music education</p>
+                    <p class="stat-source">&nbsp;</p>
+                </div>
+            </div>
+            <p class="stats-summary">Millions of neurodivergent children across the U.S. stand to gain profound cognitive, emotional, and social benefits from music&mdash;yet most traditional programs are not designed to include them. <strong style="color: var(--accent-gold);">Equal Keys for All exists to change that.</strong></p>
+        </div>
+
+        <!-- Section 2: Neuroscience -->
+        <div class="neuro-section">
+            <h2 class="section-title">The Neuroscience of Piano &amp; Neurodiversity</h2>
+            <p class="neuro-intro">What happens to the neurodivergent brain on music?</p>
+            <div class="neuro-grid">
+                <div class="neuro-card">
+                    <h4><i class="fas fa-brain"></i> Brain Connectivity</h4>
+                    <p>Long-term music training increases the volume of the corpus callosum, improving communication between the left and right hemispheres.</p>
+                </div>
+                <div class="neuro-card">
+                    <h4><i class="fas fa-chart-line"></i> Symptom Reduction</h4>
+                    <p>Meta-analyses show a significant reduction (SMD = -0.66) in behavioral symptoms and social communication difficulties in autistic children following music-based interventions.</p>
+                </div>
+                <div class="neuro-card">
+                    <h4><i class="fas fa-bolt"></i> ADHD &amp; Executive Function</h4>
+                    <p>Active music-making improves "hemispheric synchrony," which has been clinically shown to decrease impulsivity and improve sustained attention and timing skills in youth with ADHD.</p>
+                </div>
+                <div class="neuro-card">
+                    <h4><i class="fas fa-users"></i> Social Engagement</h4>
+                    <p>Group and 1-on-1 music lessons encourage joint attention, eye contact, and turn-taking without the pressure of standard conversational social cues.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Impact Quote -->
+        <div class="impact-quote-section">
+            <p class="impact-quote">Playing an instrument engages practically every area of the brain at once&mdash;especially the visual, auditory, and motor cortices. For neurodiverse youth, learning the piano isn't just an art form; it is a neurological workout that strengthens executive functioning, emotional regulation, and self-esteem.</p>
+            <p class="impact-quote-source">The Science of Music &amp; The Brain</p>
         </div>
     </div>
 
