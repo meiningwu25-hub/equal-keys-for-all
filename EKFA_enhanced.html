@@ -972,6 +972,66 @@
             .hero-stat { padding: 0; }
             .hero-stat-number { font-size: 2.5rem; }
         }
+
+        /* Happenings ticker on homepage */
+        .happenings-ticker-wrap {
+            background: var(--primary-dark);
+            border-bottom: 2px solid var(--accent-gold);
+            overflow: hidden;
+            position: relative;
+            padding: 0.6rem 0;
+        }
+        .ticker-label {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+            z-index: 2;
+            font-family: 'Playfair Display', serif;
+        }
+        .ticker-label i { margin-right: 0.4rem; }
+        .ticker-track {
+            display: flex;
+            animation: ticker-scroll 35s linear infinite;
+            padding-left: 140px;
+        }
+        .ticker-track:hover { animation-play-state: paused; }
+        @keyframes ticker-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .ticker-item {
+            white-space: nowrap;
+            color: rgba(255,255,255,0.85);
+            font-size: 0.85rem;
+            padding: 0 2.5rem;
+            cursor: pointer;
+        }
+        .ticker-item:hover { color: var(--accent-gold); }
+        .ticker-item i { color: var(--accent-gold); margin-right: 0.4rem; font-size: 0.75rem; }
+        .ticker-sep { color: var(--accent-gold); opacity: 0.4; padding: 0 0.5rem; }
+
+        /* Happenings page image */
+        .happening-image {
+            margin-top: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .happening-image img {
+            width: 100%;
+            display: block;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
@@ -988,6 +1048,7 @@
             <a data-page="performances">Performances</a>
             <a data-page="resources">Resources</a>
             <a data-page="competitions">Competitions</a>
+            <a data-page="happenings"><i class="fas fa-newspaper" style="margin-right:3px;"></i> Happenings</a>
             <a data-page="involve" class="btn-nav">Get Involved</a>
         </div>
         <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
@@ -1004,6 +1065,7 @@
         <a data-page="performances">Performances</a>
         <a data-page="resources">Resources</a>
         <a data-page="competitions">Competitions</a>
+        <a data-page="happenings">Happenings</a>
         <a data-page="involve">Get Involved</a>
     </div>
 
@@ -1056,35 +1118,22 @@
             </div>
         </div>
 
-        <!-- Happenings - In the Spotlight -->
-        <div class="happenings-section">
-            <h2 class="section-title">Happenings &mdash; In the Spotlight</h2>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Recent news and achievements from our community</p>
-            <div class="happenings-timeline">
-                <div class="happening-item">
-                    <div class="happening-dot"></div>
-                    <div class="happening-date">March 31, 2026</div>
-                    <div class="happening-content">
-                        <h4><i class="fas fa-trophy"></i> TSIPF Concerto Competition Winner</h4>
-                        <p>Congratulations to our founder <strong>Meining Wu</strong> for winning the <strong>2026 Texas State International Piano Festival Concerto Competition</strong>! She will perform Rachmaninoff's Piano Concerto No. 2, Mvt. 3 with the Central Texas Philharmonic at the festival's Finale Concert on <strong>June 13th, 2026</strong>.</p>
-                    </div>
-                </div>
-                <div class="happening-item">
-                    <div class="happening-dot"></div>
-                    <div class="happening-date">March 28, 2026</div>
-                    <div class="happening-content">
-                        <h4><i class="fas fa-medal"></i> MTAC Regional 1st Place Winners</h4>
-                        <p>Congratulations to our founder <strong>Meining Wu</strong> and member <strong>Ethan Li</strong> for winning <strong>Regional 1st Place</strong> in the 2026 MTAC Piano Concerto and Solo Competition categories! They will compete at the <strong>State Finals at the MTAC Convention in June</strong>.</p>
-                    </div>
-                </div>
-                <div class="happening-item">
-                    <div class="happening-dot"></div>
-                    <div class="happening-date">March 21, 2026</div>
-                    <div class="happening-content">
-                        <h4><i class="fas fa-star"></i> Marilyn Mindell 1st Place &amp; Best Sonata Award</h4>
-                        <p>Congratulations to our founder <strong>Meining Wu</strong> for winning <strong>1st Place and Best Sonata Award</strong> in the 2026 Marilyn Mindell Piano Competition Senior Division! She will perform Rachmaninoff's Piano Concerto No. 2, Mvt. 1 with the Peninsula Symphony on <strong>Sun, April 12, 2026 at 3 PM</strong> at Aragon High School Theatre. <a href="https://www.eventbrite.com/e/peninsula-symphony-family-concert-2026-tickets-1985477013194?aff=oddtdtcreator" target="_blank" rel="noopener">Click here to claim your FREE tickets <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i></a></p>
-                    </div>
-                </div>
+        <!-- Happenings scrolling ticker -->
+        <div class="happenings-ticker-wrap">
+            <div class="ticker-label"><i class="fas fa-bolt"></i> Happenings</div>
+            <div class="ticker-track" data-page-link="happenings">
+                <span class="ticker-item" data-page="happenings"><i class="fas fa-trophy"></i> Mar 31 &mdash; Meining Wu wins TSIPF Concerto Competition! Performing Rach 2 with Central Texas Philharmonic, June 13</span>
+                <span class="ticker-sep">&bull;</span>
+                <span class="ticker-item" data-page="happenings"><i class="fas fa-medal"></i> Mar 28 &mdash; Meining Wu &amp; Ethan Li win MTAC Regional 1st Place! Competing at State Finals in June</span>
+                <span class="ticker-sep">&bull;</span>
+                <span class="ticker-item" data-page="happenings"><i class="fas fa-star"></i> Mar 21 &mdash; Meining Wu wins Marilyn Mindell 1st Place &amp; Best Sonata! FREE tickets for Peninsula Symphony concert Apr 12</span>
+                <span class="ticker-sep">&bull;</span>
+                <span class="ticker-item" data-page="happenings"><i class="fas fa-trophy"></i> Mar 31 &mdash; Meining Wu wins TSIPF Concerto Competition! Performing Rach 2 with Central Texas Philharmonic, June 13</span>
+                <span class="ticker-sep">&bull;</span>
+                <span class="ticker-item" data-page="happenings"><i class="fas fa-medal"></i> Mar 28 &mdash; Meining Wu &amp; Ethan Li win MTAC Regional 1st Place! Competing at State Finals in June</span>
+                <span class="ticker-sep">&bull;</span>
+                <span class="ticker-item" data-page="happenings"><i class="fas fa-star"></i> Mar 21 &mdash; Meining Wu wins Marilyn Mindell 1st Place &amp; Best Sonata! FREE tickets for Peninsula Symphony concert Apr 12</span>
+                <span class="ticker-sep">&bull;</span>
             </div>
         </div>
 
@@ -2015,6 +2064,48 @@
     </div>
 
     <!-- ================================================================ -->
+    <!-- PAGE: HAPPENINGS                                                 -->
+    <!-- ================================================================ -->
+    <div class="page" id="page-happenings">
+        <div class="page-hero">
+            <h1>Happenings &mdash; In the Spotlight</h1>
+            <p>Recent news and achievements from our community</p>
+        </div>
+
+        <div class="happenings-section" style="padding-top: 3rem;">
+            <div class="happenings-timeline">
+                <div class="happening-item">
+                    <div class="happening-dot"></div>
+                    <div class="happening-date">March 31, 2026</div>
+                    <div class="happening-content">
+                        <h4><i class="fas fa-trophy"></i> TSIPF Concerto Competition Winner</h4>
+                        <p>Congratulations to our founder <strong>Meining Wu</strong> for winning the <strong>2026 Texas State International Piano Festival Concerto Competition</strong>! She will perform Rachmaninoff's Piano Concerto No. 2, Mvt. 3 with the Central Texas Philharmonic at the festival's Finale Concert on <strong>June 13th, 2026</strong>.</p>
+                    </div>
+                </div>
+                <div class="happening-item">
+                    <div class="happening-dot"></div>
+                    <div class="happening-date">March 28, 2026</div>
+                    <div class="happening-content">
+                        <h4><i class="fas fa-medal"></i> MTAC Regional 1st Place Winners</h4>
+                        <p>Congratulations to our founder <strong>Meining Wu</strong> and member <strong>Ethan Li</strong> for winning <strong>Regional 1st Place</strong> in the 2026 MTAC Piano Concerto and Solo Competition categories! They will compete at the <strong>State Finals at the MTAC Convention in June</strong>.</p>
+                    </div>
+                </div>
+                <div class="happening-item">
+                    <div class="happening-dot"></div>
+                    <div class="happening-date">March 21, 2026</div>
+                    <div class="happening-content">
+                        <h4><i class="fas fa-star"></i> Marilyn Mindell 1st Place &amp; Best Sonata Award</h4>
+                        <p>Congratulations to our founder <strong>Meining Wu</strong> for winning <strong>1st Place and Best Sonata Award</strong> in the 2026 Marilyn Mindell Piano Competition Senior Division! She will perform Rachmaninoff's Piano Concerto No. 2, Mvt. 3 with the Peninsula Symphony on <strong>Sun, April 12, 2026 at 3 PM</strong> at Aragon High School Theatre. <a href="https://www.eventbrite.com/e/peninsula-symphony-family-concert-2026-tickets-1985477013194?aff=oddtdtcreator" target="_blank" rel="noopener">Click here to claim your FREE tickets <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i></a></p>
+                        <div class="happening-image">
+                            <img src="medias/Peninsula.png" alt="Peninsula Symphony Family Concert" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================ -->
     <!-- PAGE: GET INVOLVED                                               -->
     <!-- ================================================================ -->
     <div class="page" id="page-involve">
@@ -2181,6 +2272,7 @@
                     <li><a data-page="performances">Performances</a></li>
                     <li><a data-page="resources">Resources</a></li>
                     <li><a data-page="competitions">Competitions</a></li>
+                    <li><a data-page="happenings">Happenings</a></li>
                     <li><a data-page="involve">Get Involved</a></li>
                 </ul>
             </div>
