@@ -143,8 +143,8 @@
 
         /* ===== HERO (Home) ===== */
         .hero {
-            height: calc(100vh - 60px);
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('medias/2025Fall/IMG_4517.JPG');
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('medias/2025Fall/IMG_4517.JPG');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -178,6 +178,47 @@
         .btn-hero:hover { background: var(--primary-light); transform: scale(1.05); }
         .btn-hero.outline { background: transparent; border: 2px solid var(--primary-light); color: var(--primary-light); }
         .btn-hero.outline:hover { background: var(--primary-light); color: var(--primary-dark); }
+
+        /* Hero integrated stats */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        .hero-stat {
+            text-align: center;
+            padding: 0 2rem;
+        }
+        .hero-stat-number {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+            font-style: italic;
+        }
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.4;
+        }
+        .hero-stat-divider {
+            width: 1px;
+            height: 50px;
+            background: rgba(255,255,255,0.25);
+        }
+        .hero-stats-tagline {
+            margin-top: 1.5rem;
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 0.5px;
+        }
+        .hero-stats-tagline strong { color: var(--accent-gold); }
 
         /* Home cards below hero */
         .home-cards {
@@ -840,6 +881,10 @@
             .section-title { font-size: 2rem; }
             .stat-number { font-size: 3.2rem; }
             .impact-quote { font-size: 1.2rem; }
+            .hero-stats { flex-direction: column; gap: 1.5rem; }
+            .hero-stat-divider { width: 60px; height: 1px; }
+            .hero-stat { padding: 0; }
+            .hero-stat-number { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -886,6 +931,25 @@
                 <p>Championing equality through music. A completely free, nonprofit initiative providing inclusive piano and music instruction for under-resourced and neurodiverse youth&mdash;volunteered by San Jose's award-winning young pianists.</p>
                 <a class="btn-hero" data-page="involve">Get Involved</a>
                 <a class="btn-hero outline" data-page="gallery"><i class="fas fa-play"></i> Watch Our Story</a>
+
+                <!-- Stats integrated into hero -->
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">1 in 31</div>
+                        <p class="hero-stat-label">U.S. children identified with ASD</p>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">11.4%</div>
+                        <p class="hero-stat-label">Of U.S. children diagnosed with ADHD</p>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">100%</div>
+                        <p class="hero-stat-label">Can benefit from structured music education</p>
+                    </div>
+                </div>
+                <p class="hero-stats-tagline">The need is real. The science is clear. <strong>Music changes brains.</strong></p>
             </div>
         </header>
         <div class="home-cards">
@@ -904,30 +968,6 @@
                 <h3>Award-Winning Instructors</h3>
                 <p>Led by nationally recognized young pianists who volunteer their talent to serve the community.</p>
             </div>
-        </div>
-
-        <!-- Section 1: Statistics -->
-        <div class="stats-section">
-            <h2 class="section-title">The Growing Need for Accessible Music Education</h2>
-            <div style="height: 2rem;"></div>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">1 in 31</div>
-                    <p class="stat-label">U.S. 8-year-olds identified with Autism Spectrum Disorder</p>
-                    <p class="stat-source">CDC, 2024</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">11.4%</div>
-                    <p class="stat-label">Of U.S. children (1 in 9) diagnosed with ADHD</p>
-                    <p class="stat-source">CDC, 2024</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <p class="stat-label">Of these neurodivergent students who can benefit cognitively and emotionally from structured music education</p>
-                    <p class="stat-source">&nbsp;</p>
-                </div>
-            </div>
-            <p class="stats-summary">Millions of neurodivergent children across the U.S. stand to gain profound cognitive, emotional, and social benefits from music&mdash;yet most traditional programs are not designed to include them. <strong style="color: var(--accent-gold);">Equal Keys for All exists to change that.</strong></p>
         </div>
 
         <!-- Section 2: Neuroscience -->
