@@ -144,7 +144,7 @@
         /* ===== HERO (Home) ===== */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('medias/2025Fall/IMG_4517.JPG');
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('medias/gallery/cover/cover.png');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -204,7 +204,7 @@
         }
         .hero-stat-label {
             font-size: 0.85rem;
-            color: rgba(255,255,255,0.75);
+            color: #fff;
             line-height: 1.4;
         }
         .hero-stat-divider {
@@ -841,7 +841,9 @@
         .involve-card strong { color: var(--accent-gold); }
 
         /* Contact area */
-        .contact-section { text-align: center; }
+        .contact-section { text-align: center; background: #fff; color: #000; }
+        .contact-section .section-title { color: #000; }
+        .contact-section .section-subtitle { color: #000; }
         .contact-methods {
             display: flex;
             justify-content: center;
@@ -850,8 +852,8 @@
             margin-bottom: 2rem;
         }
         .contact-method { text-align: center; }
-        .contact-method i { font-size: 2rem; color: var(--accent-gold); margin-bottom: 0.5rem; display: block; }
-        .contact-method p { color: var(--text-grey); }
+        .contact-method i { font-size: 2rem; color: #000; margin-bottom: 0.5rem; display: block; }
+        .contact-method p { color: #000; }
         .contact-btn {
             display: inline-block;
             border: 2px solid var(--accent-gold);
@@ -1210,21 +1212,21 @@
                 <!-- Stats integrated into hero -->
                 <div class="hero-stats">
                     <div class="hero-stat">
-                        <div class="hero-stat-number">1 in 31</div>
+                        <div class="hero-stat-number" style="color: #E8D48B;">1 in 31</div>
                         <p class="hero-stat-label">U.S. children identified with ASD</p>
                     </div>
                     <div class="hero-stat-divider"></div>
                     <div class="hero-stat">
-                        <div class="hero-stat-number">11.4%</div>
+                        <div class="hero-stat-number" style="color: #E8D48B;">11.4%</div>
                         <p class="hero-stat-label">Of U.S. children diagnosed with ADHD</p>
                     </div>
                     <div class="hero-stat-divider"></div>
                     <div class="hero-stat">
-                        <div class="hero-stat-number">100%</div>
+                        <div class="hero-stat-number" style="color: #E8D48B;">100%</div>
                         <p class="hero-stat-label">Can benefit from structured music education</p>
                     </div>
                 </div>
-                <p class="hero-stats-tagline">The need is real. The science is clear. <strong>Music changes brains.</strong></p>
+                <p class="hero-stats-tagline" style="color: #fff;">The need is real. The science is clear. <strong style="color: #E8D48B;">Music changes brains.</strong></p>
             </div>
         </header>
         <div class="home-cards">
@@ -1718,7 +1720,7 @@
                         <a href="https://www.youtube.com/@MeiningWu" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:contact@equalkeysforall.org"><i class="fas fa-envelope"></i></a>
+                        <a href="mailto:contact@equalkeys.org"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
@@ -2607,10 +2609,29 @@
                         <li><strong>Support Our Outreach:</strong> Help us organize materials, assist in our tactile art classes, or coordinate our community center events.</li>
                     </ul>
                 </div>
+                <div class="involve-card" style="margin: 0 auto;">
+                    <svg viewBox="0 0 220 120" style="display:block;margin:0 auto 1.5rem;width:200px;" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Heart -->
+                        <path d="M110 45 C110 35 95 32 95 45 C95 58 110 67 110 67 C110 67 125 58 125 45 C125 32 110 35 110 45Z" fill="#c5a059" opacity="0.25"/>
+                        <!-- Dollar sign -->
+                        <text x="110" y="58" font-size="18" fill="#c5a059" opacity="0.6" text-anchor="middle" font-weight="bold">$</text>
+                        <!-- Hands cupping -->
+                        <path d="M60 80 Q85 95 110 85 Q135 95 160 80" stroke="#c5a059" stroke-width="2" fill="none" opacity="0.3"/>
+                        <path d="M50 85 Q60 75 60 80" stroke="#c5a059" stroke-width="2" fill="none" opacity="0.3"/>
+                        <path d="M170 85 Q160 75 160 80" stroke="#c5a059" stroke-width="2" fill="none" opacity="0.3"/>
+                        <!-- Sparkles -->
+                        <circle cx="80" cy="35" r="2" fill="#c5a059" opacity="0.3"/>
+                        <circle cx="140" cy="35" r="2" fill="#c5a059" opacity="0.3"/>
+                        <text x="110" y="110" font-size="7" fill="#c5a059" opacity="0.3" text-anchor="middle">give back</text>
+                    </svg>
+                    <h3><i class="fas fa-heart"></i> Donate</h3>
+                    <p>Your generous contribution helps us provide free adaptive piano lessons, art supplies, and sensory-friendly materials to underserved youth in our community.</p>
+                    <ul>
+                        <li><strong>Every Dollar Counts:</strong> 100% of donations go directly to funding lessons, instruments, and program materials.</li>
+                    </ul>
+                    <a href="mailto:contact@equalkeys.org?subject=Donation Inquiry" class="involve-donate-btn" style="display:inline-block;margin-top:1rem;padding:0.7rem 1.5rem;background:var(--accent-gold);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;"><i class="fas fa-donate"></i> Make a Donation</a>
+                </div>
             </div>
-        </div>
-
-        <!-- Contact -->
         <div class="page-section contact-section">
             <h2 class="section-title">Contact Us</h2>
             <!-- SVG: Envelope with musical notes -->
@@ -2636,7 +2657,7 @@
             <div class="contact-methods">
                 <div class="contact-method">
                     <i class="fas fa-envelope"></i>
-                    <p>contact@equalkeysforall.org</p>
+                    <p>contact@equalkeys.org</p>
                 </div>
                 <div class="contact-method">
                     <i class="fas fa-map-marker-alt"></i>
@@ -2647,8 +2668,8 @@
                     <p>@equalkeysforall</p>
                 </div>
             </div>
-            <a href="mailto:contact@equalkeysforall.org" class="contact-btn filled"><i class="fas fa-envelope"></i> Email Us</a>
-            <a href="mailto:contact@equalkeysforall.org?subject=Trial Lesson Inquiry" class="contact-btn"><i class="fas fa-calendar-check"></i> Schedule a Trial Lesson</a>
+            <a href="mailto:contact@equalkeys.org" class="contact-btn filled"><i class="fas fa-envelope"></i> Email Us</a>
+            <a href="mailto:contact@equalkeys.org?subject=Trial Lesson Inquiry" class="contact-btn"><i class="fas fa-calendar-check"></i> Schedule a Trial Lesson</a>
         </div>
     </div>
 
