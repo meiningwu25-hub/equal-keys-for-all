@@ -1183,19 +1183,7 @@
     <!-- Happenings scrolling ticker (global, fixed under nav) -->
     <div class="happenings-ticker-wrap">
         <div class="ticker-label"><i class="fas fa-bolt"></i> Happenings</div>
-        <div class="ticker-track" data-page-link="happenings">
-            <span class="ticker-item" data-page="happenings"><i class="fas fa-trophy"></i> Mar 31, 2026 &mdash; Meining Wu wins TSIPF Concerto Competition! Performing Rach 2 with Central Texas Philharmonic, June 13</span>
-            <span class="ticker-sep">&bull;</span>
-            <span class="ticker-item" data-page="happenings"><i class="fas fa-medal"></i> Mar 28, 2026 &mdash; Meining Wu &amp; Ethan Li win MTAC Regional 1st Place! Competing at State Finals in June</span>
-            <span class="ticker-sep">&bull;</span>
-            <span class="ticker-item" data-page="happenings"><i class="fas fa-star"></i> Mar 21, 2026 &mdash; Meining Wu wins Marilyn Mindell 1st Place &amp; Best Sonata! FREE tickets for Peninsula Symphony concert Apr 12</span>
-            <span class="ticker-sep">&bull;</span>
-            <span class="ticker-item" data-page="happenings"><i class="fas fa-trophy"></i> Mar 31, 2026 &mdash; Meining Wu wins TSIPF Concerto Competition! Performing Rach 2 with Central Texas Philharmonic, June 13</span>
-            <span class="ticker-sep">&bull;</span>
-            <span class="ticker-item" data-page="happenings"><i class="fas fa-medal"></i> Mar 28, 2026 &mdash; Meining Wu &amp; Ethan Li win MTAC Regional 1st Place! Competing at State Finals in June</span>
-            <span class="ticker-sep">&bull;</span>
-            <span class="ticker-item" data-page="happenings"><i class="fas fa-star"></i> Mar 21, 2026 &mdash; Meining Wu wins Marilyn Mindell 1st Place &amp; Best Sonata! FREE tickets for Peninsula Symphony concert Apr 12</span>
-            <span class="ticker-sep">&bull;</span>
+        <div class="ticker-track" data-page-link="happenings" id="ticker-track">
         </div>
     </div>
 
@@ -2781,6 +2769,23 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeLightbox();
         });
+        // ===== AUTO-POPULATE TICKER FROM HAPPENINGS =====
+        (function() {
+            var track = document.getElementById('ticker-track');
+            var items = document.querySelectorAll('.happenings-timeline .happening-item');
+            var icons = ['fa-star', 'fa-trophy', 'fa-medal', 'fa-music', 'fa-bolt'];
+            var html = '';
+            items.forEach(function(item, i) {
+                var date = item.querySelector('.happening-date').textContent.trim();
+                var title = item.querySelector('.happening-content h4').textContent.trim();
+                var icon = icons[i % icons.length];
+                html += '<span class="ticker-item" data-page="happenings"><i class="fas ' + icon + '"></i> ' + date + ' — ' + title + '</span>';
+                html += '<span class="ticker-sep">&bull;</span>';
+            });
+            // Duplicate for seamless loop
+            track.innerHTML = html + html;
+        })();
+
     </script>
 </body>
 </html>
