@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equal Keys for All | Inclusive Piano Education</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://www.equalkeys.org/">
     <meta name="description" content="Equal Keys for All provides free, inclusive piano and music instruction for under-resourced and neurodiverse youth in San Jose, CA.">
     <meta property="og:title" content="Equal Keys for All | Inclusive Piano Education">
     <meta property="og:description" content="Championing equality through music. Free, nonprofit piano instruction for under-resourced and neurodiverse youth in San Jose.">
+    <meta property="og:url" content="https://www.equalkeys.org/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="medias/2025Fall/IMG_4517.JPG">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -144,7 +147,7 @@
         /* ===== HERO (Home) ===== */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('medias/2025Fall/IMG_4517.JPG');
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('medias/gallery/cover/cover.png');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -204,7 +207,7 @@
         }
         .hero-stat-label {
             font-size: 0.85rem;
-            color: rgba(255,255,255,0.75);
+            color: #fff;
             line-height: 1.4;
         }
         .hero-stat-divider {
@@ -710,7 +713,7 @@
 
         /* Video section */
         .video-container {
-            max-width: 900px;
+            max-width: 600px;
             margin: 0 auto;
             border-radius: 12px;
             overflow: hidden;
@@ -841,7 +844,9 @@
         .involve-card strong { color: var(--accent-gold); }
 
         /* Contact area */
-        .contact-section { text-align: center; }
+        .contact-section { text-align: center; background: #fff; color: #000; }
+        .contact-section .section-title { color: #000; }
+        .contact-section .section-subtitle { color: #000; }
         .contact-methods {
             display: flex;
             justify-content: center;
@@ -850,8 +855,8 @@
             margin-bottom: 2rem;
         }
         .contact-method { text-align: center; }
-        .contact-method i { font-size: 2rem; color: var(--accent-gold); margin-bottom: 0.5rem; display: block; }
-        .contact-method p { color: var(--text-grey); }
+        .contact-method i { font-size: 2rem; color: #000; margin-bottom: 0.5rem; display: block; }
+        .contact-method p { color: #000; }
         .contact-btn {
             display: inline-block;
             border: 2px solid var(--accent-gold);
@@ -1180,19 +1185,7 @@
     <!-- Happenings scrolling ticker (global, fixed under nav) -->
     <div class="happenings-ticker-wrap">
         <div class="ticker-label"><i class="fas fa-bolt"></i> Happenings</div>
-        <div class="ticker-track" data-page-link="happenings">
-            <span class="ticker-item" data-page="happenings"><i class="fas fa-trophy"></i> Mar 31, 2026 &mdash; Meining Wu wins TSIPF Concerto Competition! Performing Rach 2 with Central Texas Philharmonic, June 13</span>
-            <span class="ticker-sep">&bull;</span>
-            <span class="ticker-item" data-page="happenings"><i class="fas fa-medal"></i> Mar 28, 2026 &mdash; Meining Wu &amp; Ethan Li win MTAC Regional 1st Place! Competing at State Finals in June</span>
-            <span class="ticker-sep">&bull;</span>
-            <span class="ticker-item" data-page="happenings"><i class="fas fa-star"></i> Mar 21, 2026 &mdash; Meining Wu wins Marilyn Mindell 1st Place &amp; Best Sonata! FREE tickets for Peninsula Symphony concert Apr 12</span>
-            <span class="ticker-sep">&bull;</span>
-            <span class="ticker-item" data-page="happenings"><i class="fas fa-trophy"></i> Mar 31, 2026 &mdash; Meining Wu wins TSIPF Concerto Competition! Performing Rach 2 with Central Texas Philharmonic, June 13</span>
-            <span class="ticker-sep">&bull;</span>
-            <span class="ticker-item" data-page="happenings"><i class="fas fa-medal"></i> Mar 28, 2026 &mdash; Meining Wu &amp; Ethan Li win MTAC Regional 1st Place! Competing at State Finals in June</span>
-            <span class="ticker-sep">&bull;</span>
-            <span class="ticker-item" data-page="happenings"><i class="fas fa-star"></i> Mar 21, 2026 &mdash; Meining Wu wins Marilyn Mindell 1st Place &amp; Best Sonata! FREE tickets for Peninsula Symphony concert Apr 12</span>
-            <span class="ticker-sep">&bull;</span>
+        <div class="ticker-track" data-page-link="happenings" id="ticker-track">
         </div>
     </div>
 
@@ -1203,28 +1196,28 @@
         <header class="hero">
             <div class="hero-content">
                 <h1>Equal Keys for All</h1>
-                <p>Championing equality through music. A completely free, nonprofit initiative providing inclusive piano and music instruction for under-resourced and neurodiverse youth&mdash;volunteered by San Jose's award-winning young pianists.</p>
+                <p>Championing equality through music. A nonprofit initiative providing completely free piano lessons and music theory classes &mdash; an inclusive program prioritizing under-resourced and neurodiverse youth in Bay Area, volunteered by San Jose's award-winning young pianists.</p>
                 <a class="btn-hero" data-page="involve">Get Involved</a>
                 <a class="btn-hero outline" data-page="gallery"><i class="fas fa-play"></i> Watch Our Story</a>
 
                 <!-- Stats integrated into hero -->
                 <div class="hero-stats">
                     <div class="hero-stat">
-                        <div class="hero-stat-number">1 in 31</div>
+                        <div class="hero-stat-number" style="color: #E8D48B;">1 in 31</div>
                         <p class="hero-stat-label">U.S. children identified with ASD</p>
                     </div>
                     <div class="hero-stat-divider"></div>
                     <div class="hero-stat">
-                        <div class="hero-stat-number">11.4%</div>
+                        <div class="hero-stat-number" style="color: #E8D48B;">11.4%</div>
                         <p class="hero-stat-label">Of U.S. children diagnosed with ADHD</p>
                     </div>
                     <div class="hero-stat-divider"></div>
                     <div class="hero-stat">
-                        <div class="hero-stat-number">100%</div>
+                        <div class="hero-stat-number" style="color: #E8D48B;">100%</div>
                         <p class="hero-stat-label">Can benefit from structured music education</p>
                     </div>
                 </div>
-                <p class="hero-stats-tagline">The need is real. The science is clear. <strong>Music changes brains.</strong></p>
+                <p class="hero-stats-tagline" style="color: #fff;">The need is real. The science is clear. <strong style="color: #E8D48B;">Music changes brains.</strong></p>
             </div>
         </header>
         <div class="home-cards">
@@ -1710,26 +1703,24 @@
                 </div>
                 <div class="founder-text">
                     <h3>Meining Wu</h3>
-                    <h4>Founder & Principal Instructor</h4>
-                    <p>Meining Wu, junior at Valley Christian High School, San Jose, is an award-winning concert pianist and the founder of Equal Keys for All. An accomplished performer, she has taken the stage with the world-renowned Fort Worth Symphony Orchestra and earned accolades at prestigious events, including the Gina Bachauer, Ross McKee, and San Francisco International piano competitions. Her dedication to classical piano has also been recognized with merit scholarships from the National Chopin Foundation, the Frost Chopin Academy, Aspen Music Festival and School, and Boston University Tanglewood Institute.</p>
+                    <h4>Founder & Lead Teaching Artist</h4>
+                    <p>Meining Wu, 16, is a Junior and Conservatory Honors Fellow at Valley Christian High School studying piano under Hans Boepple. A two time US Chopin Foundation Scholar and recent inductee into the prestigious 2026 MTAC Young Artist Guild, California's highest high school music honor, she made her orchestral debut with the Fort Worth Symphony at age 13 and has since performed with the Central Texas Philharmonic and Golden State Youth Orchestra, and captured accolades at numerous prestigious events, including Gina Bachauer, Kaufman International, Ross McKee, Henry and Carol Zeiter, Bay Philharmonic, MTAC, CAPMT, and San Francisco International piano competitions. Meining's rigorous training includes selections for elite music festivals with merit scholarships such as Aspen, Frost Chopin Academy, Tanglewood (BUTI), PianoTexas, Juilliard Summer Piano, TSIPF, SEPF, and Vivace, as well as masterclasses with world class pianists like Dang Thai Son and Jean Efflam Bavouzet.</p>
                     <p>Beyond the concert stage, Meining's passion lies at the intersection of piano pedagogy, music cognition, and youth development. Recognizing the exclusionary nature of traditional music instruction, she launched the Equal Keys for All initiative after her eye-opening experiences teaching neurodiverse students and volunteering in local Title 1 schools.</p>
                     <p>The organization's core mission is to bridge the educational gap in the arts by providing accessible, adaptive piano instruction to under-resourced and special needs youth. By replacing rigid posture and rote memorization with kinetic engagement and radical empathy, Equal Keys for All empowers students to build cognitive confidence, experience emotional liberation, and find their own unique voice at the keyboard.</p>
                     <div class="founder-social">
                         <a href="https://www.youtube.com/@MeiningWu" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:contact@equalkeysforall.org"><i class="fas fa-envelope"></i></a>
+                        <a href="mailto:contact@equalkeys.org"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Volunteer Instructors -->
-            <h3 style="text-align: center; margin-bottom: 2rem; color: var(--accent-gold);">Volunteer Instructors</h3>
             <div class="instructors-grid">
                 <div class="instructor-card">
                     <img src="medias/Ethan.jpg" alt="Ethan Li" loading="lazy">
                     <h4>Ethan Li</h4>
-                    <h5>Volunteer Instructor</h5>
+                    <h5>Teaching Fellow</h5>
                     <ul>
                         <li>Chopin Foundation Scholarship Recipient (2025-2026)</li>
                         <li>MTAC Concerto Competition 1st Alternate (2025)</li>
@@ -1740,7 +1731,7 @@
                 <div class="instructor-card">
                     <img src="medias/Karen.jpg" alt="Karen Matsui" loading="lazy">
                     <h4>Karen Matsui</h4>
-                    <h5>Volunteer Instructor</h5>
+                    <h5>Teaching Fellow</h5>
                     <ul>
                         <li>Pittsburg International Competition Top Prize (2025)</li>
                         <li>Flagstaff Piano Festival Competition (2025)</li>
@@ -1767,8 +1758,8 @@
             <p class="section-subtitle">Watch how Equal Keys for All is making a difference in our community</p>
             <div class="video-container">
                 <video controls poster="medias/blurred/2025Fall/IMG_4517.JPG">
-                    <source src="medias/EKFA.mov" type="video/quicktime">
-                    <source src="medias/EKFA.mov" type="video/mp4">
+                    <source src="medias/gallery/EKFA_new.mov" type="video/quicktime">
+                    <source src="medias/gallery/EKFA_new.mov" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -1777,43 +1768,55 @@
         <!-- Photo Gallery -->
         <div class="page-section">
             <h2 class="section-title">Photo Gallery</h2>
-            <p class="section-subtitle">Click any photo to view full size</p>
+            <p class="section-subtitle">Free Piano and Theory Lessons in San Jose</p>
             <div class="gallery-grid">
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="medias/2025Fall/IMG_4517.JPG" alt="Piano lesson" loading="lazy">
+                    <img src="medias/gallery/IMG_4517.JPG" alt="Piano lesson" loading="lazy">
                     <div class="gallery-overlay"><strong>Piano Practice</strong><p>Building skills one note at a time</p></div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="medias/blurred/2025Fall/IMG_4514.JPG" alt="Group lesson" loading="lazy">
+                    <img src="medias/gallery/IMG_4514.JPG" alt="Group lesson" loading="lazy">
                     <div class="gallery-overlay"><strong>Group Sessions</strong><p>Learning together</p></div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="medias/blurred/2026-spring/IMG_9949.jpeg" alt="Student performance" loading="lazy">
+                    <img src="medias/gallery/IMG_9949.jpeg" alt="Student performance" loading="lazy">
                     <div class="gallery-overlay"><strong>Student Performance</strong><p>Showcasing talent</p></div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="medias/blurred/2026-spring/WechatIMG29071.jpg" alt="One-on-one instruction" loading="lazy">
-                    <div class="gallery-overlay"><strong>One-on-One Instruction</strong><p>Personalized learning</p></div>
+                    <img src="medias/gallery/IMG_0430.JPG" alt="Music moments" loading="lazy">
+                    <div class="gallery-overlay"><strong>Music Moments</strong><p>Sharing the gift of music</p></div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="medias/blurred/2026-spring/IMG_9950.jpeg" alt="Hands on keys" loading="lazy">
-                    <div class="gallery-overlay"><strong>Hands on the Keys</strong><p>Discovering the joy of music</p></div>
+                    <img src="medias/gallery/IMG_1825.JPG" alt="Community music" loading="lazy">
+                    <div class="gallery-overlay"><strong>Community Music</strong><p>Bringing people together through music</p></div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="medias/blurred/2026-spring/IMG_9954.jpeg" alt="Music session" loading="lazy">
-                    <div class="gallery-overlay"><strong>Music Session</strong><p>Every student finds their rhythm</p></div>
+                    <img src="medias/gallery/IMG_2102.JPG" alt="Piano session" loading="lazy">
+                    <div class="gallery-overlay"><strong>Piano Session</strong><p>Every student finds their rhythm</p></div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="medias/blurred/2026-spring/IMG_9955.jpeg" alt="Creative expression" loading="lazy">
+                    <img src="medias/gallery/IMG_2112.JPG" alt="Creative expression" loading="lazy">
                     <div class="gallery-overlay"><strong>Creative Expression</strong><p>Music as a path to self-discovery</p></div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="medias/blurred/2026-spring/IMG_9956.jpeg" alt="Community lesson" loading="lazy">
-                    <div class="gallery-overlay"><strong>Community Lesson</strong><p>Bringing music to everyone</p></div>
+                    <img src="medias/gallery/IMG_2330 2.JPG" alt="Learning together" loading="lazy">
+                    <div class="gallery-overlay"><strong>Learning Together</strong><p>Growing through shared experiences</p></div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="medias/blurred/2025Fall/IMG_3234.JPG" alt="Fall session" loading="lazy">
-                    <div class="gallery-overlay"><strong>Fall Session</strong><p>Moments of breakthrough</p></div>
+                    <img src="medias/gallery/IMG_2335 2.JPG" alt="Hands on keys" loading="lazy">
+                    <div class="gallery-overlay"><strong>Hands on the Keys</strong><p>Discovering the joy of music</p></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="medias/gallery/IMG_2338 2.JPG" alt="Musical journey" loading="lazy">
+                    <div class="gallery-overlay"><strong>Musical Journey</strong><p>Every note tells a story</p></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="medias/gallery/Screenshot 2026-04-03 at 01.20.48.png" alt="Program highlights" loading="lazy">
+                    <div class="gallery-overlay"><strong>Program Highlights</strong><p>Making a difference in our community</p></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="medias/gallery/pic1.png" alt="Equal Keys community" loading="lazy">
+                    <div class="gallery-overlay"><strong>Our Community</strong><p>Equal keys for all</p></div>
                 </div>
             </div>
         </div>
@@ -2390,6 +2393,12 @@
 
                     <h3>4. Creativity is a Giant Sandbox</h3>
                     <p>At the end of the day, we just want our students to feel totally free to express themselves. Whether they are blending colors on a palette or trying out a brand new chord progression, they are building their creative confidence. We want them to know that their ideas matter and that they have the power to create something beautiful from scratch. And that confidence is something nobody can ever take away from them.</p>
+
+                    <div style="margin-top: 2rem; text-align: center;">
+                        <img src="medias/Self Portrait.JPG" alt="Self Portrait by Meining Wu" style="max-width: 500px; width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.12);">
+                        <p style="margin-top: 0.75rem; font-style: italic; font-weight: 600;">Self Portrait (Meining Wu)</p>
+                        <p style="font-size: 0.9rem; color: var(--text-grey);">Scholastic Art and Writing Silver Key, Celebrating Arts High Merit Award</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2406,6 +2415,24 @@
 
         <div class="happenings-section" style="padding-top: 3rem;">
             <div class="happenings-timeline">
+                <div class="happening-item">
+                    <div class="happening-dot"></div>
+                    <div class="happening-date">April 5, 2026</div>
+                    <div class="happening-content">
+                        <h4><i class="fas fa-star"></i> A Massive Milestone: Meining Selected for MTAC Young Artist Guild!</h4>
+                        <p>Equal Keys for All is unbelievably excited to share some huge news with our community! Our founder, <strong>Meining Wu</strong>, was recently selected for the <strong>2026 Music Teachers Association of California Young Artist Guild</strong>. Getting into YAG is the absolute highest honor in the MTAC Certificate of Merit program. It is a true testament to her years of intense practice, and it means she will have the incredible opportunity to travel and perform at different branch concerts all across California!</p>
+                        <p>The absolute best part of this amazing achievement is that Meining brings everything she learned from this rigorous audition process right back here to <strong>Equal Keys for All</strong>. We are so incredibly excited for her to share all of these new performance skills and practice techniques with our amazing students. Thank you all so much for your endless support of our entire team!</p>
+                    </div>
+                </div>
+                <div class="happening-item">
+                    <div class="happening-dot"></div>
+                    <div class="happening-date">April 3, 2026</div>
+                    <div class="happening-content">
+                        <h4><i class="fas fa-music"></i> Founder Meining Wu to Perform with the Peninsula Symphony!</h4>
+                        <p>Equal Keys for All is incredibly excited to announce an upcoming performance by our founder <strong>Meining Wu</strong>! She will be playing the beautiful third movement of <strong>Rachmaninoff's Piano Concerto No. 2</strong> with the amazing <strong>Peninsula Symphony</strong>. This event is a special Family Concert and the entire community is invited to be in the audience to cheer her on. The absolute best part is that tickets are completely free! <a href="https://peninsulasymphony.org/family-concert-april-26" target="_blank" rel="noopener">Reserve your spot here <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i></a></p>
+                        <img src="medias/Peninsula_2.png" alt="Peninsula Symphony Family Concert" style="width:100%; border-radius:10px; margin-top:1rem;">
+                    </div>
+                </div>
                 <div class="happening-item">
                     <div class="happening-dot"></div>
                     <div class="happening-date">April 1, 2026</div>
@@ -2586,10 +2613,29 @@
                         <li><strong>Support Our Outreach:</strong> Help us organize materials, assist in our tactile art classes, or coordinate our community center events.</li>
                     </ul>
                 </div>
+                <div class="involve-card" style="margin: 0 auto;">
+                    <svg viewBox="0 0 220 120" style="display:block;margin:0 auto 1.5rem;width:200px;" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Heart -->
+                        <path d="M110 45 C110 35 95 32 95 45 C95 58 110 67 110 67 C110 67 125 58 125 45 C125 32 110 35 110 45Z" fill="#c5a059" opacity="0.25"/>
+                        <!-- Dollar sign -->
+                        <text x="110" y="58" font-size="18" fill="#c5a059" opacity="0.6" text-anchor="middle" font-weight="bold">$</text>
+                        <!-- Hands cupping -->
+                        <path d="M60 80 Q85 95 110 85 Q135 95 160 80" stroke="#c5a059" stroke-width="2" fill="none" opacity="0.3"/>
+                        <path d="M50 85 Q60 75 60 80" stroke="#c5a059" stroke-width="2" fill="none" opacity="0.3"/>
+                        <path d="M170 85 Q160 75 160 80" stroke="#c5a059" stroke-width="2" fill="none" opacity="0.3"/>
+                        <!-- Sparkles -->
+                        <circle cx="80" cy="35" r="2" fill="#c5a059" opacity="0.3"/>
+                        <circle cx="140" cy="35" r="2" fill="#c5a059" opacity="0.3"/>
+                        <text x="110" y="110" font-size="7" fill="#c5a059" opacity="0.3" text-anchor="middle">give back</text>
+                    </svg>
+                    <h3><i class="fas fa-heart"></i> Donate</h3>
+                    <p>Your generous contribution helps us provide free adaptive piano lessons, art supplies, and sensory-friendly materials to underserved youth in our community.</p>
+                    <ul>
+                        <li><strong>Every Dollar Counts:</strong> 100% of donations go directly to funding lessons, instruments, and program materials.</li>
+                    </ul>
+                    <a href="mailto:contact@equalkeys.org?subject=Donation Inquiry" class="involve-donate-btn" style="display:inline-block;margin-top:1rem;padding:0.7rem 1.5rem;background:var(--accent-gold);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;"><i class="fas fa-donate"></i> Make a Donation</a>
+                </div>
             </div>
-        </div>
-
-        <!-- Contact -->
         <div class="page-section contact-section">
             <h2 class="section-title">Contact Us</h2>
             <!-- SVG: Envelope with musical notes -->
@@ -2615,7 +2661,7 @@
             <div class="contact-methods">
                 <div class="contact-method">
                     <i class="fas fa-envelope"></i>
-                    <p>contact@equalkeysforall.org</p>
+                    <p>contact@equalkeys.org</p>
                 </div>
                 <div class="contact-method">
                     <i class="fas fa-map-marker-alt"></i>
@@ -2626,8 +2672,8 @@
                     <p>@equalkeysforall</p>
                 </div>
             </div>
-            <a href="mailto:contact@equalkeysforall.org" class="contact-btn filled"><i class="fas fa-envelope"></i> Email Us</a>
-            <a href="mailto:contact@equalkeysforall.org?subject=Trial Lesson Inquiry" class="contact-btn"><i class="fas fa-calendar-check"></i> Schedule a Trial Lesson</a>
+            <a href="mailto:contact@equalkeys.org" class="contact-btn filled"><i class="fas fa-envelope"></i> Email Us</a>
+            <a href="mailto:contact@equalkeys.org?subject=Trial Lesson Inquiry" class="contact-btn"><i class="fas fa-calendar-check"></i> Schedule a Trial Lesson</a>
         </div>
     </div>
 
@@ -2725,6 +2771,23 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeLightbox();
         });
+        // ===== AUTO-POPULATE TICKER FROM HAPPENINGS =====
+        (function() {
+            var track = document.getElementById('ticker-track');
+            var items = document.querySelectorAll('.happenings-timeline .happening-item');
+            var icons = ['fa-star', 'fa-trophy', 'fa-medal', 'fa-music', 'fa-bolt'];
+            var html = '';
+            items.forEach(function(item, i) {
+                var date = item.querySelector('.happening-date').textContent.trim();
+                var title = item.querySelector('.happening-content h4').textContent.trim();
+                var icon = icons[i % icons.length];
+                html += '<span class="ticker-item" data-page="happenings"><i class="fas ' + icon + '"></i> ' + date + ' — ' + title + '</span>';
+                html += '<span class="ticker-sep">&bull;</span>';
+            });
+            // Duplicate for seamless loop
+            track.innerHTML = html + html;
+        })();
+
     </script>
 </body>
 </html>
