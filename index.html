@@ -649,6 +649,41 @@
         .instructor-card ul { text-align: left; color: var(--text-grey); font-size: 0.9rem; padding-left: 1.2rem; list-style: disc; }
         .instructor-card li { margin-bottom: 0.3rem; }
 
+        .advisor-section {
+            max-width: 1000px;
+            margin: 3rem auto 0;
+            padding-top: 3rem;
+            border-top: 1px solid var(--accent-gold);
+        }
+        .advisor-section h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--primary-dark);
+        }
+        .advisor-container {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+        .advisor-img {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 4px solid var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+        .advisor-text h3 { font-size: 1.6rem; margin-bottom: 0.3rem; }
+        .advisor-text h4 { color: var(--accent-gold); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.3rem; letter-spacing: 1.5px; }
+        .advisor-text h5 { color: var(--text-grey); font-size: 0.85rem; margin-bottom: 1.2rem; font-style: italic; }
+        .advisor-text p { color: var(--text-grey); margin-bottom: 0.8rem; line-height: 1.8; font-size: 0.95rem; }
+        @media (max-width: 768px) {
+            .advisor-container { grid-template-columns: 1fr; text-align: center; }
+            .advisor-img { max-width: 220px; margin: 0 auto; }
+        }
+
         /* ===== GALLERY PAGE ===== */
         .gallery-grid {
             display: grid;
@@ -1738,6 +1773,25 @@
                         <li>MTAC Solo Competition (2024, 2025)</li>
                         <li>US New Star International Competition (2024)</li>
                     </ul>
+                </div>
+            </div>
+
+            <!-- Advisor -->
+            <div class="advisor-section">
+                <h2>Advisor</h2>
+                <div class="advisor-container">
+                    <div>
+                        <img src="medias/Rose Chen.png" alt="Rose Chen" class="advisor-img" loading="lazy">
+                    </div>
+                    <div class="advisor-text">
+                        <h3>Rose Chen</h3>
+                        <h4>Advisor</h4>
+                        <h5>San Francisco Conservatory of Music &bull; Conservatory of the Arts at Valley Christian Schools</h5>
+                        <p>Rose Chen is a highly accomplished pianist and dedicated educator, currently on the faculty of the San Francisco Conservatory of Music's Pre-College Division, where she teaches piano and chamber music. She also serves on the piano faculty at the Conservatory of the Arts at Valley Christian Schools in San Jose.</p>
+                        <p>Ms. Chen earned her Master of Music degree (2002) and Graduate Performance Diploma (2004) in piano performance from the Peabody Conservatory of Johns Hopkins University, studying with the renowned Boris Slutsky. She was awarded a full scholarship and teaching assistantship in recognition of her exceptional artistry and academic excellence.</p>
+                        <p>Equally passionate about performing and teaching, Ms. Chen maintains a vibrant private studio in West San Jose. Her students have achieved top prizes in international competitions, been selected for the MTAC Young Artist Guild and Panel Honors, and gained admission to leading institutions including The Juilliard School, Eastman School of Music, Peabody Conservatory, Northwestern University, UCLA, and the San Francisco Conservatory of Music.</p>
+                        <p>With her unwavering commitment to musical excellence and her ability to inspire, Ms. Chen nurtures not only technical mastery but also a deep and lasting love for music in every student she teaches.</p>
+                    </div>
                 </div>
             </div>
         </div>
