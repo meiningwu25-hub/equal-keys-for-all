@@ -3144,14 +3144,31 @@
             var icons = ['fa-star', 'fa-trophy', 'fa-medal', 'fa-music', 'fa-bolt'];
             var html = '';
             items.forEach(function(item, i) {
+                if (!item.id) item.id = 'happening-' + i;
                 var date = item.querySelector('.happening-date').textContent.trim();
                 var title = item.querySelector('.happening-content h4').textContent.trim();
                 var icon = icons[i % icons.length];
-                html += '<span class="ticker-item" data-page="happenings"><i class="fas ' + icon + '"></i> ' + date + ' — ' + title + '</span>';
+                html += '<span class="ticker-item" data-target="' + item.id + '"><i class="fas ' + icon + '"></i> ' + date + ' — ' + title + '</span>';
                 html += '<span class="ticker-sep">&bull;</span>';
             });
             // Duplicate for seamless loop
             track.innerHTML = html + html;
+
+            // Delegate clicks so each ticker item links to its happening line
+            track.addEventListener('click', function(e) {
+                var ticker = e.target.closest('.ticker-item');
+                if (!ticker) return;
+                var targetId = ticker.getAttribute('data-target');
+                navigateTo('happenings');
+                // Wait for the page to become active, then scroll to the target.
+                // Offset accounts for fixed nav (~70px) + ticker bar (~45px).
+                requestAnimationFrame(function() {
+                    var el = document.getElementById(targetId);
+                    if (!el) return;
+                    var top = el.getBoundingClientRect().top + window.scrollY - 130;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+                });
+            });
         })();
 
     </script>
