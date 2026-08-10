@@ -297,6 +297,60 @@
             color: var(--accent-gold);
             margin-right: 0.4rem;
         }
+        /* Collapsible entries: headline stays, details fold behind the +/- toggle */
+        .happening-content h4.happening-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            cursor: pointer;
+            margin-bottom: 0;
+            user-select: none;
+        }
+        .happening-content h4.happening-header:hover { color: var(--accent-gold); }
+        .happening-toggle {
+            flex: 0 0 auto;
+            margin-left: auto;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.08);
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .happening-toggle:hover { background: rgba(255,255,255,0.18); }
+        .happening-toggle i { margin-right: 0; color: inherit; }
+        .happening-body { display: none; padding-top: 0.85rem; }
+        .happening-item.open .happening-body { display: block; animation: happeningReveal 0.25s ease-out; }
+        @keyframes happeningReveal {
+            from { opacity: 0; transform: translateY(-4px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .happenings-controls {
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+            text-align: right;
+        }
+        .happenings-controls button {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.25);
+            color: rgba(255,255,255,0.8);
+            border-radius: 20px;
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .happenings-controls button:hover { background: rgba(255,255,255,0.12); color: #fff; }
         .happening-content p {
             color: rgba(255,255,255,0.75);
             font-size: 0.95rem;
@@ -594,7 +648,7 @@
             display: grid;
             grid-template-columns: 300px 1fr;
             gap: 3rem;
-            align-items: center;
+            align-items: start;   /* top-align the headshot with her name, not the middle of the bio */
             max-width: 1000px;
             margin: 0 auto 4rem;
         }
@@ -1766,8 +1820,10 @@
                 <div class="founder-text">
                     <h3>Meining Wu</h3>
                     <h4>Founder & Lead Teaching Artist</h4>
-                    <p>Meining Wu, 16, is a Junior and Conservatory Honors Fellow at Valley Christian High School studying piano under Hans Boepple. A two time US Chopin Foundation Scholar and recent inductee into the prestigious 2026 MTAC Young Artist Guild, California's highest high school music honor, she made her orchestral debut with the Fort Worth Symphony at age 13 and has since performed with the Central Texas Philharmonic and Golden State Youth Orchestra, and captured accolades at numerous prestigious events, including Gina Bachauer, Kaufman International, Ross McKee, Henry and Carol Zeiter, Bay Philharmonic, MTAC, CAPMT, and San Francisco International piano competitions. Meining's rigorous training includes selections for elite music festivals with merit scholarships such as Aspen, Frost Chopin Academy, Tanglewood (BUTI), PianoTexas, Juilliard Summer Piano, TSIPF, SEPF, and Vivace, as well as masterclasses with world class pianists like Dang Thai Son and Jean Efflam Bavouzet.</p>
-                    <p>Beyond the concert stage, Meining's passion lies at the intersection of piano pedagogy, music cognition, and youth development. Recognizing the exclusionary nature of traditional music instruction, she launched the Equal Keys for All initiative after her eye-opening experiences teaching neurodiverse students and volunteering in local Title 1 schools.</p>
+                    <p>Meining Wu, 17, is a Senior and Conservatory Honors Fellow at Valley Christian High School (Class of 2027), studying piano under Hans Boepple. A two-time US Chopin Foundation Young Pianists Scholar and a 2026 inductee into the MTAC Young Artist Guild &mdash; California's highest honor for a high school musician, awarded alongside the Natenstedt Young Artist Guild Scholarship &mdash; she made her orchestral debut with the Fort Worth Symphony at age 13 and has since appeared as concerto soloist with the Central Texas Philharmonic, the Golden State Youth Orchestra, the Peninsula Symphony, and the San Francisco Conservatory of Music Orchestra.</p>
+                    <p>Recent honors include State Final First Place at the 2026 MTAC Piano Concerto Competition, Second Prize and the Best Bach Performance Award at the American Bach Society's 2026 Ruth Monte Memorial Competition at Northwestern University's Bienen School of Music, First Prize and the Best Sonata Award at the 2026 Marilyn Mindell Piano Competition Senior Division, First Place at the 2026 Golden State Youth Orchestra Young Artist Competition, Concerto Competition Winner at the Texas State International Piano Festival, Laureate of the Ross McKee Foundation Piano Competition, and the Gold Prize at the San Francisco International Piano Competition. She was selected to the live rounds of the 2026 Gina Bachauer International Young Artists Piano Competition and was a semi-finalist for the 2026 Kaufman Music Center International Youth Piano Competition.</p>
+                    <p>Her training includes selection, most with merit scholarships, to Aspen, the Frost Chopin Academy, Tanglewood (BUTI), the Juilliard Summer Piano Program, PianoTexas, TSIPF, SEPF, Lancaster, Peng Piano Academy, and Vivace, along with masterclasses with Dang Thai Son, Mikhail Voskresensky, Vadym Kholodenko, Jean-Efflam Bavouzet, Michelle Cann, Jerome Lowenthal, Victor Rosenbaum, and Antonio Pompa-Baldi. Away from the keyboard she is an award-winning visual artist recognized by the Scholastic Art and Writing Awards and United Nations Peace Pals, and the author of the 2026 art book <em>Octaves &amp; Axons: Art at the Edge of Music and Mind</em>. Her outreach through both art and music has earned her the President's Volunteer Service Gold and Bronze Awards.</p>
+                    <p>Beyond the concert stage, Meining's passion lies at the intersection of piano pedagogy, music cognition, and youth development. Recognizing the exclusionary nature of traditional music instruction, she launched the Equal Keys for All initiative after her eye-opening experiences teaching neurodiverse students and volunteering in local Title 1 schools. In the summer of 2026 she deepened that work at the Stanford Neurodiversity Project &ndash; REACH program.</p>
                     <p>The organization's core mission is to bridge the educational gap in the arts by providing accessible, adaptive piano instruction to under-resourced and special needs youth. By replacing rigid posture and rote memorization with kinetic engagement and radical empathy, Equal Keys for All empowers students to build cognitive confidence, experience emotional liberation, and find their own unique voice at the keyboard.</p>
                     <div class="founder-social">
                         <a href="https://www.youtube.com/@MeiningWu" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
@@ -1784,10 +1840,12 @@
                     <h4>Ethan Li</h4>
                     <h5>Teaching Fellow</h5>
                     <ul>
-                        <li>Chopin Foundation Scholarship Recipient (2025-2026)</li>
+                        <li>Second Place, MTAC Piano Solo Competition State Final (2026)</li>
+                        <li>Chopin Foundation of the US Scholarship Recipient (2025-2026)</li>
                         <li>MTAC Concerto Competition 1st Alternate (2025)</li>
                         <li>USOMC Complete Concerto Competition 1st Prize (2025)</li>
                         <li>Florida Keys 1st Prize (2025)</li>
+                        <li>USIMC 3rd Prize (2025)</li>
                     </ul>
                 </div>
                 <div class="instructor-card">
@@ -1795,10 +1853,38 @@
                     <h4>Karen Matsui</h4>
                     <h5>Teaching Fellow</h5>
                     <ul>
-                        <li>Pittsburg International Competition Top Prize (2025)</li>
+                        <li>Top Prize Winner, Pittsburg International Competition (2025)</li>
+                        <li>Soloist with C'est Bon Faculty Orchestra (2026)</li>
+                        <li>Third Place, Senior Division, Silicon Valley Open Doors Music Concerto Competition (2026)</li>
                         <li>Flagstaff Piano Festival Competition (2025)</li>
+                        <li>Marian Filice Piano Competition (2025)</li>
                         <li>MTAC Solo Competition (2024, 2025)</li>
-                        <li>US New Star International Competition (2024)</li>
+                    </ul>
+                </div>
+                <div class="instructor-card">
+                    <img src="medias/Andrew.jpg" alt="Andrew Yin" loading="lazy">
+                    <h4>Andrew Yin</h4>
+                    <h5>Teaching Fellow</h5>
+                    <ul>
+                        <li>KAMSA Piano Competition 1st Prize (2026)</li>
+                        <li>Pacific Music Society and Foundation Piano Competition 1st Prize (2026)</li>
+                        <li>SYMF Concerto Competition 1st Prize; performed with SYMF Orchestra (2026)</li>
+                        <li>GSYO Concerto Competition Winner; performed with GSYO Orchestra (2026)</li>
+                        <li>MTAC Solo Competition Northern California Winner (2026, 2024)</li>
+                        <li>Youngest Finalist, Emory University Young Artist Piano Competition (2026)</li>
+                    </ul>
+                </div>
+                <div class="instructor-card">
+                    <img src="medias/Amber.jpg" alt="Amber Chen" loading="lazy">
+                    <h4>Amber Chen</h4>
+                    <h5>Teaching Fellow</h5>
+                    <ul>
+                        <li>KAMSA Piano Competition 1st Prize</li>
+                        <li>US New Star Competition 1st Prize &amp; Top Performer Award</li>
+                        <li>CAPMT Honors Competition Regional Winner (2026)</li>
+                        <li>1st Place, Philadelphia International Concerto Competition</li>
+                        <li>1st Prize, United States International Music Competition</li>
+                        <li>Soloist with Seocho Philharmonia and Music Fest Perugia Orchestra</li>
                     </ul>
                 </div>
             </div>
@@ -2915,7 +3001,28 @@
         </div>
 
         <div class="happenings-section" style="padding-top: 3rem;">
+            <div class="happenings-controls">
+                <button type="button" id="happenings-toggle-all" aria-expanded="false">Expand all</button>
+            </div>
             <div class="happenings-timeline">
+                <div class="happening-item">
+                    <div class="happening-dot"></div>
+                    <div class="happening-date">August 9, 2026</div>
+                    <div class="happening-content">
+                        <h4><i class="fas fa-user-plus"></i> Fall 2026 Season Begins August 23 &mdash; and Two New Teaching Fellows Join Us</h4>
+                        <p>Our new season of free piano and music theory lessons opens <strong>Sunday, August 23</strong> at <strong>Enlighten Enrichment School</strong> in San Jose, running <strong>Sundays from 1:00 to 3:00 pm</strong> for students in <strong>Grade 1 and up</strong>. As always, every lesson is completely free, and this fall we are again offering <strong>limited weekly 1:1 spots</strong> alongside our group sessions &mdash; learning new pieces and songs, practice guidance, music theory help, performance and audition advice, and competition and festival consulting. <a href="#" data-page="involve">Reserve a spot for your student</a></p>
+                        <p>We are also thrilled to welcome <strong>two new volunteer teaching fellows</strong> to the studio. <strong>Amber Chen</strong>, 13, studies with Kaichi Zhu in San Jose and brings seven years of dedicated work to the bench: first prizes at the <strong>KAMSA</strong>, <strong>US New Star</strong> (where she also took the Top Performer Award), <strong>United States International Music</strong>, and <strong>Gavilan College</strong> competitions, regional winner of the <strong>2026 CAPMT Honors Competition</strong>, and a concerto soloist who performed with the <strong>Seocho Philharmonia</strong> at twelve and the <strong>Music Fest Perugia Orchestra</strong> at thirteen. Away from the piano she already volunteers to share music with senior communities &mdash; exactly the instinct we look for in a fellow.</p>
+                        <p><strong>Andrew Yin</strong> arrives off a remarkable year: <strong>First Prize</strong> at the <strong>KAMSA Piano Competition</strong> and at the <strong>Pacific Music Society and Foundation Piano Competition</strong>, both in 2026, appearances as soloist with the <strong>Golden State Youth Orchestra</strong> and the <strong>SYMF Orchestra</strong>, and First Alternate at the <strong>2025 MTNA Competition</strong>.</p>
+                        <p>Amber and Andrew join returning teaching fellows <strong>Karen Matsui</strong> and <strong>Ethan Li</strong> and founder <strong>Meining Wu</strong>, doubling our teaching bench for the fall. More fellows means more one-on-one attention, more patience, and more room for the students who need a curriculum that bends to fit them. We cannot wait to see everyone on August 23. <a href="#" data-page="team">Meet the full team</a></p>
+                        <div class="happening-image" style="display:flex; justify-content:center;">
+                            <img src="medias/August/EKFA_poster_Fall2026.jpg" alt="Equal Keys for All Fall 2026 poster: free piano and music theory lessons, Sundays 1:00-3:00pm, Grade 1+, with the teaching team and their awards" loading="lazy" style="width:70%; max-width:100%; height:auto; border-radius:8px;">
+                        </div>
+                        <div class="happening-image" style="display:flex; gap:0.5rem; justify-content:center; align-items:flex-start; margin-top:0.5rem;">
+                            <img src="medias/Amber.jpg" alt="Amber Chen, Equal Keys for All teaching fellow" loading="lazy" style="width:calc(42% - 0.25rem); height:auto; border-radius:8px;">
+                            <img src="medias/Andrew.jpg" alt="Andrew Yin, Equal Keys for All teaching fellow" loading="lazy" style="width:calc(42% - 0.25rem); height:auto; border-radius:8px;">
+                        </div>
+                    </div>
+                </div>
                 <div class="happening-item">
                     <div class="happening-dot"></div>
                     <div class="happening-date">August 2, 2026</div>
@@ -2926,6 +3033,19 @@
                         <p>The book is the visual half of the same conviction that started <strong>Equal Keys for All</strong> &mdash; that a mind wired differently is not a mind that needs fixing, and that music and art both belong to everyone. It is a portrait of an artist who plays with both hands and thinks with both hemispheres, and we could not be prouder to see it in print. <em>Octaves &amp; Axons</em> is available in hardcover from Lulu.com &mdash; ISBN <strong>978-1-105-01746-9</strong>. <a href="https://www.lulu.com/shop/meining-wu/octaves-and-axons/hardcover/product-rm4nd2v.html" target="_blank" rel="noopener">Order the book <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i></a></p>
                         <div class="happening-image" style="display:flex; justify-content:center;">
                             <img src="medias/August/Octaves_and_Axons_cover.jpg" alt="Cover of Octaves &amp; Axons: Art at the Edge of Music and Mind, an art book by Meining Wu, featuring her mixed-media self-portrait" loading="lazy" style="width:70%; max-width:100%; height:auto; border-radius:8px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="happening-item">
+                    <div class="happening-dot"></div>
+                    <div class="happening-date">July 29, 2026</div>
+                    <div class="happening-content">
+                        <h4><i class="fas fa-trophy"></i> Karen's Concerto Summer: Prima Finals, Third Place at Silicon Valley Open Doors, and an Invitation to Rome</h4>
+                        <p>What a summer for our teaching fellow <strong>Karen Matsui</strong>. She opened it performing the first movement of <strong>Mozart's Piano Concerto No. 21 in C major, K. 467</strong> with the festival chamber orchestra at the <strong>C'est Bon Music Academy</strong> at the Conservatory. Just weeks later she advanced to the <strong>finals of the Prima Music Foundation Concerto Competition</strong> in Massachusetts &mdash; having learned the concerto's remaining two movements in <strong>three weeks</strong>. Anyone who has ever tried to get a single movement concert-ready will understand what that took.</p>
+                        <p>She also earned <strong>Third Place in the Senior Division</strong> of the <strong>Silicon Valley Open Doors Music Concerto Competition</strong>, performing the first movement of <strong>Saint-Sa&euml;ns' Piano Concerto No. 2 in G minor</strong>. <a href="https://www.siliconvalleyopendoorsmusic.com/winners-concerto-2026" target="_blank" rel="noopener">See the official results <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i></a></p>
+                        <p>And the summer left her with something still ahead: following her performance at the Prima Music Foundation Concerto Competition, Karen was <strong>invited to perform in Rome in Spring 2027</strong>. Our students see all of this up close every Sunday &mdash; not the polished results so much as the work behind them, which is the part we most want them to believe is available to anyone willing to sit down and begin.</p>
+                        <div class="happening-image" style="display:flex; justify-content:center;">
+                            <img src="medias/July/Karen_SVOD.jpg" alt="Karen Matsui, Third Place Piano in the Senior Division of the 2026 Silicon Valley Open Doors Music Concerto Competition" loading="lazy" style="width:45%; max-width:100%; height:auto; border-radius:8px;">
                         </div>
                     </div>
                 </div>
@@ -3531,10 +3651,74 @@
                 requestAnimationFrame(function() {
                     var el = document.getElementById(targetId);
                     if (!el) return;
+                    // Unfold the entry we are linking to, then scroll to it
+                    if (window.openHappening) window.openHappening(el);
                     var top = el.getBoundingClientRect().top + window.scrollY - 130;
                     window.scrollTo({ top: top, behavior: 'smooth' });
                 });
             });
+        })();
+
+        // ===== HAPPENINGS ACCORDION (headline stays visible, details fold) =====
+        (function() {
+            var items = document.querySelectorAll('#page-happenings .happening-item');
+            if (!items.length) return;
+
+            function setState(item, open) {
+                var btn = item.querySelector('.happening-toggle');
+                item.classList.toggle('open', open);
+                if (btn) {
+                    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                    btn.setAttribute('aria-label', open ? 'Hide details' : 'Show details');
+                    btn.innerHTML = '<i class="fas fa-' + (open ? 'minus' : 'plus') + '" aria-hidden="true"></i>';
+                }
+            }
+
+            items.forEach(function(item, i) {
+                var content = item.querySelector('.happening-content');
+                var header = content ? content.querySelector('h4') : null;
+                if (!header) return;
+                if (!item.id) item.id = 'happening-' + i;
+
+                // Everything after the headline moves into a foldable body
+                var body = document.createElement('div');
+                body.className = 'happening-body';
+                body.id = item.id + '-body';
+                while (header.nextSibling) body.appendChild(header.nextSibling);
+                content.appendChild(body);
+
+                header.classList.add('happening-header');
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'happening-toggle';
+                btn.setAttribute('aria-controls', body.id);
+                btn.innerHTML = '<i class="fas fa-plus" aria-hidden="true"></i>';
+                header.appendChild(btn);
+                setState(item, false);
+
+                header.addEventListener('click', function(e) {
+                    if (e.target.closest('a')) return;   // let links in the headline work
+                    setState(item, !item.classList.contains('open'));
+                });
+            });
+
+            // Newest entry opens by default so the page never reads as empty
+            setState(items[0], true);
+
+            // Ticker items and deep links unfold the entry they land on
+            window.openHappening = function(el) {
+                if (el && el.classList.contains('happening-item')) setState(el, true);
+            };
+
+            var allBtn = document.getElementById('happenings-toggle-all');
+            if (allBtn) {
+                allBtn.addEventListener('click', function() {
+                    var expand = allBtn.getAttribute('aria-expanded') !== 'true';
+                    items.forEach(function(item) { setState(item, expand); });
+                    allBtn.setAttribute('aria-expanded', expand ? 'true' : 'false');
+                    allBtn.textContent = expand ? 'Collapse all' : 'Expand all';
+                });
+            }
         })();
 
     </script>
